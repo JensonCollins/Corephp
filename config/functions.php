@@ -1,0 +1,238 @@
+<?php
+
+// gjen sa ancaunde nuk ka  shitur
+function unsold_tools($type)
+{
+    global $db;
+    $sql = $db->query("SELECT `item_id` FROM `accounts` WHERE  `sold` = '0' AND `category` = '$type'");
+    return $sql->num_rows;
+
+}
+
+// gjen id ne baze te userr name
+function username_to_id($user_name)
+{
+    global $db;
+    $sql = $db->query("SELECT `user_id` FROM `members` WHERE `user_name` = '$user_name'");
+    $show = $sql->fetch_assoc();
+
+    return $show['user_id'];
+
+}
+
+// gjen id ne baze te userr name
+function id_to_username($user_id)
+{
+    global $db;
+    $sql = $db->query("SELECT `user_name` FROM `members` WHERE `user_id` = '$user_id'");
+    $show = $sql->fetch_assoc();
+
+    return $show['user_name'];
+
+}
+
+
+// gjen sa ancaunde ka shitur  perosni
+function item_refunde_accounts($user_name)
+{
+
+    global $db;
+
+    $item_sql = $db->query("SELECT `item_id` FROM `accounts` WHERE `user_name` = '$user_name' AND `sold`= 1 AND  `refunde` = 1 AND `cashed_out` = 0");
+
+    $item = $item_sql->num_rows;
+
+    return $item;
+
+}
+
+
+// gjen sa ancaunde nuk ka  shitur
+function item_unsold_accounts($user_name)
+{
+    global $db;
+
+    $item_sql = $db->query("SELECT `item_id` FROM `accounts` WHERE `user_name` = '$user_name' AND `sold`= 0");
+    $item = $item_sql->num_rows;
+
+    return $item;
+
+}
+
+// gjen sa ancaunde ka shitur  perosni
+function item_sold_accounts($user_name)
+{
+    global $db;
+
+    $item_sql = $db->query("SELECT `item_id` FROM `accounts` WHERE `user_name` = '$user_name' AND `sold`= 1 AND  `refunde` = 0 AND `cashed_out` = 0");
+    $item = $item_sql->num_rows;
+
+    return $item;
+
+}
+
+
+function item_unsales_accounts($user_name)
+{
+    global $db;
+
+    //$result = mysql_query('SELECT SUM(value) AS value_sum FROM codes');
+    //$row = mysql_fetch_assoc($result);
+    //$sum = $row['value_sum'];
+
+    $item_sql = $db->query("SELECT SUM(price) AS `item_sum` FROM `accounts` WHERE `user_name` = '$user_name' AND `sold`= 0 AND  `refunde` = 0 AND `cashed_out` = 0");
+    $item = $item_sql->fetch_assoc();
+    $item_sum = $item['item_sum'];
+
+    return ($item_sum);
+
+}
+
+
+// gjen sa $ ka shitur  perosni
+function item_sales_accounts($user_name)
+{
+    global $db;
+
+    $item_sql = $db->query("SELECT SUM(price) AS `item_sum` FROM `accounts` WHERE `user_name` = '$user_name' AND `sold`= 1 AND  `refunde` = 0 AND `cashed_out` = 0");
+    $item = $item_sql->fetch_assoc();
+    $item_sum = $item['item_sum'];
+
+    return ($item_sum);
+
+}
+
+
+///////////////////////////////////////////////////////////////
+
+// gjen resellerin  sipas id se tools
+function reseller_name($item_id)
+{
+    global $db;
+
+    $accounts_sql = $db->query("SELECT `user_name` FROM `accounts` WHERE `item_id` = '$item_id'") or die();
+    $accounts = $accounts_sql->fetch_assoc();
+
+    return $accounts['user_name'];
+
+}
+
+
+function reporting_tools($item_id)
+{
+
+    global $db;
+    $query = $db->query("SELECT id FROM `tickets` WHERE `type` = 1 AND `item_id` = '$item_id'");
+    $query_array = $query->fetch_array();
+
+    return $query_array[0];
+}
+
+function db_date()
+{
+    global $db;
+    //SELECT  |  NOW(), 2014-11-22 12:45:34 | CURDATE(), 	2014-11-22 | CURTIME() 12:45:34
+    $date = $db->query("SELECT NOW()");
+    $show = $date->fetch_assoc();
+    return $show['NOW()'];
+}
+
+function db_CURDATE()
+{
+    global $db;
+
+    $date = $db->query("SELECT CURDATE()");
+    $show = $date->fetch_assoc();
+    return $show['CURDATE()'];
+}
+
+
+function login($username, $password)
+{
+    global $db;
+
+    $user_id = user_id_form_username($username);
+    $salt = 'KK856'; // SALT for encrypting
+
+    $username = clear($username);
+    $password = md5($password . $salt);
+
+    $_SESSION['password'] = $password;
+
+
+    $query = $db->query("SELECT COUNT(user_id) FROM `members` WHERE `user_name` = '$username' AND `pass` = '$password' ");
+    $query_array = $query->fetch_array();
+
+    return $query_array[0] == 1 ? $user_id : false;
+
+}
+
+
+//search in database  id form username
+function user_id_form_username($username)
+{
+    global $db;
+
+
+    $username = clear($username);
+    $query = $db->query("SELECT (user_id) FROM `members` WHERE `user_name` = '$username'");
+    $query_array = $query->fetch_array();
+
+    //print_r($query_array);
+
+    return $query_array['user_id'] != 1 ? $query_array['user_id'] : false;
+
+}
+
+
+function user_exists($username)
+{
+    global $db;
+
+    $username = clear($username);
+
+    $query = $db->query("SELECT COUNT(user_id) FROM `members` WHERE `user_name` = '$username'");
+    $query_array = $query->fetch_array();
+
+    return $query_array[0] == 1 ? true : false;
+
+}
+
+
+//if user is active or not
+function user_active($username)
+{
+    global $db;
+
+    $username = clear($username);
+    $query = $db->query("SELECT COUNT(user_id) FROM `members` WHERE `user_name` = '$username' AND active = 1 ");
+    $query_array = $query->fetch_array();
+
+    return $query_array[0] == 1 ? true : false;
+
+}
+
+
+function user_data($user_id)
+{
+
+    global $db;
+
+    $data = array();
+    $user_id = (int)$user_id;
+
+    $func_num_args = func_num_args();
+    $func_get_args = func_get_args();
+
+    if ($func_get_args > 1) {
+
+        unset($func_get_args[0]);
+
+        $fields = '`' . implode('`,`', $func_get_args) . '`';
+
+        $quary_data = $db->query("SELECT $fields FROM `members` WHERE `user_id` = '$user_id'");
+        $data = $quary_data->fetch_assoc();
+
+        return $data;
+    }
+}

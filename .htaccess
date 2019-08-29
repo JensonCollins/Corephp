@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+RewriteRule ^$ index.php?page=login
+
+RewriteRule ^([a-zA-Z0-9-z\-\_]+)$ index.php?page=$1
+RewriteRule ^([a-zA-Z0-9-z\-\_]+)/$ index.php?page=$1
+RewriteRule ^([a-zA-Z0-9-z\-\_]+)/([a-zA-Z0-9-z\-\_]+)$ index.php?page=$1&id=$2
+RewriteRule ^([a-zA-Z0-9-z\-\_]+)/([a-zA-Z0-9-z\-\_]+)/$ index.php?page=$1&id=$2
+RewriteRule ^([a-zA-Z0-9-z\-\_]+)/([a-zA-Z0-9-z\-\_]+)/([a-zA-Z0-9-z\-\_]+)$ index.php?page=$1&id=$2&value=$3
+RewriteRule ^([a-zA-Z0-9-z\-\_]+)/([a-zA-Z0-9-z\-\_]+)/([a-zA-Z0-9-z\-\_]+)/$ index.php?page=$1&id=$2&value=$3
