@@ -36,6 +36,12 @@ if ($file == '') {
     $leads = 'active';
 
 
+} else if ($file == 'others') {
+
+    $tilte = 'Others';
+    $others = 'active';
+
+
 } else if ($file == 'purchased') {
 
     $tilte = 'Purchased';

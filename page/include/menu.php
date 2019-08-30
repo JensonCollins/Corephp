@@ -79,53 +79,92 @@
 
                     ?>
 
-                    <li class="<?php echo ($rdps || $sshs || $cpanels || $shells)?'active': ''; ?> parent">
+                    <li class="<?php echo ($rdps || $sshs || $cpanels || $shells) ? 'active' : ''; ?> parent">
                         <a href="#sub-item-1" class="dropdown-toggle clickable" data-toggle="collapse">
                             <i class="menu-icon fa fa-envelope">&nbsp;</i>Hosts
                             <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right">
                                 <em class="fa fa-plus righticon"></em>
                             </span>
                         </a>
-                        <ul class="children collapse <?php echo ($rdps || $sshs || $cpanels || $shells)?'show': ''; ?>" id="sub-item-1">
-                            <li><a href="<?php echo base_url(); ?>rdps"><i class="menu-icon fa fa-desktop">&nbsp;</i>RDPs</a></li>
-                            <li><a href="<?php echo base_url(); ?>sshs"><i class="menu-icon fa fa-terminal">&nbsp;</i>SSH(VPS)</a></li>
-                            <li><a href="<?php echo base_url(); ?>cpanels"><i class="menu-icon fa fa-gear">&nbsp;</i>cPanels</a></li>
-                            <li><a href="<?php echo base_url(); ?>shells"><i class="menu-icon fa fa-file-code-o">&nbsp;</i>Shells</a></li>
+                        <ul class="children collapse <?php echo ($rdps || $sshs || $cpanels || $shells) ? 'show' : ''; ?>"
+                            id="sub-item-1">
+                            <li>
+                                <a href="<?php echo base_url(); ?>rdps"><i class="menu-icon fa fa-desktop">&nbsp;</i>RDPs
+                                    <span class="badge badge-primary"
+                                          style="border-radius: 50%;"><?php echo unsold_tools('4'); ?></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>sshs"><i class="menu-icon fa fa-terminal">&nbsp;</i>SSH(VPS)
+                                    <span class="badge badge-primary"
+                                          style="border-radius: 50%;"><?php echo unsold_tools('5'); ?></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>cpanels"><i class="menu-icon fa fa-gear">&nbsp;</i>cPanels
+                                    <span class="badge badge-primary"
+                                          style="border-radius: 50%;"><?php echo unsold_tools('6'); ?></span>
+                                </a>
+                            </li>
+                            <li><a href="<?php echo base_url(); ?>shells"><i class="menu-icon fa fa-file-code-o">&nbsp;</i>Shells
+                                    <span class="badge badge-primary"
+                                          style="border-radius: 50%;"><?php echo unsold_tools('7'); ?></span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
-                    <li class="<?php echo ($php_mailer || $smtps)?'active': ''; ?> parent">
+                    <li class="<?php echo ($php_mailer || $smtps) ? 'active' : ''; ?> parent">
                         <a href="#sub-item-1" class="dropdown-toggle clickable" data-toggle="collapse">
                             <i class="menu-icon fa fa-mail-reply">&nbsp;</i>Send
                             <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right">
                                 <em class="fa fa-plus righticon"></em>
                             </span>
                         </a>
-                        <ul class="children collapse <?php echo ($php_mailer || $smtps)?'show': ''; ?>" id="sub-item-1">
-                            <li><a href="<?php echo base_url(); ?>php_mailer"><i class="menu-icon fa fa-leaf">&nbsp;</i>PHP mailers</a></li>
-                            <li><a href="<?php echo base_url(); ?>smtps"><i class="menu-icon fa fa-mail-forward">&nbsp;</i>SMTPs</a></li>
+                        <ul class="children collapse <?php echo ($php_mailer || $smtps) ? 'show' : ''; ?>"
+                            id="sub-item-1">
+                            <li>
+                                <a href="<?php echo base_url(); ?>php_mailer"><i class="menu-icon fa fa-leaf">&nbsp;</i>PHP
+                                    mailers
+                                    <span class="badge badge-primary"
+                                          style="border-radius: 50%;"><?php echo unsold_tools('8'); ?></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>smtps"><i
+                                            class="menu-icon fa fa-mail-forward">&nbsp;</i>SMTPs
+                                    <span class="badge badge-primary"
+                                          style="border-radius: 50%;"><?php echo unsold_tools('9'); ?></span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
-<!--                    <li class="--><?php //echo $smtpIP; ?><!--">-->
-<!--                        <a href="--><?php //echo base_url(); ?><!--smtpIP"> <i class="menu-icon fa fa-envelope"></i>IP SMTP-->
-<!--                            <span-->
-<!--                                    class="badge badge-primary"-->
-<!--                                    style="border-radius: 50%;">--><?php //echo unsold_tools('1'); ?><!--</span></a>-->
-<!--                    </li>-->
-<!---->
-<!--                    <li class="--><?php //echo $smtpDomain; ?><!--">-->
-<!--                        <a href="--><?php //echo base_url(); ?><!--smtpDomain"> <i class="menu-icon fa fa-envelope-o"></i>Domain-->
-<!--                            SMTP-->
-<!--                            <span class="badge badge-primary"-->
-<!--                                  style="border-radius: 50%;">--><?php //echo unsold_tools('2'); ?><!--</span></a>-->
-<!--                    </li>-->
+                    <!--                    <li class="--><?php //echo $smtpIP; ?><!--">-->
+                    <!--                        <a href="--><?php //echo base_url(); ?><!--smtpIP"> <i class="menu-icon fa fa-envelope"></i>IP SMTP-->
+                    <!--                            <span-->
+                    <!--                                    class="badge badge-primary"-->
+                    <!--                                    style="border-radius: 50%;">--><?php //echo unsold_tools('1'); ?><!--</span></a>-->
+                    <!--                    </li>-->
+                    <!---->
+                    <!--                    <li class="--><?php //echo $smtpDomain; ?><!--">-->
+                    <!--                        <a href="--><?php //echo base_url(); ?><!--smtpDomain"> <i class="menu-icon fa fa-envelope-o"></i>Domain-->
+                    <!--                            SMTP-->
+                    <!--                            <span class="badge badge-primary"-->
+                    <!--                                  style="border-radius: 50%;">--><?php //echo unsold_tools('2'); ?><!--</span></a>-->
+                    <!--                    </li>-->
 
-                    <li class="<?php echo $leads; ?>">
-                        <a href="<?php echo base_url(); ?>leads"> <i class="menu-icon fa fa-at"></i>Leads <span
+                    <li class="<?php echo $others; ?>">
+                        <a href="<?php echo base_url(); ?>others"> <i class="menu-icon fa fa-at"></i>Others <span
                                     class="badge badge-primary"
-                                    style="border-radius: 50%;"><?php echo unsold_tools('3'); ?></span></a>
+                                    style="border-radius: 50%;"><?php echo unsold_tools('10'); ?></span></a>
                     </li>
+
+<!--                    <li class="--><?php //echo $leads; ?><!--">-->
+<!--                        <a href="--><?php //echo base_url(); ?><!--leads"> <i class="menu-icon fa fa-at"></i>Leads <span-->
+<!--                                    class="badge badge-primary"-->
+<!--                                    style="border-radius: 50%;">--><?php //echo unsold_tools('3'); ?><!--</span></a>-->
+<!--                    </li>-->
 
                     <li class="<?php echo $purchased; ?>">
                         <a href="<?php echo base_url(); ?>purchased"> <i class="menu-icon fa fa-shopping-cart"></i>Purchased</a>

@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">RDPS</strong>
+                        <strong class="card-title">PROGRAMS AND SCRIPTS.</strong>
                     </div>
                     <div class="card-body">
                         <div style="overflow-x:auto;">
@@ -13,43 +13,38 @@
                                    style="width: 100%;">
                                 <thead>
                                 <tr>
-
                                     <th width="90px">ID</th>
                                     <th>Country</th>
-                                    <th>Windows</th>
-                                    <th>Ram</th>
-                                    <th>Username</th>
+                                    <th>Webmail</th>
                                     <th>Detected Hosting</th>
                                     <th>Seller</th>
+                                    <th>Send Test to</th>
                                     <th width="150px">Price</th>
+                                    <th>Added on</th>
                                     <!--  <th>Last Checked</th> -->
                                     <th width="90px">Buy</th>
-
                                 </tr>
                                 </thead>
                                 <tbody>
 
                                 <?php
 
-                                $query = $db->query("SELECT * FROM `accounts`  WHERE `sold` = '0' AND `category` = '4' ORDER BY RAND()") or die($db->error);
+                                $query = $db->query("SELECT * FROM `accounts`  WHERE `sold` = '0' AND `category` = 10 ORDER BY RAND()") or die($db->error);
 
                                 while ($row = $query->fetch_assoc()) { // preparing an array
                                     $nestedData = array();
-                                    $info = json_decode($row['details'], TRUE);
-                                    $version = $info['version'];
-                                    $ram = $info['ram'];
-                                    $username = $info['username'];
-                                    $userpass = $info['userpass'];
-                                    $detected_hosting = $info['detected_hosting'];
+                                    $details = json_decode($row['details'], TRUE);
+                                    $smtp_webmail = $details['smtp_webmail'];
+                                    $smtp_server_inf = $details['smtp_server_inf'];
                                     echo ' <tr>
                                                 <td><center>' . clear($row["item_id"]) . '</center></td>
                                                 <td>' . flag($row["country"]) . ' - ' . $row["country_name"] . '</td>
-                                                <td><center>' . $version . '</center></td>
-                                                <td><center>' . $ram . '</center></td>
-                                                <td><center>' . $username . '</center></td>
-                                                <td><center>' . $detected_hosting . '</center></td>
+                                                <td>' . $smtp_webmail. '</td>
+                                                <td>' . $smtp_server_inf. '</td>
                                                 <td>'.$row['seller'].'</td>
+                                                <td>Check</td>
                                                 <td><strong>$' . ($row["price"]) . '</strong></td>
+                                                <td>' . ($row["date_added"]) . '</td>
                                                 
                                                 <td>
                                                      <center><button onclick="buy(\'' . enc($row['item_id']) . '\',\'tools\')" class="btn rad btn-primary btn-xs hide' . clear(enc($row['item_id'])) . '"> <i class="menu-icon fa fa-shopping-cart"></i> Buy</button>

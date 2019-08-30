@@ -75,6 +75,30 @@ if (logged_in() == 0) {
 
             include 'page/rdps.php';
 
+        } else if ($page_name == 'sshs') {
+
+            include 'page/sshs.php';
+
+        } else if ($page_name == 'cpanels') {
+
+            include 'page/cpanels.php';
+
+        } else if ($page_name == 'shells') {
+
+            include 'page/shells.php';
+
+        } else if ($page_name == 'php_mailer') {
+
+            include 'page/php_mailer.php';
+
+        } else if ($page_name == 'smtps') {
+
+            include 'page/smtps.php';
+
+        } else if ($page_name == 'others') {
+
+            include 'page/others.php';
+
         } else if ($page_name == 'smtpIP') {
 
             include 'page/smtpIP.php';

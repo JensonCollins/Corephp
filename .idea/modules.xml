@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/smtp_remake.iml" filepath="$PROJECT_DIR$/.idea/smtp_remake.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Corephp.iml" filepath="$PROJECT_DIR$/.idea/Corephp.iml" />
     </modules>
   </component>
 </project>
