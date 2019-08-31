@@ -66,7 +66,6 @@ if (logged_in() == 0) {
             }
         }
 
-
         if ($page_name == 'login' || $page_name == 'home' || $page_name == '') {
 
             include 'page/home.php';

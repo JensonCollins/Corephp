@@ -154,7 +154,7 @@ if (isset($_POST['add'])) {
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <h5>Price in $:</h5>
-                                            <input type="number" name="price" class="form-control" id="recipient-name"
+                                            <input type="number" name="price" class="form-control" id="recipient-name" number="true"
                                                    value="5"
                                                    required>
                                         </div>

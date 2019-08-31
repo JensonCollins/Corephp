@@ -6,7 +6,6 @@ function unsold_tools($type)
     global $db;
     $sql = $db->query("SELECT `item_id` FROM `accounts` WHERE  `sold` = '0' AND `category` = '$type'");
     return $sql->num_rows;
-
 }
 
 // gjen id ne baze te userr name
@@ -235,4 +234,58 @@ function user_data($user_id)
 
         return $data;
     }
+}
+
+function getAllmenu($permission)
+{
+    global $db;
+
+    $permission = (int)$permission;
+
+    $data_array = array();
+
+    if ($permission == 11) {
+        $query_data = $db->query("SELECT * FROM menu WHERE visible=1");
+        while ($row = $query_data->fetch_object())
+            array_push($data_array, $row);
+
+    } else if ($permission == 0) {
+        $query_data = $db->query("SELECT * FROM menu WHERE visible=1 AND menu_type=" . $permission);
+        while ($row = $query_data->fetch_object()) {
+            array_push($data_array, $row);
+        }
+    }
+
+    return $data_array;
+
+}
+
+function menuHasChild($id)
+{
+    global $db;
+    $sql = $db->query("SELECT * FROM `menu` WHERE  visible = 1 AND parent_id = '$id'");
+    return $sql->num_rows;
+}
+
+function menuHasParent($id)
+{
+    global $db;
+    $sql = $db->query("SELECT parent_id FROM `menu` WHERE  visible = 1 AND id = '$id'");
+    $data = $sql->fetch_object();
+    if($data->parent_id == 0)
+        return false;
+    return true;
+}
+
+function getChildMenu($parent_id)
+{
+    global $db;
+
+    $data_array = array();
+
+    $query_data = $db->query("SELECT * FROM menu WHERE visible=1 AND parent_id=" . $parent_id);
+    while ($row = $query_data->fetch_object())
+        array_push($data_array, $row);
+
+    return $data_array;
 }

@@ -91,22 +91,22 @@
                 </a>
             </li>
             <li class="header-title">Images</li>
-            <li class="<?php echo ($user_data['sidebar_back_image'] == 'sidebar-1.jpg') ?'active':'';?>">
+            <li class="<?php echo ($user_data['sidebar_back_image'] == (base_url().'assets/img/sidebar-1.jpg')) ?'active':'';?>">
                 <a class="img-holder switch-trigger" href="javascript:void(0)">
                     <img src="<?php echo base_url(); ?>assets/img/sidebar-1.jpg" alt="">
                 </a>
             </li>
-            <li class="<?php echo ($user_data['sidebar_back_image'] == 'sidebar-2.jpg') ?'active':'';?>">
+            <li class="<?php echo ($user_data['sidebar_back_image'] == (base_url().'assets/img/sidebar-2.jpg')) ?'active':'';?>">
                 <a class="img-holder switch-trigger" href="javascript:void(0)">
                     <img src="<?php echo base_url(); ?>assets/img/sidebar-2.jpg" alt="">
                 </a>
             </li>
-            <li class="<?php echo ($user_data['sidebar_back_image'] == 'sidebar-3.jpg') ?'active':'';?>">
+            <li class="<?php echo ($user_data['sidebar_back_image'] == (base_url().'assets/img/sidebar-3.jpg')) ?'active':'';?>">
                 <a class="img-holder switch-trigger" href="javascript:void(0)">
                     <img src="<?php echo base_url(); ?>assets/img/sidebar-3.jpg" alt="">
                 </a>
             </li>
-            <li class="<?php echo ($user_data['sidebar_back_image'] == 'sidebar-4.jpg') ?'active':'';?>">
+            <li class="<?php echo ($user_data['sidebar_back_image'] == (base_url().'assets/img/sidebar-4.jpg')) ?'active':'';?>">
                 <a class="img-holder switch-trigger" href="javascript:void(0)">
                     <img src="<?php echo base_url(); ?>assets/img/sidebar-4.jpg" alt="">
                 </a>
@@ -211,7 +211,7 @@
                         var jsonData = JSON.parse(response);
                         if (jsonData.success === 1){
                             swal({
-                                title: "Success!",
+                                title: "Setting Updated!",
                                 text: "Updated Sidebar Color",
                                 buttonsStyling: false,
                                 confirmButtonClass: "btn btn-success",
@@ -265,7 +265,7 @@
                         var jsonData = JSON.parse(response);
                         if (jsonData.success === 1){
                             swal({
-                                title: "Success!",
+                                title: "Setting Updated!",
                                 text: "Updated Sidebar Background Color",
                                 buttonsStyling: false,
                                 confirmButtonClass: "btn btn-success",
@@ -281,7 +281,12 @@
                         }
                     },
                     error: function(error) {
-                        console.log(error);
+                        swal({
+                            title: "Server Error!",
+                            buttonsStyling: false,
+                            confirmButtonClass: "btn btn-danger",
+                            type: 'error'
+                        }).catch(swal.noop);
                     }
                 });
 
@@ -298,6 +303,41 @@
 
 
                 var new_image = $(this).find("img").attr('src');
+
+                $.ajax({
+                    url: '<?php echo base_url();?>ajax',
+                    type: 'POST',
+                    data: {
+                        sidebar_back_image: new_image
+                    },
+                    success: function (response) {
+                        var jsonData = JSON.parse(response);
+                        if (jsonData.success === 1){
+                            swal({
+                                title: "Setting Updated!",
+                                text: "Sidebar Background Image Updated",
+                                buttonsStyling: false,
+                                confirmButtonClass: "btn btn-success",
+                                type: "success"
+                            }).catch(swal.noop)
+                        } else {
+                            swal({
+                                title: "Server Error!",
+                                buttonsStyling: false,
+                                confirmButtonClass: "btn btn-danger",
+                                type: 'error'
+                            }).catch(swal.noop);
+                        }
+                    },
+                    error: function(error) {
+                        swal({
+                            title: "Server Error!",
+                            buttonsStyling: false,
+                            confirmButtonClass: "btn btn-danger",
+                            type: 'error'
+                        }).catch(swal.noop);
+                    }
+                });
 
                 if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
                     $sidebar_img_container.fadeOut('fast', function () {

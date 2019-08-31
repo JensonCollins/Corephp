@@ -164,7 +164,7 @@ if (empty($_POST['username']) === false) {
                                           <i class="material-icons">face</i>
                                         </span>
                                       </div>
-                                      <input type="text" name="username" class="form-control" placeholder="User Name">
+                                      <input type="text" name="username" class="form-control" placeholder="User Name" required>
                                     </div>
                                 </span>
                                 <span class="bmd-form-group">
@@ -174,7 +174,7 @@ if (empty($_POST['username']) === false) {
                                           <i class="material-icons">lock_outline</i>
                                         </span>
                                       </div>
-                                      <input type="password" name="password" class="form-control" placeholder="Password">
+                                      <input type="password" name="password" class="form-control" placeholder="Password" required>
                                     </div>
                                 </span>
                                 <span class="bmd-form-group">
@@ -184,7 +184,7 @@ if (empty($_POST['username']) === false) {
                                           <img src="captcha.php" alt="CAPTCHA" class="captcha-image">
                                         </span>
                                       </div>
-                                      <input type="text" name="captcha_challenge" class="form-control" placeholder="Enter code">
+                                      <input type="text" name="captcha_challenge" class="form-control" placeholder="Enter code" required>
                                     </div>
                                 </span>
                             </div>

@@ -14,10 +14,7 @@
                             <div class="row gutter">
 
                                 <?php
-
-
                                 if (empty($page_value)) { ?>
-
                                     <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
                                         <table id="datatable"
                                                class="table table-striped table-bordered dataTable no-footer"
@@ -338,7 +335,7 @@
 </div>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#datatables').DataTable({
             "pagingType": "full_numbers",
             "lengthMenu": [

@@ -14,7 +14,8 @@
                             <!--        Here you can write extra buttons/actions for the toolbar              -->
                         </div>
                         <div class="material-datatables">
-                            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                            <table id="datatables" class="table table-striped table-no-bordered table-hover"
+                                   cellspacing="0" width="100%" style="width:100%">
                                 <thead>
                                 <tr>
                                     <th class="disabled-sorting">ID</th>
@@ -54,9 +55,9 @@
                                     echo ' <tr>
                                                 <td><center>' . clear($row["item_id"]) . '</center></td>
                                                 <td>' . flag($row["country"]) . ' - ' . $row["country_name"] . '</td>
-                                                <td>' . $smtp_webmail. '</td>
-                                                <td>' . $smtp_server_inf. '</td>
-                                                <td>'.$row['seller'].'</td>
+                                                <td>' . $smtp_webmail . '</td>
+                                                <td>' . $smtp_server_inf . '</td>
+                                                <td>' . $row['seller'] . '</td>
                                                 <td>Check</td>
                                                 <td><strong>$' . ($row["price"]) . '</strong></td>
                                                 <td>' . ($row["date_added"]) . '</td>
@@ -84,7 +85,7 @@
 </div>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#datatables').DataTable({
             "pagingType": "full_numbers",
             "lengthMenu": [
@@ -100,20 +101,20 @@
 
         var table = $('#datatable').DataTable();
 
-        $('#bootstrap-data-table-export thead tr').clone(true).appendTo( '#bootstrap-data-table-export thead' );
+        /*$('#datatables thead tr').clone(true).appendTo('#datatables thead');
 
-        $('#bootstrap-data-table-export thead tr:eq(1) th').each( function (i) {
+        $('#datatables thead tr:eq(1) th').each(function (i) {
             var title = $(this).text();
-            $(this).html( '<input type="text" class="put cl-'+title+'" placeholder="Search '+title+'" />' );
+            $(this).html('<input type="text" class="put cl-' + title + '" placeholder="Search ' + title + '" />');
 
-            $( 'input', this ).on( 'keyup change', function () {
-                if ( table.column(i).search() !== this.value ) {
+            $('input', this).on('keyup change', function () {
+                if (table.column(i).search() !== this.value) {
                     table
                         .column(i)
-                        .search( this.value )
+                        .search(this.value)
                         .draw();
                 }
-            } );
-        } );
+            });
+        });*/
     });
 </script>

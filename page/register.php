@@ -190,7 +190,7 @@ if (empty($_POST['username']) === false) {
                                                     </span>
                                                 </div>
                                                 <input type="text" name="username" class="form-control"
-                                                       placeholder="First Name...">
+                                                       placeholder="First Name..." required>
                                             </div>
                                         </div>
                                         <div class="form-group has-default">
@@ -200,8 +200,8 @@ if (empty($_POST['username']) === false) {
                                                       <i class="material-icons">mail</i>
                                                     </span>
                                                 </div>
-                                                <input type="text" name="email" class="form-control"
-                                                       placeholder="Email...">
+                                                <input type="text" name="email" class="form-control" email="true"
+                                                       placeholder="Email..." required>
                                             </div>
                                         </div>
                                         <div class="form-group has-default">
@@ -212,7 +212,7 @@ if (empty($_POST['username']) === false) {
                                                     </span>
                                                 </div>
                                                 <input type="password" name="password" placeholder="Password..."
-                                                       class="form-control">
+                                                       class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="form-group has-default">
@@ -222,8 +222,9 @@ if (empty($_POST['username']) === false) {
                                                       <i class="material-icons">lock_outline</i>
                                                     </span>
                                                 </div>
-                                                <input type="password" name="confirm_password" placeholder="Reenter Password..."
-                                                       class="form-control">
+                                                <input type="password" name="confirm_password"
+                                                       placeholder="Reenter Password..."
+                                                       class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="input-group" style="margin-top: 10px;">
@@ -232,21 +233,24 @@ if (empty($_POST['username']) === false) {
                                           <img src="captcha.php" alt="CAPTCHA" class="captcha-image">
                                         </span>
                                             </div>
-                                            <input type="text" style="margin-top: 10px;" name="captcha_challenge" class="form-control"
-                                                   placeholder="Enter code">
+                                            <input type="text" style="margin-top: 10px;" name="captcha_challenge"
+                                                   class="form-control"
+                                                   placeholder="Enter code" required>
                                         </div>
                                         <div class="form-check">
                                             <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" value="" checked="">
+                                                <input class="form-check-input" type="checkbox" value="" checked=""
+                                                       required>
                                                 <span class="form-check-sign">
                             <span class="check"></span>
                           </span>
                                                 I agree to the
-                                                <a href="#something">terms and conditions</a>.
+                                                <a href="">terms and conditions</a>.
                                             </label>
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary btn-round mt-4">Get Started</button>
+                                            <button type="submit" class="btn btn-primary btn-round mt-4">Get Started
+                                            </button>
                                         </div>
                                     </form>
                                 </div>

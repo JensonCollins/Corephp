@@ -72,7 +72,7 @@ if ($file == '') {
     $profile = 'active';
 
 } else {
-    $tilte = "247SMTP.COM";
+    $tilte = "SMTP SHOP";
 }
 
 ?>

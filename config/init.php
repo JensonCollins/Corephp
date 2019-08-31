@@ -23,6 +23,9 @@ if (logged_in() === true) {
 
         exit();
     }
+
+    $menu_data = getAllmenu($user_data['super']);
+
 }
 
 $errors = array();

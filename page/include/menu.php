@@ -9,8 +9,9 @@
 </noscript>
 <!-- End Google Tag Manager (noscript) -->
 <div class="wrapper ">
-    <div class="sidebar" data-color="<?php echo $user_data['sidebar_color'];?>" data-background-color="<?php echo $user_data['sidebar_back_color'];?>"
-         data-image="<?php echo base_url() . "assets/img/" . $user_data['sidebar_back_image']; ?>">
+    <div class="sidebar" data-color="<?php echo $user_data['sidebar_color']; ?>"
+         data-background-color="<?php echo $user_data['sidebar_back_color']; ?>"
+         data-image="<?php echo $user_data['sidebar_back_image']; ?>">
         <div class="logo">
             <a href="<?php echo base_url(); ?>" class="simple-text logo-mini">
                 ST
@@ -50,123 +51,113 @@
 
                     <?php if ($user_data['super'] == 11) { ?>
 
-                        <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>admin" class="nav-link">
-                                <i class="menu-icon fa fa-home"></i>
-                                <p>Dashboard</p>
-                            </a>
-                        </li>
+                        <?php
+                        for ($i = 0; $i < count($menu_data); $i++) {
+                            if ($menu_data[$i]->menu_type == 11) {
+                                if (menuHasChild($menu_data[$i]->id) >= 1) {
+                                    $child_menu = getChildMenu($menu_data[$i]->id);
+                                    ?>
 
-                        <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>admin/support" class="nav-link">
-                                <i class="menu-icon fa fa-pencil"></i>
-                                <p>Support</p>
-                            </a>
-                        </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link" data-toggle="collapse"
+                                           href="#<?php echo $menu_data[$i]->menu_name . 'example'; ?>">
+                                            <?php echo $menu_data[$i]->menu_icon; ?>
+                                            <p> <?php echo $menu_data[$i]->menu_name; ?>
+                                                <b class="caret"></b>
+                                            </p>
+                                        </a>
+                                        <div class="collapse" id="<?php echo $menu_data[$i]->menu_name . 'example'; ?>">
+                                            <ul class="nav">
+                                                <?php for ($j = 0; $j < count($child_menu); $j++) { ?>
+                                                    <li class="nav-item ">
+                                                        <a class="nav-link" href="<?php echo base_url().$child_menu[$j]->menu_link; ?>">
+                                                            <span class="sidebar-mini"> <?php echo ucfirst(substr($child_menu[$j]->menu_name, 0, 1))?> </span>
+                                                            <span class="sidebar-normal"> <?php echo $child_menu[$j]->menu_name?> </span>
+                                                        </a>
+                                                    </li>
+                                                <?php } ?>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <!--                    <li class="nav-item --><?php //echo $others;
+                                    ?><!--">-->
+                                    <!--                        <a class="nav-link" href="--><?php //echo base_url();
+                                    ?><!--others">-->
+                                    <!--                            <i class="menu-icon fa fa-at"></i>-->
+                                    <!--                            <p>Others-->
+                                    <!--                                <span class="badge badge-primary" style="border-radius: 50%; text-align: right;">-->
+                                    <!--                                --><?php //echo unsold_tools('10');
+                                    ?>
+                                    <!--                            </span></p>-->
+                                    <!--                        </a>-->
+                                    <!--                    </li>-->
+                                <?php } else if(!menuHasParent($menu_data[$i]->id)) { ?>
+                                    <li class="nav-item <?php echo $purchased; ?>">
+                                        <a class="nav-link" href="<?php echo base_url() . $menu_data[$i]->menu_link; ?>">
+                                            <?php echo $menu_data[$i]->menu_icon; ?>
+                                            <p><?php echo $menu_data[$i]->menu_name; ?></p>
+                                        </a>
+                                    </li>
+                                    <?php
+                                }
+                            }
+                        } ?>
 
-
-                        <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>admin/add" class="nav-link">
-                                <i class="menu-icon fa  fa-plus"></i>
-                                <p>Add Tools</p>
-                            </a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>admin/users" class="nav-link">
-                                <i class="menu-icon fa  fa-users"></i>
-                                <p>Users</p>
-                            </a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>admin/transactions" class="nav-link">
-                                <i class="menu-icon fa  fa-dollar"></i>
-                                <p>Transactions</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>admin/manual" class="nav-link">
-                                <i class="menu-icon fa  fa-shopping-cart"></i>
-                                <p>Manual Payment</p>
-                            </a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>admin/unsold" class="nav-link">
-                                <i class="menu-icon fa  fa-shopping-cart"></i>
-                                <p>Unsold</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>admin/sold" class="nav-link">
-                                <i class="menu-icon fa  fa-shopping-cart"></i>
-                                <p>Sold</p>
-                            </a>
-                        </li>
                     <?php }
                 } else {
                     ?>
-                    <li class="nav-item ">
-                        <a class="nav-link" data-toggle="collapse" href="#pagesExamples">
-                            <i class="material-icons">image</i>
-                            <p> Send
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="pagesExamples">
-                            <ul class="nav">
+
+                    <?php
+                    for ($i = 0; $i < count($menu_data); $i++) {
+                        if ($menu_data[$i]->menu_type == 0) {
+                            if (menuHasChild($menu_data[$i]->id) >= 1) {
+                                $child_menu = getChildMenu($menu_data[$i]->id);
+                                ?>
+
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="<?php echo base_url(); ?>smtps">
-                                        <span class="sidebar-mini"> S </span>
-                                        <span class="sidebar-normal"> SMTPs </span>
+                                    <a class="nav-link" data-toggle="collapse"
+                                       href="#<?php echo $menu_data[$i]->menu_name . 'example'; ?>">
+                                        <?php echo $menu_data[$i]->menu_icon; ?>
+                                        <p> <?php echo $menu_data[$i]->menu_name; ?>
+                                            <b class="caret"></b>
+                                        </p>
+                                    </a>
+                                    <div class="collapse" id="<?php echo $menu_data[$i]->menu_name . 'example'; ?>">
+                                        <ul class="nav">
+                                            <?php for ($j = 0; $j < count($child_menu); $j++) { ?>
+                                                <li class="nav-item ">
+                                                    <a class="nav-link" href="<?php echo base_url().$child_menu[$j]->menu_link; ?>">
+                                                        <span class="sidebar-mini"> <?php echo ucfirst(substr($child_menu[$j]->menu_name, 0, 1))?> </span>
+                                                        <span class="sidebar-normal"> <?php echo $child_menu[$j]->menu_name?> </span>
+                                                    </a>
+                                                </li>
+                                            <?php } ?>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <!--                    <li class="nav-item --><?php //echo $others;
+                                ?><!--">-->
+                                <!--                        <a class="nav-link" href="--><?php //echo base_url();
+                                ?><!--others">-->
+                                <!--                            <i class="menu-icon fa fa-at"></i>-->
+                                <!--                            <p>Others-->
+                                <!--                                <span class="badge badge-primary" style="border-radius: 50%; text-align: right;">-->
+                                <!--                                --><?php //echo unsold_tools('10');
+                                ?>
+                                <!--                            </span></p>-->
+                                <!--                        </a>-->
+                                <!--                    </li>-->
+                            <?php } else if(!menuHasParent($menu_data[$i]->id)) { ?>
+                                <li class="nav-item <?php echo $purchased; ?>">
+                                    <a class="nav-link" href="<?php echo base_url() . $menu_data[$i]->menu_link; ?>">
+                                        <?php echo $menu_data[$i]->menu_icon; ?>
+                                        <p><?php echo $menu_data[$i]->menu_name; ?></p>
                                     </a>
                                 </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <!--                    <li class="nav-item --><?php //echo $others; ?><!--">-->
-                    <!--                        <a class="nav-link" href="--><?php //echo base_url(); ?><!--others">-->
-                    <!--                            <i class="menu-icon fa fa-at"></i>-->
-                    <!--                            <p>Others-->
-                    <!--                                <span class="badge badge-primary" style="border-radius: 50%; text-align: right;">-->
-                    <!--                                --><?php //echo unsold_tools('10'); ?>
-                    <!--                            </span></p>-->
-                    <!--                        </a>-->
-                    <!--                    </li>-->
-                    <li class="nav-item <?php echo $purchased; ?>">
-                        <a class="nav-link" href="<?php echo base_url(); ?>purchased">
-                            <i class="menu-icon fa fa-shopping-cart"></i>
-                            <p>Purchased</p>
-                        </a>
-                    </li>
-
-
-                    <li class="nav-item <?php echo $support; ?>">
-                        <a class="nav-link" href="<?php echo base_url(); ?>support">
-                            <i class="menu-icon fa fa-users"></i>
-                            <p>Support</p>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url(); ?>balance">
-                            <i class="menu-icon fa fa-dollar"></i>
-                            <p>Add Funds</p>
-                        </a>
-                    </li>
-
-                    <li class="nav-item <?php echo $rules; ?>">
-                        <a class="nav-link" href="<?php echo base_url(); ?>rules">
-                            <i class="menu-icon fa  fa-pencil-square-o"></i>
-                            <p>Rules</p>
-                        </a>
-                    </li>
+                                <?php
+                            }
+                        }
+                    } ?>
 
                     <?php if ($user_data['super'] == 11) { ?>
 
