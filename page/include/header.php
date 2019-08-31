@@ -75,146 +75,44 @@ if ($file == '') {
     $tilte = "247SMTP.COM";
 }
 
-
-//Hosts: shells, cpanels, root ssh, rdp
-//Send: php mailer, webmail
-//Others: programs and scripts.
-
-
 ?>
-
-<!doctype html>
-
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-
-<!--[if IE 8]>
-<html class="no-js lt-ie9" lang=""> <![endif]-->
-
-<!--[if gt IE 8]><!-->
-
-<html class="no-js" lang="en">
-
-<!--<![endif]-->
-
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-
-    <meta charset="utf-8">
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>Shop - <?php echo $tilte; ?></title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
+    <meta charset="utf-8" />
     <link rel="apple-touch-icon" href="<?php echo base_url(); ?>assets/login/images/icons/apple-icon.png">
     <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/login/images/icons/favicon.ico">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendors/themify-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendors/selectFX/css/cs-skin-elastic.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendors/jqvmap/dist/jqvmap.min.css">
+    <title>
+        Shop - <?php echo $tilte; ?>
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!-- Extra details for Live View on GitHub Pages -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link href="<?php echo base_url(); ?>assets/assets/css/material-dashboard.min.css?v=2.1.0" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="<?php echo base_url(); ?>assets/assets/demo/demo.css" rel="stylesheet" />
+    <!-- Google Tag Manager -->
 
-    <script src="<?php echo base_url(); ?>assets/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
-
-    <script src="<?php echo base_url(); ?>assets/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-
-    <script src="<?php echo base_url(); ?>assets/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-
-
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-    <style type="text/css">
-        div#bootstrap-data-table-export_filter {
-            float: right;
-        }
-
-        .badge-primary {
-            color: #fff;
-            background-color: #b8ce3c !important;
-        }
-
-        .btn-primary {
-            color: #fff;
-            background-color: #b8ce3c !important;
-            border-color: #b8ce3c !important;
-        }
-
-
-        .rad {
-            border-radius: 10%;
-        }
-
-        .pay {
-            float: left;
-            margin-right: 10px;
-        }
-
-        .well {
-            min-height: 20px;
-            padding: 19px;
-            margin-bottom: 20px;
-            background-color: #ffffff;
-            border: 1px solid transparent;
-            border-radius: 4px;
-            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-        }
-
-        pre {
-            white-space: pre-wrap; /* css-3 */
-            white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
-            white-space: -pre-wrap; /* Opera 4-6 */
-            white-space: -o-pre-wrap; /* Opera 7 */
-            word-wrap: break-word; /* Internet Explorer 5.5+ */
-        }
-
-
-        .spinner {
-            background: #272c33fa;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            z-index: 99;
-        }
-
-        .lodimg {
-            width: 10%;
-            top: 40%;
-            position: absolute;
-        }
-
-        .teksti {
-            font-size: 23px;
-            color: black;
-            font-family: monospace;
-        }
-
-
-        input.put.cl-Send.Test {
-            display: none;
-        }
-    </style>
-
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
+    </script>
+    <!-- End Google Tag Manager -->
 </head>
-
-
-<body onload="loading()">
-
-<div class="spinner">
-    <center>
-      <span class="lodimg"> 
-        <img src="https://loading.io/spinners/typing/lg.-text-entering-comment-loader.gif"><br>
-       <img src="<?php echo base_url(); ?>assets/images/smtp.png">
-      </span>
-    </center>
-</div>

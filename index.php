@@ -134,7 +134,7 @@ if (logged_in() == 0) {
 
         } else if ($page_name == 'profile') {
 
-            include 'page/profil.php';
+            include 'page/profile.php';
 
         } else if ($page_name == 'admin') {
 

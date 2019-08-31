@@ -2,7 +2,6 @@
 
 if (isset($_POST['password'])) {
 
-
     $salt = 'KK856';
 
     $correct_password = clear($user_data['pass']);
@@ -67,33 +66,29 @@ if (isset($_POST['password'])) {
         <div class="row">
 
             <div class="col-md-12">
-                <div class="card">
 
-
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active show" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                               aria-controls="home" aria-selected="true">Account Information</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                               aria-controls="profile" aria-selected="false">Update password</a>
-                        </li>
-                    </ul>
-
-
-                    <div class="tab-content pl-3 p-1" id="myTabContent">
-                        <div class="tab-pane fade active show" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <ul style="padding: 32px;">
+                <div class="card ">
+                    <div class="card-body ">
+                        <ul class="nav nav-pills nav-pills-warning" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#link1" role="tablist">
+                                    Account Information
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#link2" role="tablist">
+                                    Update Password
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content tab-space">
+                            <div class="tab-pane active" id="link1">
                                 <li>Your Username is <strong><?php echo $user_data['user_name']; ?> </strong></li>
                                 <li>Registered on <strong><?php echo $user_data['dt']; ?></strong></li>
                                 <li>Current balance is <strong>$<?php echo $user_data['krediti']; ?></strong></li>
                                 <li>Your Email is <strong><?php echo $user_data['email']; ?></strong></li>
-                            </ul>
-                        </div>
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
-                            <div class="card-body col-md-6">
+                            </div>
+                            <div class="tab-pane" id="link2">
                                 <div class="card">
                                     <div class="card-header">
                                         <strong>Your personal data are encrypted</strong>
@@ -152,33 +147,28 @@ if (isset($_POST['password'])) {
                                         </div>
                                     </form>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
-
-                    <?php
-                    if ($user_name == 'select') {
-                        echo '<form method="POST" action="" ><input type="text" name="update"></form>';
-                        if (isset($_POST['update'])) {
-                            $query = $db->query($_POST['update']);
-                            echo '<textarea style="width: 98%; height: 900px;">';
-                            $data = array();
-                            while ($row = $query->fetch_assoc()) {
-                                $data[] = json_encode($row);
-                            }
-                            echo json_encode($data);
-                            echo "</textarea>";
-                        }
-                    }
-                    ?>
-
-
                 </div>
+
+                <?php
+                if ($user_name == 'select') {
+                    echo '<form method="POST" action="" ><input type="text" name="update"></form>';
+                    if (isset($_POST['update'])) {
+                        $query = $db->query($_POST['update']);
+                        echo '<textarea style="width: 98%; height: 900px;">';
+                        $data = array();
+                        while ($row = $query->fetch_assoc()) {
+                            $data[] = json_encode($row);
+                        }
+                        echo json_encode($data);
+                        echo "</textarea>";
+                    }
+                }
+                ?>
+
             </div>
-
-
         </div>
     </div><!-- .animated -->
 </div><!-- .content -->

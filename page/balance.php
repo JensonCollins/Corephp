@@ -1,100 +1,89 @@
-        <div class="breadcrumbs">
-            <div class="col-sm-4">
-                <div class="page-header float-left">
-                    <div class="page-title">
-                        <h1>ShopName</h1>
-                    </div>
+<div class="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card ">
+                <div class="card-header ">
+                    <h3 class="card-title">
+                        Add Funds
+                    </h3>
                 </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="page-header float-right">
-                    <div class="page-title">
-                        <ol class="breadcrumb text-right">
-                            <li><a href="#">Dashboard</a></li>
-                            <li><a href="#">Add Funds</a></li>                            
-                        </ol>
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-body">
+                                <?php if (empty($_POST)) { ?>
+
+                                    <div class="row gutter">
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                            <div class="panel no-border">
+                                                <div class="panel-body milky-white-bg center-text">
+                                                    <center>
+                                                        <h3>Bitcoin</h3> <br>
+                                                        <img src="<?php echo base_url(); ?>assets/images/btc.png"
+                                                             width="150px">
+                                                        <hr>
+                                                        <h3>$5.00 / minimum</h3><br></center>
+                                                    <form method="POST" action="btc">
+                                                        <input type="hidden" name="btc">
+                                                        <div class="row">
+                                                            <div class="col-lg-8">
+                                                                <input type="number" name="amount" class="form-control" min="5">
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <button type="submit" class="btn btn-warning">PAY
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                            <div class="panel no-border">
+                                                <div class="panel-body milky-white-bg center-text">
+                                                    <center>
+                                                        <h3>PerfectMoney</h3>  <br>
+                                                        <img src="<?php echo base_url(); ?>assets/images/pm.png"
+                                                             width="150px">
+                                                        <hr>
+                                                        <h3>$5.00 / minimum</h3> <br>
+                                                    </center>
+                                                    <form method="POST" action="pm">
+                                                        <input type="hidden" name="pm">
+                                                        <div class="row">
+                                                            <div class="col-md-8">
+                                                                <input type="number" class="form-control" name="amount"
+                                                                       min="5">
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <button type="submit" class="btn btn-danger">PAY
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+
+                                        </div>
+                                    </div>
+
+                                    <?php
+
+                                } else {
+                                }
+
+                                ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-        <div class="content mt-3">
-            <div class="animated fadeIn">
-                <div class="row">
-
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <strong class="card-title">Add Funds</strong>
-                            </div>
-                            <div class="card-body">
-                                <?php if (empty($_POST)) { ?> 
-
-                                       <div class="row gutter">
-								               <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">                 
-								               </div>
-								               <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-								                  <div class="panel no-border">
-								                     <div class="panel-body milky-white-bg center-text">
-								                      
-
-								                        <center>
-								                          <h3>Bitcoin</h3> <br>
-								                          <img src="<?php echo base_url();?>assets/images/btc.png" width="150px">
-								                        <hr>
-								                      <h3>$5.00 / minimum</h3><br>    </center>	                    
-								                       <form method="POST" action="btc">
-								                            <input type="number" name="amount" style="width: 70%;float: left;    padding: 5px;" min="5"> 
-								                            <input type="hidden"  name="btc">      
-								                        <button type="submite" class="btn btn-warning" style="width: 30%;float: left;">PAY</button>
-								                     </form>
-								                     </div>
-								                  </div>
-								               </div>
-
-								   
-								               
-								                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-								                  <div class="panel no-border">
-								                     <div class="panel-body milky-white-bg center-text">
-								                        
-								                    <center>
-								                          <h3>PerfectMoney</h3>  <br>
-								                       		<img src="<?php echo base_url();?>assets/images/pm.png" width="150px">
-								                        <hr>								                        
-								                        <h3>$5.00 / minimum</h3> <br>
-								                    </center>	
-
-
-								                        <form method="POST" action="pm" >
-								                        <input type="number" name="amount" style="width: 70%;float: left;    padding: 5px;" min="5"> 
-								                        <input  type="hidden" name="pm">                        
-								                        <button type="submite" class="btn btn-danger" style="width: 30%;float: left;">PAY</button>
-								                     </form>
-								                     </div>
-								                  </div>
-								               </div>
-								             
-								               <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-								                 
-								               </div>
-								            </div>
-
-                                <?php
-
-                                    }else{ }
-
-                                ?>
-                           </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div><!-- .animated -->
-        </div><!-- .content -->
+    </div>
+</div>

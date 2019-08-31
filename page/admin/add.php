@@ -133,37 +133,16 @@ if (isset($_POST['add'])) {
 }
 
 ?>
-<div class="breadcrumbs">
-    <div class="col-sm-4">
-        <div class="page-header float-left">
-            <div class="page-title">
-                <h1>ShopName</h1>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-8">
-        <div class="page-header float-right">
-            <div class="page-title">
-                <ol class="breadcrumb text-right">
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">Add Tools</a></li>
-                </ol>
-            </div>
-        </div>
-    </div>
-</div>
 
-
-<div class="content mt-3">
-    <div class="animated fadeIn">
+<div class="content">
+    <div class="container-fluid">
         <div class="row">
 
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Add Multiple</strong>
+                        <h3><strong class="card-title">Add Multiple</strong></h3>
                     </div>
-
 
                     <div class="card-body">
 
@@ -174,15 +153,15 @@ if (isset($_POST['add'])) {
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="recipient-name" class="control-label">Price in $:</label>
+                                            <h5>Price in $:</h5>
                                             <input type="number" name="price" class="form-control" id="recipient-name"
                                                    value="5"
                                                    required>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="recipient-name" class="control-label">Country</label>
-                                            <select class="form-control" name="country">
+                                            <h5>Country</h5>
+                                            <select class="selectpicker form-control" data-size="7" data-style="btn btn-primary btn-round" name="country">
                                                 <?php
                                                     foreach($country_array as $key => $value) {
                                                         echo "<option value='$key'>$value</option>";
@@ -196,8 +175,8 @@ if (isset($_POST['add'])) {
                                         ?>
 
                                         <div class="form-group">
-                                            <label for="recipient-name" class="control-label">Category</label>
-                                            <select class="form-control" id="category" name="category" required>
+                                            <h5>Category</h5>
+                                            <select class="selectpicker form-control" data-size="7" data-style="btn btn-primary btn-round" id="category" name="category" required>
                                                 <option value="">-Select-</option>
                                                 <?php
                                                 while ($row = $categories->fetch_assoc()) {
@@ -212,7 +191,26 @@ if (isset($_POST['add'])) {
                                     </div>
 
                                     <div class="col-md-8" id="content_edit">
-
+                                        <div id="adding4" style="display: block;">
+                                            <div class="form-group">
+                                                <label for="windows_versions" class="bmd-label-floating">Windows versions</label>
+                                                <select class="selectpicker form-control"  data-size="7" data-style="btn btn-primary btn-round" name="windows_versions">
+                                                    <option value="2019">2019</option>
+                                                    <option value="2016">2016</option>
+                                                    <option value="2012">2012</option>
+                                                    <option value="2008">2008</option>
+                                                    <option value="10">10</option>
+                                                    <option value="7">7</option>
+                                                    <option value="ME">ME</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="rdp_ram" class="bmd-label-floating">Ram</label>
+                                                <input type="text" name="ram" class="form-control" id="rdp_ram"
+                                                       value="1GB / Fast"
+                                                       required>
+                                            </div>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -237,4 +235,5 @@ if (isset($_POST['add'])) {
         </div>
     </div><!-- .animated -->
 </div><!-- .content -->
+
 <script src="<?php echo base_url(); ?>assets/admin_add.js"></script>
