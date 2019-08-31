@@ -53,11 +53,11 @@ if (isset($_POST['add'])) {
     } else if ($category == "9") {
         $smtp_webmail = clear($_POST['smtp_webmail']);
         $smtp_server_info = clear($_POST['smtp_server_info']);
-        $info = json_encode(array('smtp_webmail' => $smtp_webmail, 'smtp_server_inf' => $smtp_server_info), JSON_FORCE_OBJECT);
+        $smtp_username = clear($_POST['smtp_username']);
+        $smtp_userpass = clear($_POST['smtp_userpass']);
+        $info = json_encode(array('smtp_webmail' => $smtp_webmail, 'smtp_server_inf' => $smtp_server_info, 'smtp_username' => $smtp_username, 'smtp_userpass' => $smtp_userpass), JSON_FORCE_OBJECT);
     } else {
-
         $basefile = htmlspecialchars($_POST['value']);
-
         $text = trim($basefile);
         $textAr = explode("\n", $text);
         $textAr = array_filter($textAr, 'trim'); // remove any extra \r characters left behind
@@ -191,26 +191,7 @@ if (isset($_POST['add'])) {
                                     </div>
 
                                     <div class="col-md-8" id="content_edit">
-                                        <div id="adding4" style="display: block;">
-                                            <div class="form-group">
-                                                <label for="windows_versions" class="bmd-label-floating">Windows versions</label>
-                                                <select class="selectpicker form-control"  data-size="7" data-style="btn btn-primary btn-round" name="windows_versions">
-                                                    <option value="2019">2019</option>
-                                                    <option value="2016">2016</option>
-                                                    <option value="2012">2012</option>
-                                                    <option value="2008">2008</option>
-                                                    <option value="10">10</option>
-                                                    <option value="7">7</option>
-                                                    <option value="ME">ME</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="rdp_ram" class="bmd-label-floating">Ram</label>
-                                                <input type="text" name="ram" class="form-control" id="rdp_ram"
-                                                       value="1GB / Fast"
-                                                       required>
-                                            </div>
-                                        </div>
+                                        <h4>- Please select Category -</h4>
                                     </div>
 
                                 </div>

@@ -1,10 +1,7 @@
 $("#category").on('change', function () {
-    var adding1 = "<label for=\"recipient-name\" class=\"control-label\">SMTP :\n" +
-        "                                        Server:Port,email,password</label><br>\n" +
-        "                                    <label for=\"recipient-name\" class=\"bmd-label-floating\">Leads: Url ,descript\n" +
-        "                                        ,amount</label>\n" +
-        "\n" +
-        "\n" +
+    var adding1 = "<h5 for=\"recipient-name\" class=\"control-label\" style='margin-top: 30px;'>SMTP :\n" +
+        "                                        Server:Port,email,password<br><br>Leads: Url ,descript\n" +
+        "                                        ,amount</h5><br>\n" +
         "                                    <textarea name=\"value\" class=\"form-control\" id=\"message-text\"\n" +
         "                                              style=\"height: 150px\"\n" +
         "                                              placeholder=\"\" required></textarea>";
@@ -21,12 +18,12 @@ $("#category").on('change', function () {
         "                                                    <option value=\"ME\">ME</option>\n" +
         "                                                </select>\n" +
         "                                            </div>\n" +
-        "                                            <div class=\"form-group\">\n" +
+        "                                            <div class=\"form-group\" style='margin-top: 30px;'>\n" +
         "                                                <label for=\"rdp_ram\" class=\"bmd-label-floating\">Ram</label>\n" +
         "                                                <input type=\"text\" name=\"ram\" class=\"form-control\" id=\"rdp_ram\"\n" +
         "                                                       value=\"1GB / Fast\"\n" +
         "                                                       required>\n" +
-        "                                            </div>"
+        "                                            </div>" +
         "\n" +
         "                                            <div class=\"form-group\">\n" +
         "                                                <label for=\"rdp_username\" class=\"bmd-label-floating\">Username</label>\n" +
@@ -63,7 +60,7 @@ $("#category").on('change', function () {
         "\n" +
         "                                            <div class=\"form-group\">\n" +
         "                                                <label for=\"recipient-name\" class=\"bmd-label-floating\">RAM</label>\n" +
-        "                                                <select class=\"form-control\" name=\"ssh_ram\">\n" +
+        "                                                <select class=\"selectpicker form-control\" data-style=\"btn btn-primary btn-round\" name=\"ssh_ram\">\n" +
         "                                                    <option value=\"128GB\">128GB</option>\n" +
         "                                                    <option value=\"64GB\">64GB</option>\n" +
         "                                                    <option value=\"32GB\">32GB</option>\n" +
@@ -80,9 +77,9 @@ $("#category").on('change', function () {
         "                                                </select>\n" +
         "                                            </div>\n" +
         "\n" +
-        "                                            <div class=\"form-group\">\n" +
+        "                                            <div class=\"form-group\"  style='margin-top: 30px;'>\n" +
         "                                                <label for=\"ssh_whm\" class=\"bmd-label-floating\">WHM</label>\n" +
-        "                                                <select class=\"form-control\" name=\"ssh_whm\">\n" +
+        "                                                <select class=\"selectpicker form-control\" data-style=\"btn btn-primary btn-round\" name=\"ssh_whm\">\n" +
         "                                                    <option value=\"yes\">Yes</option>\n" +
         "                                                    <option value=\"no\">No</option>\n" +
         "                                                </select>\n" +
@@ -102,7 +99,7 @@ $("#category").on('change', function () {
         "\n" +
         "                                            <div class=\"form-group\">\n" +
         "                                                <label for=\"cpanel_tld\" class=\"bmd-label-floating\">TLD</label>\n" +
-        "                                                <select class=\"form-control\" name=\"cpanel_tld\">\n" +
+        "                                                <select class=\"selectpicker form-control\" data-style=\"btn btn-primary btn-round\" name=\"cpanel_tld\">\n" +
         "                                                    <option value=\".com\">.com</option>\n" +
         "                                                    <option value=\".org\">.org</option>\n" +
         "                                                    <option value=\".info\">.info</option>\n" +
@@ -143,9 +140,9 @@ $("#category").on('change', function () {
         "                                                </select>\n" +
         "                                            </div>\n" +
         "\n" +
-        "                                            <div class=\"form-group\">\n" +
+        "                                            <div class=\"form-group\" style='margin-top: 30px;'>\n" +
         "                                                <label for=\"cpanel_ssl\" class=\"bmd-label-floating\">SSL</label>\n" +
-        "                                                <select class=\"form-control\" name=\"cpanel_ssl\">\n" +
+        "                                                <select class=\"selectpicker form-control\" data-style=\"btn btn-primary btn-round\" name=\"cpanel_ssl\">\n" +
         "                                                    <option value=\"https\">https</option>\n" +
         "                                                    <option value=\"http\">http</option>\n" +
         "                                                </select>\n" +
@@ -166,7 +163,7 @@ $("#category").on('change', function () {
         "\n" +
         "                                            <div class=\"form-group\">\n" +
         "                                                <label for=\"shell_tld\" class=\"bmd-label-floating\">TLD</label>\n" +
-        "                                                <select class=\"form-control\" name=\"shell_tld\">\n" +
+        "                                                <select class=\"form-control selectpicker\" data-style=\"btn btn-primary btn-round\" name=\"shell_tld\">\n" +
         "                                                    <option value=\".com\">.com</option>\n" +
         "                                                    <option value=\".org\">.org</option>\n" +
         "                                                    <option value=\".info\">.info</option>\n" +
@@ -207,9 +204,9 @@ $("#category").on('change', function () {
         "                                                </select>\n" +
         "                                            </div>\n" +
         "\n" +
-        "                                            <div class=\"form-group\">\n" +
+        "                                            <div class=\"form-group\" style='margin-top: 30px;'>\n" +
         "                                                <label for=\"shell_ssl\" class=\"bmd-label-floating\">SSL</label>\n" +
-        "                                                <select class=\"form-control\" name=\"shell_ssl\">\n" +
+        "                                                <select class=\"selectpicker form-control\" data-style=\"btn btn-primary btn-round\" name=\"shell_ssl\">\n" +
         "                                                    <option value=\"https\">https</option>\n" +
         "                                                    <option value=\"http\">http</option>\n" +
         "                                                </select>\n" +
@@ -226,13 +223,13 @@ $("#category").on('change', function () {
         "\n" +
         "                                            <div class=\"form-group\">\n" +
         "                                                <label for=\"shell_server_os\" class=\"bmd-label-floating\">Server OS</label>\n" +
-        "                                                <select class=\"form-control\" name=\"shell_server_os\">\n" +
+        "                                                <select class=\"selectpicker form-control\" data-style=\"btn btn-primary btn-round\" name=\"shell_server_os\">\n" +
         "                                                    <option value=\"linux\">Linux</option>\n" +
         "                                                    <option value=\"windows\">Windows</option>\n" +
         "                                                </select>\n" +
         "                                            </div>\n" +
         "\n" +
-        "                                            <div class=\"form-group\">\n" +
+        "                                            <div class=\"form-group\" style='margin-top: 30px;'>\n" +
         "                                                <label for=\"shell_detected_hosting\" class=\"bmd-label-floating\">Detected\n" +
         "                                                    Hosting</label>\n" +
         "                                                <input type=\"text\" name=\"shell_detected_hosting\" class=\"form-control\"\n" +
@@ -260,17 +257,33 @@ $("#category").on('change', function () {
         "\n" +
         "                                            <div class=\"form-group\">\n" +
         "                                                <label for=\"smtp_webmail\" class=\"bmd-label-floating\">Webmail</label>\n" +
-        "                                                <select class=\"form-control\" name=\"smtp_webmail\">\n" +
+        "                                                <select class=\"selectpicker form-control\" data-style=\"btn btn-primary btn-round\" name=\"smtp_webmail\">\n" +
         "                                                    <option value=\"yes\">Yes</option>\n" +
         "                                                    <option value=\"no\">No</option>\n" +
         "                                                </select>\n" +
         "                                            </div>\n" +
         "\n" +
-        "                                            <div class=\"form-group\">\n" +
+        "                                            <div class=\"form-group\" style='margin-top: 30px;'>\n" +
         "                                                <label for=\"smtp_server_info\" class=\"bmd-label-floating\">Detected\n" +
         "                                                    Hosting</label>\n" +
         "                                                <input type=\"text\" name=\"smtp_server_info\" class=\"form-control\"\n" +
         "                                                       id=\"smtp_server_info\"\n" +
+        "                                                       value=\"\"\n" +
+        "                                                       required>\n" +
+        "                                            </div>\n" +
+        "\n" +
+        "                                            <div class=\"form-group\">\n" +
+        "                                                <label for=\"smtp_username\" class=\"bmd-label-floating\">Username</label>\n" +
+        "                                                <input type=\"text\" name=\"smtp_username\" class=\"form-control\"\n" +
+        "                                                       id=\"smtp_username\"\n" +
+        "                                                       value=\"\"\n" +
+        "                                                       required>\n" +
+        "                                            </div>\n" +
+        "\n" +
+        "                                            <div class=\"form-group\">\n" +
+        "                                                <label for=\"smtp_userpass\" class=\"bmd-label-floating\">Password</label>\n" +
+        "                                                <input type=\"text\" name=\"smtp_userpass\" class=\"form-control\"\n" +
+        "                                                       id=\"smtp_userpass\"\n" +
         "                                                       value=\"\"\n" +
         "                                                       required>\n" +
         "                                            </div>\n" +
@@ -347,4 +360,5 @@ $("#category").on('change', function () {
         // $("#adding8").hide();
         // $("#adding9").hide();
     }
+    $(".selectpicker").selectpicker();
 });

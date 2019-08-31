@@ -95,9 +95,9 @@ if ($file == '') {
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="<?php echo base_url(); ?>assets/assets/demo/demo.css" rel="stylesheet" />
     <!-- Google Tag Manager -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
     <script src="<?php echo base_url(); ?>assets/header.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
     <script>
         (function(w, d, s, l, i) {

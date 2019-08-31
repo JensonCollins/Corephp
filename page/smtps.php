@@ -100,23 +100,20 @@
 
         var table = $('#datatable').DataTable();
 
-        // Edit record
-        table.on('click', '.edit', function() {
-            $tr = $(this).closest('tr');
-            var data = table.row($tr).data();
-            alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
-        });
+        $('#bootstrap-data-table-export thead tr').clone(true).appendTo( '#bootstrap-data-table-export thead' );
 
-        // Delete a record
-        table.on('click', '.remove', function(e) {
-            $tr = $(this).closest('tr');
-            table.row($tr).remove().draw();
-            e.preventDefault();
-        });
+        $('#bootstrap-data-table-export thead tr:eq(1) th').each( function (i) {
+            var title = $(this).text();
+            $(this).html( '<input type="text" class="put cl-'+title+'" placeholder="Search '+title+'" />' );
 
-        //Like record
-        table.on('click', '.like', function() {
-            alert('You clicked on Like button');
-        });
+            $( 'input', this ).on( 'keyup change', function () {
+                if ( table.column(i).search() !== this.value ) {
+                    table
+                        .column(i)
+                        .search( this.value )
+                        .draw();
+                }
+            } );
+        } );
     });
 </script>

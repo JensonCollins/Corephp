@@ -288,6 +288,8 @@
                                             $name = 'SMTP Domain';
                                         } else if ($row["category"] == '3') {
                                             $name = 'Leads';
+                                        } else if($row['category'] == '9') {
+                                            $name = "SMTP";
                                         }
 
 
