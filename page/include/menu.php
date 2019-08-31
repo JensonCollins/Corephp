@@ -39,21 +39,9 @@
                     <div class="collapse" id="collapseExample">
                         <ul class="nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="<?php echo base_url(); ?>profile">
                                     <span class="sidebar-mini"> MP </span>
                                     <span class="sidebar-normal"> My Profile </span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="sidebar-mini"> EP </span>
-                                    <span class="sidebar-normal"> Edit Profile </span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="sidebar-mini"> S </span>
-                                    <span class="sidebar-normal"> Settings </span>
                                 </a>
                             </li>
                         </ul>
@@ -147,15 +135,15 @@
                             </ul>
                         </div>
                     </li>
-<!--                    <li class="nav-item --><?php //echo $others; ?><!--">-->
-<!--                        <a class="nav-link" href="--><?php //echo base_url(); ?><!--others">-->
-<!--                            <i class="menu-icon fa fa-at"></i>-->
-<!--                            <p>Others-->
-<!--                                <span class="badge badge-primary" style="border-radius: 50%; text-align: right;">-->
-<!--                                --><?php //echo unsold_tools('10'); ?>
-<!--                            </span></p>-->
-<!--                        </a>-->
-<!--                    </li>-->
+                    <!--                    <li class="nav-item --><?php //echo $others; ?><!--">-->
+                    <!--                        <a class="nav-link" href="--><?php //echo base_url(); ?><!--others">-->
+                    <!--                            <i class="menu-icon fa fa-at"></i>-->
+                    <!--                            <p>Others-->
+                    <!--                                <span class="badge badge-primary" style="border-radius: 50%; text-align: right;">-->
+                    <!--                                --><?php //echo unsold_tools('10'); ?>
+                    <!--                            </span></p>-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
                     <li class="nav-item <?php echo $purchased; ?>">
                         <a class="nav-link" href="<?php echo base_url(); ?>purchased">
                             <i class="menu-icon fa fa-shopping-cart"></i>
@@ -212,7 +200,7 @@
                             <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
                         </button>
                     </div>
-                    <a class="navbar-brand" href="#pablo"><?php echo $tilte; ?></a>
+                    <a class="navbar-brand" href=""><?php echo $tilte; ?></a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -224,14 +212,12 @@
                 <div class="collapse navbar-collapse justify-content-end">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>balance" class="pay">
-                                <div class="badge-green badge badge-primary">
-                                    $<?php echo $user_data['krediti']; ?>
-                                </div>
+                            <a href="<?php echo base_url(); ?>balance" class="btn btn-primary">
+                                $&nbsp;<?php echo $user_data['krediti']; ?>
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown"
+                            <a class="nav-link" href="" id="navbarDropdownProfile" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">
                                 <i class="material-icons">person</i>
                                 <p class="d-lg-none d-md-block">

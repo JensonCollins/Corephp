@@ -1,4 +1,3 @@
-
 <footer class="footer">
     <div class="container-fluid">
         <nav class="float-left">
@@ -29,7 +28,8 @@
             &copy;
             <script>
                 document.write(new Date().getFullYear())
-            </script>, made with <i class="material-icons">favorite</i> by
+            </script>
+            , made with <i class="material-icons">favorite</i> by
             <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
         </div>
     </div>
@@ -116,25 +116,6 @@
                     <img src="<?php echo base_url(); ?>assets/assets/img/sidebar-4.jpg" alt="">
                 </a>
             </li>
-            <li class="button-container">
-                <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-rose btn-block btn-fill">Buy Now</a>
-                <a href="https://demos.creative-tim.com/material-dashboard-pro/docs/2.1/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block">
-                    Documentation
-                </a>
-                <a href="https://www.creative-tim.com/product/material-dashboard" target="_blank" class="btn btn-info btn-block">
-                    Get Free Demo!
-                </a>
-            </li>
-            <li class="button-container github-star">
-                <a class="github-button" href="https://github.com/creativetimofficial/ct-material-dashboard-pro" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-            </li>
-            <li class="header-title">Thank you for 95 shares!</li>
-            <li class="button-container text-center">
-                <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> &middot; 45</button>
-                <button id="facebook" class="btn btn-round btn-facebook"><i class="fa fa-facebook-f"></i> &middot; 50</button>
-                <br>
-                <br>
-            </li>
         </ul>
     </div>
 </div>
@@ -180,12 +161,13 @@
 <!--  Notifications Plugin    -->
 <script src="<?php echo base_url(); ?>assets/assets/js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="<?php echo base_url(); ?>assets/assets/js/material-dashboard.min.js?v=2.1.0" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/assets/js/material-dashboard.min.js?v=2.1.0"
+        type="text/javascript"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="<?php echo base_url(); ?>assets/assets/demo/demo.js"></script>
 <script>
-    $(document).ready(function() {
-        $().ready(function() {
+    $(document).ready(function () {
+        $().ready(function () {
             $sidebar = $('.sidebar');
 
             $sidebar_img_container = $sidebar.find('.sidebar-background');
@@ -205,7 +187,7 @@
 
             }
 
-            $('.fixed-plugin a').click(function(event) {
+            $('.fixed-plugin a').click(function (event) {
                 // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
                 if ($(this).hasClass('switch-trigger')) {
                     if (event.stopPropagation) {
@@ -216,7 +198,7 @@
                 }
             });
 
-            $('.fixed-plugin .active-color span').click(function() {
+            $('.fixed-plugin .active-color span').click(function () {
                 $full_page_background = $('.full-page-background');
 
                 $(this).siblings().removeClass('active');
@@ -237,7 +219,7 @@
                 }
             });
 
-            $('.fixed-plugin .background-color .badge').click(function() {
+            $('.fixed-plugin .background-color .badge').click(function () {
                 $(this).siblings().removeClass('active');
                 $(this).addClass('active');
 
@@ -248,7 +230,7 @@
                 }
             });
 
-            $('.fixed-plugin .img-holder').click(function() {
+            $('.fixed-plugin .img-holder').click(function () {
                 $full_page_background = $('.full-page-background');
 
                 $(this).parent('li').siblings().removeClass('active');
@@ -258,7 +240,7 @@
                 var new_image = $(this).find("img").attr('src');
 
                 if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-                    $sidebar_img_container.fadeOut('fast', function() {
+                    $sidebar_img_container.fadeOut('fast', function () {
                         $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
                         $sidebar_img_container.fadeIn('fast');
                     });
@@ -267,7 +249,7 @@
                 if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
                     var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
 
-                    $full_page_background.fadeOut('fast', function() {
+                    $full_page_background.fadeOut('fast', function () {
                         $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
                         $full_page_background.fadeIn('fast');
                     });
@@ -286,7 +268,7 @@
                 }
             });
 
-            $('.switch-sidebar-image input').change(function() {
+            $('.switch-sidebar-image input').change(function () {
                 $full_page_background = $('.full-page-background');
 
                 $input = $(this);
@@ -318,7 +300,7 @@
                 }
             });
 
-            $('.switch-sidebar-mini input').change(function() {
+            $('.switch-sidebar-mini input').change(function () {
                 $body = $('body');
 
                 $input = $(this);
@@ -333,7 +315,7 @@
 
                     $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
 
-                    setTimeout(function() {
+                    setTimeout(function () {
                         $('body').addClass('sidebar-mini');
 
                         md.misc.sidebar_mini_active = true;
@@ -341,12 +323,12 @@
                 }
 
                 // we simulate the window Resize so the charts will get updated in realtime.
-                var simulateWindowResize = setInterval(function() {
+                var simulateWindowResize = setInterval(function () {
                     window.dispatchEvent(new Event('resize'));
                 }, 180);
 
                 // we stop the simulation of Window Resize after the animations are completed
-                setTimeout(function() {
+                setTimeout(function () {
                     clearInterval(simulateWindowResize);
                 }, 1000);
 
@@ -357,7 +339,7 @@
 <!-- Sharrre libray -->
 <script src="<?php echo base_url(); ?>assets/assets/demo/jquery.sharrre.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
 
 
         $('#facebook').sharrre({
@@ -367,7 +349,7 @@
             enableHover: false,
             enableTracking: false,
             enableCounter: false,
-            click: function(api, options) {
+            click: function (api, options) {
                 api.simulateClick();
                 api.openPopup('facebook');
             },
@@ -382,7 +364,7 @@
             enableCounter: false,
             enableHover: false,
             enableTracking: true,
-            click: function(api, options) {
+            click: function (api, options) {
                 api.simulateClick();
                 api.openPopup('googlePlus');
             },
@@ -402,7 +384,7 @@
                     via: 'CreativeTim'
                 }
             },
-            click: function(api, options) {
+            click: function (api, options) {
                 api.simulateClick();
                 api.openPopup('twitter');
             },
@@ -415,7 +397,7 @@
         _gaq.push(['_setAccount', 'UA-46172202-1']);
         _gaq.push(['_trackPageview']);
 
-        (function() {
+        (function () {
             var ga = document.createElement('script');
             ga.type = 'text/javascript';
             ga.async = true;
@@ -425,9 +407,9 @@
         })();
 
         // Facebook Pixel Code Don't Delete
-        ! function(f, b, e, v, n, t, s) {
+        !function (f, b, e, v, n, t, s) {
             if (f.fbq) return;
-            n = f.fbq = function() {
+            n = f.fbq = function () {
                 n.callMethod ?
                     n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
@@ -455,10 +437,11 @@
     });
 </script>
 <noscript>
-    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=111649226022273&ev=PageView&noscript=1" />
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=111649226022273&ev=PageView&noscript=1"/>
 </noscript>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         // Javascript method's body can be found in assets/js/demos.js
         md.initDashboardPageCharts();
 

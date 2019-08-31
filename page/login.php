@@ -62,46 +62,10 @@ if (empty($_POST['username']) === false) {
     <meta charset="utf-8"/>
     <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url(); ?>assets/assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/assets/img/favicon.png">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>
-        Material Dashboard PRO by Creative Tim
+        Login
     </title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-          name='viewport'/>
-    <!-- Extra details for Live View on GitHub Pages -->
-    <!-- Canonical SEO -->
     <link rel="canonical" href="https://www.creative-tim.com/product/material-dashboard-pro"/>
-    <!--  Social tags      -->
-    <meta name="keywords"
-          content="creative tim, html dashboard, html css dashboard, web dashboard, bootstrap 4 dashboard, bootstrap 4, css3 dashboard, bootstrap 4 admin, material dashboard bootstrap 4 dashboard, frontend, responsive bootstrap 4 dashboard, material design, material dashboard bootstrap 4 dashboard">
-    <meta name="description"
-          content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design.">
-    <!-- Schema.org markup for Google+ -->
-    <meta itemprop="name" content="Material Dashboard PRO by Creative Tim">
-    <meta itemprop="description"
-          content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design.">
-    <meta itemprop="image"
-          content="https://s3.amazonaws.com/creativetim_bucket/products/51/original/opt_mdp_thumbnail.jpg">
-    <!-- Twitter Card data -->
-    <meta name="twitter:card" content="product">
-    <meta name="twitter:site" content="@creativetim">
-    <meta name="twitter:title" content="Material Dashboard PRO by Creative Tim">
-    <meta name="twitter:description"
-          content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design.">
-    <meta name="twitter:creator" content="@creativetim">
-    <meta name="twitter:image"
-          content="https://s3.amazonaws.com/creativetim_bucket/products/51/original/opt_mdp_thumbnail.jpg">
-    <!-- Open Graph data -->
-    <meta property="fb:app_id" content="655968634437471">
-    <meta property="og:title" content="Material Dashboard PRO by Creative Tim"/>
-    <meta property="og:type" content="article"/>
-    <meta property="og:url" content="http://demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html"/>
-    <meta property="og:image"
-          content="https://s3.amazonaws.com/creativetim_bucket/products/51/original/opt_mdp_thumbnail.jpg"/>
-    <meta property="og:description"
-          content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design."/>
-    <meta property="og:site_name" content="Creative Tim"/>
-    <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
@@ -141,7 +105,7 @@ if (empty($_POST['username']) === false) {
 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
     <div class="container">
         <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Login Page</a>
+            <a class="navbar-brand" href="">Login Page</a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -152,24 +116,14 @@ if (empty($_POST['username']) === false) {
         </button>
         <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="../dashboard.html" class="nav-link">
-                        <i class="material-icons">dashboard</i> Dashboard
-                    </a>
-                </li>
                 <li class="nav-item ">
-                    <a href="../pages/register.html" class="nav-link">
+                    <a href="<?php echo base_url(); ?>register" class="nav-link">
                         <i class="material-icons">person_add</i> Register
                     </a>
                 </li>
                 <li class="nav-item  active ">
-                    <a href="../pages/login.html" class="nav-link">
+                    <a href="<?php echo base_url(); ?>login" class="nav-link">
                         <i class="material-icons">fingerprint</i> Login
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a href="../pages/lock.html" class="nav-link">
-                        <i class="material-icons">lock_open</i> Lock
                     </a>
                 </li>
             </ul>
@@ -184,57 +138,58 @@ if (empty($_POST['username']) === false) {
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-                    <form class="form" method="" action="">
+                    <form class="form" method="POST" action="">
                         <div class="card card-login card-hidden">
                             <div class="card-header card-header-rose text-center">
                                 <h4 class="card-title">Login</h4>
-                                <div class="social-line">
-                                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                                        <i class="fa fa-facebook-square"></i>
-                                    </a>
-                                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                                        <i class="fa fa-google-plus"></i>
-                                    </a>
-                                </div>
                             </div>
-                            <div class="card-body ">
-                                <p class="card-description text-center">Or Be Classical</p>
+
+                            <?php
+                            $output_errors = output_errors($errors);
+                            if (!empty($output_errors)) {
+                                echo "<div class=\"alert alert-danger\">
+                                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                                <i class=\"material-icons\">close</i>
+                                            </button>
+                                            <span> $output_errors </span>
+                                        </div>";
+                            }
+                            ?>
+
+                            <div class="card-body">
                                 <span class="bmd-form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">face</i>
-                        </span>
-                      </div>
-                      <input type="text" class="form-control" placeholder="First Name...">
-                    </div>
-                  </span>
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                          <i class="material-icons">face</i>
+                                        </span>
+                                      </div>
+                                      <input type="text" name="username" class="form-control" placeholder="User Name">
+                                    </div>
+                                </span>
                                 <span class="bmd-form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">email</i>
-                        </span>
-                      </div>
-                      <input type="email" class="form-control" placeholder="Email...">
-                    </div>
-                  </span>
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                          <i class="material-icons">lock_outline</i>
+                                        </span>
+                                      </div>
+                                      <input type="password" name="password" class="form-control" placeholder="Password">
+                                    </div>
+                                </span>
                                 <span class="bmd-form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">lock_outline</i>
-                        </span>
-                      </div>
-                      <input type="password" class="form-control" placeholder="Password...">
-                    </div>
-                  </span>
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                          <img src="captcha.php" alt="CAPTCHA" class="captcha-image">
+                                        </span>
+                                      </div>
+                                      <input type="text" name="captcha_challenge" class="form-control" placeholder="Enter code">
+                                    </div>
+                                </span>
                             </div>
                             <div class="card-footer justify-content-center">
-                                <a href="#pablo" class="btn btn-rose btn-link btn-lg">Lets Go</a>
+                                <button type="submit" class="btn btn-rose btn-link btn-lg">Lets Go</button>
                             </div>
                         </div>
                     </form>
@@ -293,7 +248,8 @@ if (empty($_POST['username']) === false) {
 <!--  Notifications Plugin    -->
 <script src="<?php echo base_url(); ?>assets/assets/js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="<?php echo base_url(); ?>assets/assets/js/material-dashboard.min.js?v=2.1.0" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/assets/js/material-dashboard.min.js?v=2.1.0"
+        type="text/javascript"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="<?php echo base_url(); ?>assets/assets/demo/demo.js"></script>
 <script>

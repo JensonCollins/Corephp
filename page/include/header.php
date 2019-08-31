@@ -96,6 +96,7 @@ if ($file == '') {
     <link href="<?php echo base_url(); ?>assets/assets/demo/demo.css" rel="stylesheet" />
     <!-- Google Tag Manager -->
 
+    <script src="<?php echo base_url(); ?>assets/header.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
     <script>
