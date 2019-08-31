@@ -217,4 +217,4 @@ if (isset($_POST['add'])) {
     </div><!-- .animated -->
 </div><!-- .content -->
 
-<script src="<?php echo base_url(); ?>assets/admin_add.js"></script>
+<script src="<?php echo base_url(); ?>assets/custom/js/admin_add.js"></script>

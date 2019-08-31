@@ -281,19 +281,33 @@
 
                                         }
 
-
-                                        if ($row["category"] == '1') {
-                                            $name = 'SMTP IP';
-                                        } else if ($row["category"] == '2') {
-                                            $name = 'SMTP Domain';
-                                        } else if ($row["category"] == '3') {
-                                            $name = 'Leads';
-                                        } else if($row['category'] == '9') {
+                                        if ($row['category'] == '9') {
                                             $name = "SMTP";
-                                        }
+                                            $details = json_decode($row['details'], TRUE);
+                                            $user_login = $details['smtp_username'];
+                                            $user_pass = $details['smtp_userpass'];
+                                            $smtp_server_inf = $details['smtp_server_inf'];
+                                            echo '<tr role="row" class=" ' . $iplpl . '">
+                                                    <td class="sorting_1" >' . $row["item_id"] . '</td>
+                                                    <td class="sorting_1" >' . $name . '</td>
+                                                    <td>' . trim($row["info"]) . '</td>
+                                                    <td contenteditable="true" onClick="select();">' . replace_kredencial($user_login) . '</td>
+                                                    <td contenteditable="true" onClick="select();">' . replace_kredencial($user_pass) . '</td>
+                                                    <td contenteditable="true" onClick="select();">' . replace_kredencial($smtp_server_inf) . '</td>
+                                                   
+                                                    <td>$' . clear($row["price"]) . '</td>
+                                                    <td > ' . $report . ' </td>                                                          
+                                              </tr>';
+                                        } else {
 
-
-                                        echo '<tr role="row" class=" ' . $iplpl . '">
+                                            if ($row["category"] == '1') {
+                                                $name = 'SMTP IP';
+                                            } else if ($row["category"] == '2') {
+                                                $name = 'SMTP Domain';
+                                            } else if ($row["category"] == '3') {
+                                                $name = 'Leads';
+                                            }
+                                            echo '<tr role="row" class=" ' . $iplpl . '">
                                                     <td class="sorting_1" >' . $row["item_id"] . '</td>
                                                     <td class="sorting_1" >' . $name . '</td>
                                                     <td>' . trim($row["info"]) . '</td>
@@ -304,6 +318,8 @@
                                                     <td>$' . clear($row["price"]) . '</td>
                                                     <td > ' . $report . ' </td>                                                          
                                               </tr>';
+
+                                        }
 
                                     }//AND while
                                     ?>
@@ -326,7 +342,7 @@
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="<?php echo base_url(); ?>assets/cloudflare/jquery-3.3.1.js"></script>
 
 <script>
     $(document).ready(function () {

@@ -41,7 +41,7 @@ $black = imagecolorallocate($image, 0, 0, 0);
 $white = imagecolorallocate($image, 255, 255, 255);
 $textcolors = [$black, $white];
  
-$fonts = [dirname(__FILE__).'/assets/login/fonts/poppins/Poppins-Black.ttf', dirname(__FILE__).'/assets/login/fonts/poppins/Poppins-Italic.ttf', dirname(__FILE__).'/assets/login/fonts/poppins/Poppins-Regular.ttf', dirname(__FILE__).'/assets/login/fonts/poppins/Poppins-Black.ttf'];
+$fonts = [dirname(__FILE__).'/assets/fonts/poppins/Poppins-Black.ttf', dirname(__FILE__).'/assets/fonts/poppins/Poppins-Italic.ttf', dirname(__FILE__).'/assets/fonts/poppins/Poppins-Regular.ttf', dirname(__FILE__).'/assets/fonts/poppins/Poppins-Black.ttf'];
  
 $string_length = 4;
 $captcha_string = generate_string($permitted_chars, $string_length);

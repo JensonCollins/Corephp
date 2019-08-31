@@ -3,34 +3,29 @@
         <nav class="float-left">
             <ul>
                 <li>
-                    <a href="https://www.creative-tim.com">
-                        Creative Tim
+                    <a href="<?php echo base_url(); ?>contact_us">
+                        Contact Us
                     </a>
                 </li>
                 <li>
-                    <a href="https://creative-tim.com/presentation">
+                    <a href="<?php echo base_url(); ?>about_us">
                         About Us
                     </a>
                 </li>
                 <li>
-                    <a href="http://blog.creative-tim.com">
+                    <a href="<?php echo base_url(); ?>blog">
                         Blog
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.creative-tim.com/license">
-                        Licenses
                     </a>
                 </li>
             </ul>
         </nav>
-        <div class="copyright float-right">
+        <div class="copyright float-fright">
             &copy;
             <script>
                 document.write(new Date().getFullYear())
             </script>
             , made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+            <a href="http://yourjenson.com" target="_blank">Your Jenson</a> for a better design.
         </div>
     </div>
 </footer>
@@ -46,12 +41,12 @@
             <li class="adjustments-line">
                 <a href="javascript:void(0)" class="switch-trigger active-color">
                     <div class="badge-colors ml-auto mr-auto">
-                        <span class="badge filter badge-purple" data-color="purple"></span>
-                        <span class="badge filter badge-azure" data-color="azure"></span>
-                        <span class="badge filter badge-green" data-color="green"></span>
-                        <span class="badge filter badge-warning" data-color="orange"></span>
-                        <span class="badge filter badge-danger" data-color="danger"></span>
-                        <span class="badge filter badge-rose active" data-color="rose"></span>
+                        <span class="badge filter badge-purple <?php echo ($user_data['sidebar_color'] == 'purple')?'active':'';?>" data-color="purple"></span>
+                        <span class="badge filter badge-azure <?php echo ($user_data['sidebar_color'] == 'azure')?'active':'';?>" data-color="azure"></span>
+                        <span class="badge filter badge-green <?php echo ($user_data['sidebar_color'] == 'green')?'active':'';?>" data-color="green"></span>
+                        <span class="badge filter badge-warning <?php echo ($user_data['sidebar_color'] == 'warning')?'active':'';?>" data-color="orange"></span>
+                        <span class="badge filter badge-danger <?php echo ($user_data['sidebar_color'] == 'danger')?'active':'';?>" data-color="danger"></span>
+                        <span class="badge filter badge-rose <?php echo ($user_data['sidebar_color'] == 'rose')?'active':'';?>" data-color="rose"></span>
                     </div>
                     <div class="clearfix"></div>
                 </a>
@@ -60,9 +55,9 @@
             <li class="adjustments-line">
                 <a href="javascript:void(0)" class="switch-trigger background-color">
                     <div class="ml-auto mr-auto">
-                        <span class="badge filter badge-black active" data-background-color="black"></span>
-                        <span class="badge filter badge-white" data-background-color="white"></span>
-                        <span class="badge filter badge-red" data-background-color="red"></span>
+                        <span class="badge filter badge-black <?php echo ($user_data['sidebar_back_color'] == 'black')?'active':'';?>" data-background-color="black"></span>
+                        <span class="badge filter badge-white <?php echo ($user_data['sidebar_back_color'] == 'white')?'active':'';?>" data-background-color="white"></span>
+                        <span class="badge filter badge-red <?php echo ($user_data['sidebar_back_color'] == 'red')?'active':'';?>" data-background-color="red"></span>
                     </div>
                     <div class="clearfix"></div>
                 </a>
@@ -96,75 +91,75 @@
                 </a>
             </li>
             <li class="header-title">Images</li>
-            <li class="active">
+            <li class="<?php echo ($user_data['sidebar_back_image'] == 'sidebar-1.jpg') ?'active':'';?>">
                 <a class="img-holder switch-trigger" href="javascript:void(0)">
-                    <img src="<?php echo base_url(); ?>assets/assets/img/sidebar-1.jpg" alt="">
+                    <img src="<?php echo base_url(); ?>assets/img/sidebar-1.jpg" alt="">
                 </a>
             </li>
-            <li>
+            <li class="<?php echo ($user_data['sidebar_back_image'] == 'sidebar-2.jpg') ?'active':'';?>">
                 <a class="img-holder switch-trigger" href="javascript:void(0)">
-                    <img src="<?php echo base_url(); ?>assets/assets/img/sidebar-2.jpg" alt="">
+                    <img src="<?php echo base_url(); ?>assets/img/sidebar-2.jpg" alt="">
                 </a>
             </li>
-            <li>
+            <li class="<?php echo ($user_data['sidebar_back_image'] == 'sidebar-3.jpg') ?'active':'';?>">
                 <a class="img-holder switch-trigger" href="javascript:void(0)">
-                    <img src="<?php echo base_url(); ?>assets/assets/img/sidebar-3.jpg" alt="">
+                    <img src="<?php echo base_url(); ?>assets/img/sidebar-3.jpg" alt="">
                 </a>
             </li>
-            <li>
+            <li class="<?php echo ($user_data['sidebar_back_image'] == 'sidebar-4.jpg') ?'active':'';?>">
                 <a class="img-holder switch-trigger" href="javascript:void(0)">
-                    <img src="<?php echo base_url(); ?>assets/assets/img/sidebar-4.jpg" alt="">
+                    <img src="<?php echo base_url(); ?>assets/img/sidebar-4.jpg" alt="">
                 </a>
             </li>
         </ul>
     </div>
 </div>
 <!--   Core JS Files   -->
-<script src="<?php echo base_url(); ?>assets/assets/js/core/jquery.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/assets/js/core/popper.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/assets/js/core/bootstrap-material-design.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/core/jquery.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/core/popper.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/core/bootstrap-material-design.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
 <!-- Plugin for the momentJs  -->
-<script src="<?php echo base_url(); ?>assets/assets/js/plugins/moment.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/moment.min.js"></script>
 <!--  Plugin for Sweet Alert -->
-<script src="<?php echo base_url(); ?>assets/assets/js/plugins/sweetalert2.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/sweetalert2.js"></script>
 <!-- Forms Validations Plugin -->
-<script src="<?php echo base_url(); ?>assets/assets/js/plugins/jquery.validate.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/jquery.validate.min.js"></script>
 <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-<script src="<?php echo base_url(); ?>assets/assets/js/plugins/jquery.bootstrap-wizard.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/jquery.bootstrap-wizard.js"></script>
 <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-<script src="<?php echo base_url(); ?>assets/assets/js/plugins/bootstrap-selectpicker.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/bootstrap-selectpicker.js"></script>
 <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-<script src="<?php echo base_url(); ?>assets/assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
 <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-<script src="<?php echo base_url(); ?>assets/assets/js/plugins/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/jquery.dataTables.min.js"></script>
 <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-<script src="<?php echo base_url(); ?>assets/assets/js/plugins/bootstrap-tagsinput.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/bootstrap-tagsinput.js"></script>
 <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-<script src="<?php echo base_url(); ?>assets/assets/js/plugins/jasny-bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/jasny-bootstrap.min.js"></script>
 <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-<script src="<?php echo base_url(); ?>assets/assets/js/plugins/fullcalendar.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/fullcalendar.min.js"></script>
 <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-<script src="<?php echo base_url(); ?>assets/assets/js/plugins/jquery-jvectormap.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/jquery-jvectormap.js"></script>
 <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-<script src="<?php echo base_url(); ?>assets/assets/js/plugins/nouislider.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/nouislider.min.js"></script>
 <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+<script src="<?php echo base_url(); ?>assets/cloudflare/ajax/libs/core-js/2.4.1/core.js"></script>
 <!-- Library for adding dinamically elements -->
-<script src="<?php echo base_url(); ?>assets/assets/js/plugins/arrive.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/arrive.min.js"></script>
 <!--  Google Maps Plugin    -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Yno10-YTnLjjn_Vtk0V8cdcY5lC4plU"></script>
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Chartist JS -->
-<script src="<?php echo base_url(); ?>assets/assets/js/plugins/chartist.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/chartist.min.js"></script>
 <!--  Notifications Plugin    -->
-<script src="<?php echo base_url(); ?>assets/assets/js/plugins/bootstrap-notify.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="<?php echo base_url(); ?>assets/assets/js/material-dashboard.min.js?v=2.1.0"
+<script src="<?php echo base_url(); ?>assets/js/material-dashboard.min.js?v=2.1.0"
         type="text/javascript"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-<script src="<?php echo base_url(); ?>assets/assets/demo/demo.js"></script>
+<script src="<?php echo base_url(); ?>assets/demo/demo.js"></script>
 <script>
     $(document).ready(function () {
         $().ready(function () {
@@ -206,6 +201,41 @@
 
                 var new_color = $(this).data('color');
 
+                $.ajax({
+                    url: '<?php echo base_url();?>ajax',
+                    type: 'POST',
+                    data: {
+                        sidebar_color: new_color
+                    },
+                    success: function (response) {
+                        var jsonData = JSON.parse(response);
+                        if (jsonData.success === 1){
+                            swal({
+                                title: "Success!",
+                                text: "Updated Sidebar Color",
+                                buttonsStyling: false,
+                                confirmButtonClass: "btn btn-success",
+                                type: "success"
+                            }).catch(swal.noop)
+                        } else {
+                            swal({
+                                title: "Server Error!",
+                                buttonsStyling: false,
+                                confirmButtonClass: "btn btn-danger",
+                                type: 'error'
+                            }).catch(swal.noop);
+                        }
+                    },
+                    error: function(error) {
+                        swal({
+                            title: "Server Error!",
+                            buttonsStyling: false,
+                            confirmButtonClass: "btn btn-danger",
+                            type: 'error'
+                        }).catch(swal.noop);
+                    }
+                });
+
                 if ($sidebar.length != 0) {
                     $sidebar.attr('data-color', new_color);
                 }
@@ -224,6 +254,36 @@
                 $(this).addClass('active');
 
                 var new_color = $(this).data('background-color');
+
+                $.ajax({
+                    url: '<?php echo base_url();?>ajax',
+                    type: 'POST',
+                    data: {
+                        sidebar_back_color: new_color
+                    },
+                    success: function (response) {
+                        var jsonData = JSON.parse(response);
+                        if (jsonData.success === 1){
+                            swal({
+                                title: "Success!",
+                                text: "Updated Sidebar Background Color",
+                                buttonsStyling: false,
+                                confirmButtonClass: "btn btn-success",
+                                type: "success"
+                            }).catch(swal.noop)
+                        } else {
+                            swal({
+                                title: "Server Error!",
+                                buttonsStyling: false,
+                                confirmButtonClass: "btn btn-danger",
+                                type: 'error'
+                            }).catch(swal.noop);
+                        }
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
 
                 if ($sidebar.length != 0) {
                     $sidebar.attr('data-background-color', new_color);
@@ -337,7 +397,7 @@
     });
 </script>
 <!-- Sharrre libray -->
-<script src="<?php echo base_url(); ?>assets/assets/demo/jquery.sharrre.js"></script>
+<script src="<?php echo base_url(); ?>assets/demo/jquery.sharrre.js"></script>
 <script>
     $(document).ready(function () {
 

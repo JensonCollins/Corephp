@@ -11,7 +11,7 @@
 <!--</center>-->
 
 <div class="wrapper wrapper-full-page">
-    <div class="page-header error-page header-filter" style="background-image: url('<?php echo base_url()?>assets/assets/img/clint-mckoy.jpg')">
+    <div class="page-header error-page header-filter" style="background-image: url('<?php echo base_url()?>assets/img/clint-mckoy.jpg')">
         <!--   you can change the color of the filter page using: data-color="blue | green | orange | red | purple" -->
         <div class="content-center">
             <div class="row">

@@ -30,7 +30,7 @@ if (logged_in() == 0) {
 
     if ($page_name == 'ajax') {
 
-        echo "only ajax";
+        include "page/ajax.php";
 
     } else if ($page_name == 'grid') {
         // *********************** GRID **********************//

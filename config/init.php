@@ -10,9 +10,10 @@ require 'config.php';
 require 'functions.php';
 
 if (logged_in() === true) {
+
     $session_user_id = clear($_SESSION['user_id']);
 
-    $user_data = user_data($session_user_id, 'user_id', 'user_name', 'pass', 'email', 'regIP', 'dt', 'lastlogin_time', 'last_login_ip', 'krediti', 'amount_purchased', 'amount_refunds', 'super', 'active', 'rules');
+    $user_data = user_data($session_user_id, 'user_id', 'user_name', 'pass', 'email', 'regIP', 'dt', 'lastlogin_time', 'last_login_ip', 'krediti', 'amount_purchased', 'amount_refunds', 'super', 'active', 'rules', 'sidebar_color', 'sidebar_back_color', 'sidebar_back_image');
 
     if (user_active($user_data['user_name']) === false) {
 

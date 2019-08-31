@@ -81,8 +81,7 @@ if ($file == '') {
 
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" href="<?php echo base_url(); ?>assets/login/images/icons/apple-icon.png">
-    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/login/images/icons/favicon.ico">
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/img/favicon.ico">
     <title>
         Shop - <?php echo $tilte; ?>
     </title>
@@ -91,13 +90,13 @@ if ($file == '') {
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- CSS Files -->
-    <link href="<?php echo base_url(); ?>assets/assets/css/material-dashboard.min.css?v=2.1.0" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>assets/css/material-dashboard.min.css?v=2.1.0" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="<?php echo base_url(); ?>assets/assets/demo/demo.css" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>assets/demo/demo.css" rel="stylesheet" />
     <!-- Google Tag Manager -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="<?php echo base_url(); ?>assets/cloudflare/jquery-3.3.1.js"></script>
 
-    <script src="<?php echo base_url(); ?>assets/header.js"></script>
+    <script src="<?php echo base_url(); ?>assets/custom/js/header.js"></script>
 
     <script>
         (function(w, d, s, l, i) {

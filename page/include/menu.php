@@ -9,13 +9,8 @@
 </noscript>
 <!-- End Google Tag Manager (noscript) -->
 <div class="wrapper ">
-    <div class="sidebar" data-color="rose" data-background-color="black"
-         data-image="<?php echo base_url(); ?>assets/assets/img/sidebar-1.jpg">
-        <!--
-          Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-  
-          Tip 2: you can also add an image using data-image tag
-      -->
+    <div class="sidebar" data-color="<?php echo $user_data['sidebar_color'];?>" data-background-color="<?php echo $user_data['sidebar_back_color'];?>"
+         data-image="<?php echo base_url() . "assets/img/" . $user_data['sidebar_back_image']; ?>">
         <div class="logo">
             <a href="<?php echo base_url(); ?>" class="simple-text logo-mini">
                 ST
@@ -27,7 +22,7 @@
         <div class="sidebar-wrapper">
             <div class="user">
                 <div class="photo">
-                    <img src="<?php echo base_url(); ?>assets/images/admin.jpg" alt="avatar"/>
+                    <img src="<?php echo base_url(); ?>assets/img/admin.jpg" alt="avatar"/>
                 </div>
                 <div class="user-info">
                     <a data-toggle="collapse" href="#collapseExample" class="username">

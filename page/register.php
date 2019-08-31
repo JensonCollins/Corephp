@@ -80,8 +80,8 @@ if (empty($_POST['username']) === false) {
 
 <head>
     <meta charset="utf-8"/>
-    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url(); ?>assets/assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url(); ?>assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.png">
     <title>
         Register
     </title>
@@ -95,9 +95,9 @@ if (empty($_POST['username']) === false) {
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- CSS Files -->
-    <link href="<?php echo base_url(); ?>assets/assets/css/material-dashboard.min.css?v=2.1.0" rel="stylesheet"/>
+    <link href="<?php echo base_url(); ?>assets/css/material-dashboard.min.css?v=2.1.0" rel="stylesheet"/>
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="<?php echo base_url(); ?>assets/assets/demo/demo.css" rel="stylesheet"/>
+    <link href="<?php echo base_url(); ?>assets/demo/demo.css" rel="stylesheet"/>
     <!-- Google Tag Manager -->
     <script>
         (function (w, d, s, l, i) {
@@ -158,7 +158,7 @@ if (empty($_POST['username']) === false) {
 <!-- End Navbar -->
 <div class="wrapper wrapper-full-page">
     <div class="page-header register-page header-filter" filter-color="black"
-         style="background-image: url('<?php echo base_url(); ?>assets/assets/img/register.jpg')">
+         style="background-image: url('<?php echo base_url(); ?>assets/img/register.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-md-7 ml-auto mr-auto">
@@ -261,23 +261,18 @@ if (empty($_POST['username']) === false) {
                 <nav class="float-left">
                     <ul>
                         <li>
-                            <a href="https://www.creative-tim.com">
-                                Creative Tim
+                            <a href="<?php echo base_url(); ?>contact_us">
+                                Contact Us
                             </a>
                         </li>
                         <li>
-                            <a href="https://creative-tim.com/presentation">
+                            <a href="<?php echo base_url(); ?>about_us">
                                 About Us
                             </a>
                         </li>
                         <li>
-                            <a href="http://blog.creative-tim.com">
+                            <a href="<?php echo base_url(); ?>blog">
                                 Blog
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.creative-tim.com/license">
-                                Licenses
                             </a>
                         </li>
                     </ul>
@@ -288,30 +283,30 @@ if (empty($_POST['username']) === false) {
                         document.write(new Date().getFullYear())
                     </script>
                     , made with <i class="material-icons">favorite</i> by
-                    <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+                    <a href="http://yourjenson.com" target="_blank">Your Jenson</a> for a better design.
                 </div>
             </div>
         </footer>
     </div>
 </div>
 <!--   Core JS Files   -->
-<script src="<?php echo base_url(); ?>assets/assets/js/core/jquery.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/assets/js/core/popper.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/assets/js/core/bootstrap-material-design.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/core/jquery.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/core/popper.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/core/bootstrap-material-design.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
 <!--  Google Maps Plugin    -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Yno10-YTnLjjn_Vtk0V8cdcY5lC4plU"></script>
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Chartist JS -->
-<script src="<?php echo base_url(); ?>assets/assets/js/plugins/chartist.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/chartist.min.js"></script>
 <!--  Notifications Plugin    -->
-<script src="<?php echo base_url(); ?>assets/assets/js/plugins/bootstrap-notify.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="<?php echo base_url(); ?>assets/assets/js/material-dashboard.min.js?v=2.1.0"
+<script src="<?php echo base_url(); ?>assets/js/material-dashboard.min.js?v=2.1.0"
         type="text/javascript"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-<script src="<?php echo base_url(); ?>assets/assets/demo/demo.js"></script>
+<script src="<?php echo base_url(); ?>assets/demo/demo.js"></script>
 <script>
     $(document).ready(function () {
         $().ready(function () {
@@ -484,7 +479,7 @@ if (empty($_POST['username']) === false) {
     });
 </script>
 <!-- Sharrre libray -->
-<script src="<?php echo base_url(); ?>assets/assets/demo/jquery.sharrre.js"></script>
+<script src="<?php echo base_url(); ?>assets/demo/jquery.sharrre.js"></script>
 <script>
     $(document).ready(function () {
 

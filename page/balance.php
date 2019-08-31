@@ -21,7 +21,7 @@
                                                 <div class="panel-body milky-white-bg center-text">
                                                     <center>
                                                         <h3>Bitcoin</h3> <br>
-                                                        <img src="<?php echo base_url(); ?>assets/images/btc.png"
+                                                        <img src="<?php echo base_url(); ?>assets/img/btc.png"
                                                              width="150px">
                                                         <hr>
                                                         <h3>$5.00 / minimum</h3><br></center>
@@ -46,7 +46,7 @@
                                                 <div class="panel-body milky-white-bg center-text">
                                                     <center>
                                                         <h3>PerfectMoney</h3>  <br>
-                                                        <img src="<?php echo base_url(); ?>assets/images/pm.png"
+                                                        <img src="<?php echo base_url(); ?>assets/img/pm.png"
                                                              width="150px">
                                                         <hr>
                                                         <h3>$5.00 / minimum</h3> <br>
