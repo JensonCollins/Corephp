@@ -2,26 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79a4e1a3-f0c6-42b8-a605-58ad29bf71d6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/page/admin/menu.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/init.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/material-dashboard.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/material-dashboard.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/admin/support.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/admin/support.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/ajax.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/balance.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/balance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/btc.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/btc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/include/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/include/footer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/include/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/include/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/include/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/include/menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/include/transaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/include/transaction.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/pm.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/pm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/smtps.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/smtps.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/support.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/tickets.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +74,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/page/include" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/page/admin" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -95,19 +83,19 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\pkm\xampp7\htdocs\Corephp\page\admin" />
+      <recent name="E:\pkm\xampp7\htdocs\Corephp\page\include" />
+      <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\assets" />
+      <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\assets\cloudflare" />
+      <recent name="E:\pkm\xampp7\htdocs\Corephp\assets" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\custom\js" />
       <recent name="E:\pkm\xampp7\htdocs\Corephp\assets" />
       <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\assets\img" />
       <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\assets" />
       <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\assets\cloudflare\ajax\libs\core-js\2.4.1" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\pkm\xampp7\htdocs\Corephp\page\include" />
-      <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\assets" />
-      <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\assets\cloudflare" />
-      <recent name="E:\pkm\xampp7\htdocs\Corephp\assets" />
-      <recent name="E:\pkm\xampp7\htdocs\Corephp\page" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -137,7 +125,7 @@
       <workItem from="1567190141578" duration="73586000" />
       <workItem from="1567412569915" duration="6516000" />
       <workItem from="1567441765799" duration="192000" />
-      <workItem from="1567442008901" duration="2977000" />
+      <workItem from="1567442008901" duration="11696000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1567191297948</created>
@@ -181,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567251970755</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="initial show completed">
+      <created>1567448155770</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1567448155770</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +201,7 @@
     <MESSAGE value="ui complete" />
     <MESSAGE value="assets complete" />
     <MESSAGE value="external library imported" />
-    <option name="LAST_COMMIT_MESSAGE" value="external library imported" />
+    <MESSAGE value="initial show completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial show completed" />
   </component>
 </project>

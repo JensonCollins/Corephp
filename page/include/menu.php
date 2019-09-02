@@ -14,7 +14,7 @@
          data-image="<?php echo $user_data['sidebar_back_image']; ?>">
         <div class="logo">
             <a href="<?php echo base_url(); ?>" class="simple-text logo-mini">
-                ST
+
             </a>
             <a href="<?php echo base_url(); ?>" class="simple-text logo-normal">
                 Smtp Shop
@@ -77,20 +77,8 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <!--                    <li class="nav-item --><?php //echo $others;
-                                    ?><!--">-->
-                                    <!--                        <a class="nav-link" href="--><?php //echo base_url();
-                                    ?><!--others">-->
-                                    <!--                            <i class="menu-icon fa fa-at"></i>-->
-                                    <!--                            <p>Others-->
-                                    <!--                                <span class="badge badge-primary" style="border-radius: 50%; text-align: right;">-->
-                                    <!--                                --><?php //echo unsold_tools('10');
-                                    ?>
-                                    <!--                            </span></p>-->
-                                    <!--                        </a>-->
-                                    <!--                    </li>-->
                                 <?php } else if (!menuHasParent($menu_data[$i]->id)) { ?>
-                                    <li class="nav-item <?php echo $purchased; ?>">
+                                    <li class="nav-item  <?php echo (strtolower($menu_data[$i]->menu_link) == strtolower($active_menu)) ? 'active' : ''; ?>">
                                         <a class="nav-link"
                                            href="<?php echo base_url() . $menu_data[$i]->menu_link; ?>">
                                             <?php echo $menu_data[$i]->menu_icon; ?>
@@ -135,18 +123,6 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <!--                    <li class="nav-item --><?php //echo $others;
-                                ?><!--">-->
-                                <!--                        <a class="nav-link" href="--><?php //echo base_url();
-                                ?><!--others">-->
-                                <!--                            <i class="menu-icon fa fa-at"></i>-->
-                                <!--                            <p>Others-->
-                                <!--                                <span class="badge badge-primary" style="border-radius: 50%; text-align: right;">-->
-                                <!--                                --><?php //echo unsold_tools('10');
-                                ?>
-                                <!--                            </span></p>-->
-                                <!--                        </a>-->
-                                <!--                    </li>-->
                             <?php } else if (!menuHasParent($menu_data[$i]->id)) { ?>
                                 <li class="nav-item <?php echo (strtolower($menu_data[$i]->menu_link) == strtolower($active_menu)) ? 'active' : ''; ?>">
                                     <a class="nav-link" href="<?php echo base_url() . $menu_data[$i]->menu_link; ?>">
@@ -186,7 +162,7 @@
                             <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
                         </button>
                     </div>
-                    <a class="navbar-brand" href=""><?php echo $tilte; ?></a>
+                    <a class="navbar-brand" href=""><?php echo $title; ?></a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
                         aria-expanded="false" aria-label="Toggle navigation">

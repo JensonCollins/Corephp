@@ -80,11 +80,11 @@ if (isset($_POST['password'])) {
                                     Update Password
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!--<li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#link3" role="tablist">
                                     Color Settings
                                 </a>
-                            </li>
+                            </li>-->
                         </ul>
                         <div class="tab-content tab-space">
                             <div class="tab-pane active" id="link1">
@@ -155,13 +155,99 @@ if (isset($_POST['password'])) {
                                     </form>
                                 </div>
                             </div>
-                            <div class="tab-pane active" id="link1">
-                                <ul>
-                                    <li>Your Username is <strong><?php echo $user_data['user_name']; ?> </strong></li>
-                                    <li>Registered on <strong><?php echo $user_data['dt']; ?></strong></li>
-                                    <li>Current balance is <strong>$<?php echo $user_data['krediti']; ?></strong></li>
-                                    <li>Your Email is <strong><?php echo $user_data['email']; ?></strong></li>
-                                </ul>
+                            <div class="tab-pane" id="link3">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="header-title">
+                                            Sidebar Filters
+                                        </p>
+                                    </div>
+                                    <ul>
+                                        <li class="header-title"> Sidebar Filters</li>
+                                        <li class="adjustments-line">
+                                            <a href="javascript:void(0)" class="switch-trigger active-color">
+                                                <div class="badge-colors ml-auto mr-auto">
+                                                    <span class="badge filter badge-purple <?php echo ($user_data['sidebar_color'] == 'purple') ? 'active' : ''; ?>"
+                                                          data-color="purple"></span>
+                                                    <span class="badge filter badge-azure <?php echo ($user_data['sidebar_color'] == 'azure') ? 'active' : ''; ?>"
+                                                          data-color="azure"></span>
+                                                    <span class="badge filter badge-green <?php echo ($user_data['sidebar_color'] == 'green') ? 'active' : ''; ?>"
+                                                          data-color="green"></span>
+                                                    <span class="badge filter badge-warning <?php echo ($user_data['sidebar_color'] == 'warning') ? 'active' : ''; ?>"
+                                                          data-color="orange"></span>
+                                                    <span class="badge filter badge-danger <?php echo ($user_data['sidebar_color'] == 'danger') ? 'active' : ''; ?>"
+                                                          data-color="danger"></span>
+                                                    <span class="badge filter badge-rose <?php echo ($user_data['sidebar_color'] == 'rose') ? 'active' : ''; ?>"
+                                                          data-color="rose"></span>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </a>
+                                        </li>
+                                        <li class="header-title">Sidebar Background</li>
+                                        <li class="adjustments-line">
+                                            <a href="javascript:void(0)" class="switch-trigger background-color">
+                                                <div class="ml-auto mr-auto">
+                                                    <span class="badge filter badge-black <?php echo ($user_data['sidebar_back_color'] == 'black') ? 'active' : ''; ?>"
+                                                          data-background-color="black"></span>
+                                                    <span class="badge filter badge-white <?php echo ($user_data['sidebar_back_color'] == 'white') ? 'active' : ''; ?>"
+                                                          data-background-color="white"></span>
+                                                    <span class="badge filter badge-red <?php echo ($user_data['sidebar_back_color'] == 'red') ? 'active' : ''; ?>"
+                                                          data-background-color="red"></span>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </a>
+                                        </li>
+                                        <li class="adjustments-line">
+                                            <a href="javascript:void(0)" class="switch-trigger">
+                                                <p>Sidebar Mini</p>
+                                                <label class="ml-auto">
+                                                    <div class="togglebutton switch-sidebar-mini">
+                                                        <label>
+                                                            <input type="checkbox">
+                                                            <span class="toggle"></span>
+                                                        </label>
+                                                    </div>
+                                                </label>
+                                                <div class="clearfix"></div>
+                                            </a>
+                                        </li>
+                                        <li class="adjustments-line">
+                                            <a href="javascript:void(0)" class="switch-trigger">
+                                                <p>Sidebar Images</p>
+                                                <label class="switch-mini ml-auto">
+                                                    <div class="togglebutton switch-sidebar-image">
+                                                        <label>
+                                                            <input type="checkbox" checked="">
+                                                            <span class="toggle"></span>
+                                                        </label>
+                                                    </div>
+                                                </label>
+                                                <div class="clearfix"></div>
+                                            </a>
+                                        </li>
+                                        <li class="header-title">Images</li>
+                                        <li class="<?php echo ($user_data['sidebar_back_image'] == (base_url() . 'assets/img/sidebar-1.jpg')) ? 'active' : ''; ?>">
+                                            <a class="img-holder switch-trigger" href="javascript:void(0)">
+                                                <img src="<?php echo base_url(); ?>assets/img/sidebar-1.jpg" alt="">
+                                            </a>
+                                        </li>
+                                        <li class="<?php echo ($user_data['sidebar_back_image'] == (base_url() . 'assets/img/sidebar-2.jpg')) ? 'active' : ''; ?>">
+                                            <a class="img-holder switch-trigger" href="javascript:void(0)">
+                                                <img src="<?php echo base_url(); ?>assets/img/sidebar-2.jpg" alt="">
+                                            </a>
+                                        </li>
+                                        <li class="<?php echo ($user_data['sidebar_back_image'] == (base_url() . 'assets/img/sidebar-3.jpg')) ? 'active' : ''; ?>">
+                                            <a class="img-holder switch-trigger" href="javascript:void(0)">
+                                                <img src="<?php echo base_url(); ?>assets/img/sidebar-3.jpg" alt="">
+                                            </a>
+                                        </li>
+                                        <li class="<?php echo ($user_data['sidebar_back_image'] == (base_url() . 'assets/img/sidebar-4.jpg')) ? 'active' : ''; ?>">
+                                            <a class="img-holder switch-trigger" href="javascript:void(0)">
+                                                <img src="<?php echo base_url(); ?>assets/img/sidebar-4.jpg" alt="">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
