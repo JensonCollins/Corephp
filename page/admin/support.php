@@ -95,7 +95,7 @@
                                             <td><center>' . $tipi . '</center></td>                               
                                             <td><center>' . $status . '</center></td>                                       
                                             <td><center>
-                                            <a href="support/' . enc(clear($row['id'])) . '"> <button class="btn btn-success">View Ticket</button></center></a></td>
+                                            <a href="tickets/' . enc(clear($row['id'])) . '"> <button class="btn btn-success">View Ticket</button></center></a></td>
                                             </tr></strong>';
                             }
                             ?>

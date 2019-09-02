@@ -27,6 +27,7 @@ if (logged_in() == 0) {
     $user_name = clear($user_data['user_name']);
     $user_id = clear($user_data['user_id']);
 
+    $active_menu = "";
 
     if ($page_name == 'ajax') {
 
@@ -114,9 +115,9 @@ if (logged_in() == 0) {
 
             include 'page/purchased.php';
 
-        } else if ($page_name == 'support') {
+        } else if ($page_name == 'tickets') {
 
-            include 'page/support.php';
+            include 'page/tickets.php';
 
         } else if ($page_name == 'balance') {
             include 'page/balance.php';
@@ -134,6 +135,9 @@ if (logged_in() == 0) {
         } else if ($page_name == 'profile') {
 
             include 'page/profile.php';
+
+        } else if ($page_name == 'transaction') {
+            include 'page/include/transaction.php';
 
         } else if ($page_name == 'admin') {
 

@@ -26,6 +26,7 @@ if (logged_in() === true) {
 
     $menu_data = getAllmenu($user_data['super']);
 
+    $settings = getAllSettings();
 }
 
 $errors = array();

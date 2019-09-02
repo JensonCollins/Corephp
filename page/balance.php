@@ -29,7 +29,7 @@
                                                         <input type="hidden" name="btc">
                                                         <div class="row">
                                                             <div class="col-lg-8">
-                                                                <input type="number" name="amount" class="form-control" min="5">
+                                                                <input type="number" step="0.01" name="amount" class="form-control">
                                                             </div>
                                                             <div class="col-lg-4">
                                                                 <button type="submit" class="btn btn-warning">PAY
@@ -55,8 +55,7 @@
                                                         <input type="hidden" name="pm">
                                                         <div class="row">
                                                             <div class="col-md-8">
-                                                                <input type="number" class="form-control" name="amount"
-                                                                       min="5">
+                                                                <input type="number" step="0.01" class="form-control" name="amount">
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <button type="submit" class="btn btn-danger">PAY

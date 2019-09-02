@@ -1,30 +1,31 @@
 <?php
 
-
-//die();
 //skype ajay.yadav008
 // on this file blockchane push callback
-$page_value = 13;
+
 if (!empty($page_value)) {
 
 	// Include the autoload.php from its vendor directory
 
 	require 'btc/vendor/autoload.php';
-	$apiKey =  '97a8535a-7538-4470-8aa6-c318bb8b8f5e';
+	$apiKey =  $settings['btc_api_key'];
 	$order_id = clear($page_value);
-	$xPub = 'xpub6DHE1DPVEeK6cXF9ytHLiEH8HNZtUAbHV2jURKaNX4foVHnVXQJHMoSN1kZWXfKiGv66acYySep8yMYdnoojMpuuVFmysW9oxeFHiuvKjq5';
+	$xPub = $settings['btc_xpub'];
 
 	
 	//selct from datase  all info of this order 
 	$sql = $db->query("SELECT * FROM `btc` WHERE `order_id` = '$order_id'");
-	$show = $sql->fetch_assoc();	
-    echo json_encode($show);
+	$show = $sql->fetch_assoc();
 
 
 	$blockchain = new \Blockchain\Blockchain($apiKey);
 	$add = $blockchain->Explorer->getAddress($show['addres']);
 	$tx_x = $add->transactions[0]->hash;
 
+    if($tx_x)
+    {
+        $updated = $db->query("UPDATE `btc` SET `status` = 'completed' WHERE `order_id` = '" . $show['order_id'] . "'") or die ($db->error);
+    }
 	$block = $blockchain->Explorer->getTransaction($tx_x);
 
 print_r($tx_x);
@@ -39,17 +40,8 @@ print_r($tx_x);
 
 
 
-
-
-
 // Output log of activity
 
-print_r($blockchain->log);
-
-
-
-
-
-
+//print_r($blockchain->log);
 
 }

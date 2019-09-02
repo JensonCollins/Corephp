@@ -22,13 +22,10 @@
         </div>
         <div class="sidebar-wrapper">
             <div class="user">
-                <div class="photo">
-                    <img src="<?php echo base_url(); ?>assets/img/admin.jpg" alt="avatar"/>
-                </div>
                 <div class="user-info">
                     <a data-toggle="collapse" href="#collapseExample" class="username">
-              <span>
-                <?php echo $user_data['user_name']; ?>
+              <span style="text-align: center;">
+                Welcome <?php echo $user_data['user_name']; ?>
                 <b class="caret"></b>
               </span>
                     </a>
@@ -70,9 +67,10 @@
                                             <ul class="nav">
                                                 <?php for ($j = 0; $j < count($child_menu); $j++) { ?>
                                                     <li class="nav-item ">
-                                                        <a class="nav-link" href="<?php echo base_url().$child_menu[$j]->menu_link; ?>">
-                                                            <span class="sidebar-mini"> <?php echo ucfirst(substr($child_menu[$j]->menu_name, 0, 1))?> </span>
-                                                            <span class="sidebar-normal"> <?php echo $child_menu[$j]->menu_name?> </span>
+                                                        <a class="nav-link"
+                                                           href="<?php echo base_url() . $child_menu[$j]->menu_link; ?>">
+                                                            <span class="sidebar-mini"> <?php echo ucfirst(substr($child_menu[$j]->menu_name, 0, 1)) ?> </span>
+                                                            <span class="sidebar-normal"> <?php echo $child_menu[$j]->menu_name ?> </span>
                                                         </a>
                                                     </li>
                                                 <?php } ?>
@@ -91,9 +89,10 @@
                                     <!--                            </span></p>-->
                                     <!--                        </a>-->
                                     <!--                    </li>-->
-                                <?php } else if(!menuHasParent($menu_data[$i]->id)) { ?>
+                                <?php } else if (!menuHasParent($menu_data[$i]->id)) { ?>
                                     <li class="nav-item <?php echo $purchased; ?>">
-                                        <a class="nav-link" href="<?php echo base_url() . $menu_data[$i]->menu_link; ?>">
+                                        <a class="nav-link"
+                                           href="<?php echo base_url() . $menu_data[$i]->menu_link; ?>">
                                             <?php echo $menu_data[$i]->menu_icon; ?>
                                             <p><?php echo $menu_data[$i]->menu_name; ?></p>
                                         </a>
@@ -114,7 +113,7 @@
                                 $child_menu = getChildMenu($menu_data[$i]->id);
                                 ?>
 
-                                <li class="nav-item ">
+                                <li class="nav-item <?php echo (strtolower($menu_data[$i]->menu_link) == strtolower($active_menu)) ? 'active' : ''; ?>">
                                     <a class="nav-link" data-toggle="collapse"
                                        href="#<?php echo $menu_data[$i]->menu_name . 'example'; ?>">
                                         <?php echo $menu_data[$i]->menu_icon; ?>
@@ -126,9 +125,10 @@
                                         <ul class="nav">
                                             <?php for ($j = 0; $j < count($child_menu); $j++) { ?>
                                                 <li class="nav-item ">
-                                                    <a class="nav-link" href="<?php echo base_url().$child_menu[$j]->menu_link; ?>">
-                                                        <span class="sidebar-mini"> <?php echo ucfirst(substr($child_menu[$j]->menu_name, 0, 1))?> </span>
-                                                        <span class="sidebar-normal"> <?php echo $child_menu[$j]->menu_name?> </span>
+                                                    <a class="nav-link"
+                                                       href="<?php echo base_url() . $child_menu[$j]->menu_link; ?>">
+                                                        <span class="sidebar-mini"> <?php echo ucfirst(substr($child_menu[$j]->menu_name, 0, 1)) ?> </span>
+                                                        <span class="sidebar-normal"> <?php echo $child_menu[$j]->menu_name ?> </span>
                                                     </a>
                                                 </li>
                                             <?php } ?>
@@ -147,8 +147,8 @@
                                 <!--                            </span></p>-->
                                 <!--                        </a>-->
                                 <!--                    </li>-->
-                            <?php } else if(!menuHasParent($menu_data[$i]->id)) { ?>
-                                <li class="nav-item <?php echo $purchased; ?>">
+                            <?php } else if (!menuHasParent($menu_data[$i]->id)) { ?>
+                                <li class="nav-item <?php echo (strtolower($menu_data[$i]->menu_link) == strtolower($active_menu)) ? 'active' : ''; ?>">
                                     <a class="nav-link" href="<?php echo base_url() . $menu_data[$i]->menu_link; ?>">
                                         <?php echo $menu_data[$i]->menu_icon; ?>
                                         <p><?php echo $menu_data[$i]->menu_name; ?></p>
@@ -161,7 +161,7 @@
 
                     <?php if ($user_data['super'] == 11) { ?>
 
-                        <li class="nav-item <?php echo $rules; ?>">
+                        <li class="nav-item">
 
                             <a class="nav-link" href="<?php echo base_url(); ?>admin">
                                 <i class="menu-icon fa  fa-user"></i>

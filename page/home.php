@@ -11,7 +11,7 @@
 
                 If you have any <b>Question</b> ,<b>Problem</b>, <b>Suggestion</b> or <b>Request</b> Please feel free to
 
-                <a class="label label-default" href="<?php echo base_url(); ?>support/new">
+                <a class="label label-default" href="<?php echo base_url(); ?>tickets/new">
                     <span class="glyphicon glyphicon-pencil"></span>
                     <strong> Open a Ticket</strong>
                 </a>
@@ -62,7 +62,7 @@
 
         <div class="col-lg-6">
 
-            <div class="card" style="margin-top: 0px;">
+            <!--<div class="card" style="margin-top: 0px;">
                 <div class="card-body">
 
                     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -73,9 +73,9 @@
                         function drawChart2() {
                             var data = google.visualization.arrayToDataTable([
                                 ['Tools', 'Number'],
-                                ['SMTP IP',  <?php echo unsold_tools('1'); ?>],
-                                ['SMTP Domain',     <?php echo unsold_tools('2'); ?>],
-                                ['Mailer',     <?php echo unsold_tools('3'); ?>]]);
+                                ['SMTP IP',  <?php /*echo unsold_tools('1'); */?>],
+                                ['SMTP Domain',     <?php /*echo unsold_tools('2'); */?>],
+                                ['Mailer',     <?php /*echo unsold_tools('3'); */?>]]);
 
                             var options = {
                                 title: 'Available Tools',
@@ -105,13 +105,13 @@
                         }
                     </style>
 
-                    <!--<div id="chart_div" style="width: 450px; height: 200px;"></div>-->
+                    // <div id="chart_div" style="width: 450px; height: 200px;"></div>
                     <div id="donutchart" style="width: 300px; height: 160px;">
 
                     </div>
 
                 </div>
-            </div>
+            </div>-->
 
             <div class="card">
                 <div class="card-body">
@@ -124,18 +124,32 @@
                         <br><br>
 
                         <h5><b>Available Payment Methods </b></h5><br>
-                        <center>
-                            <img src="https://www.olux.io/files/img/pmlogo2.png" width="16%" title="PerfectMoney"
-                                 href="balance">
-                            <img src="https://www.olux.io/files/img/btclogo.png" width="16%" title="Bitcoin"
-                                 href="balance">
-                            <img src="https://www.olux.io/files/img/ethlogo.png" width="16%" title="Bitcoin"
-                                 href="balance">
-                            <img src="https://www.olux.io/files/img/ltclogo2.png" width="16%" title="Bitcoin"
-                                 href="balance">
-                            <img src="https://www.olux.io/files/img/bchlogo.png" width="16%" title="Bitcoin"
-                                 href="balance">
-                        </center>
+                        <div class="row">
+                            <div class="col-md-12 m-auto">
+                                <div class="m-auto">
+                                    <a href="<?php echo base_url(); ?>balance">
+                                        <img src="https://www.olux.io/files/img/pmlogo2.png" width="19%"
+                                             alt="PerfectMoney">
+                                    </a>
+                                    <a href="<?php echo base_url(); ?>balance">
+                                        <img src="https://www.olux.io/files/img/btclogo.png" width="19%"
+                                             alt="Bitcoin">
+                                    </a>
+                                    <a href="<?php echo base_url(); ?>balance">
+                                        <img src="https://www.olux.io/files/img/ethlogo.png" width="19%"
+                                             alt="Bitcoin">
+                                    </a>
+                                    <a href="<?php echo base_url(); ?>balance">
+                                        <img src="https://www.olux.io/files/img/ltclogo2.png" width="19%"
+                                             alt="Bitcoin">
+                                    </a>
+                                    <a href="<?php echo base_url(); ?>balance">
+                                        <img src="https://www.olux.io/files/img/bchlogo.png" width="19%"
+                                             alt="Bitcoin">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

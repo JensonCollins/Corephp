@@ -272,7 +272,7 @@ function menuHasParent($id)
     global $db;
     $sql = $db->query("SELECT parent_id FROM `menu` WHERE  visible = 1 AND id = '$id'");
     $data = $sql->fetch_object();
-    if($data->parent_id == 0)
+    if ($data->parent_id == 0)
         return false;
     return true;
 }
@@ -288,4 +288,25 @@ function getChildMenu($parent_id)
         array_push($data_array, $row);
 
     return $data_array;
+}
+
+function getAllSettings()
+{
+    global $db;
+    $data_array = array();
+
+    $query_data = $db->query("SELECT * FROM settings");
+    while ($row = $query_data->fetch_object())
+        $data_array[$row->setting_key] = $row->setting_value;
+
+    return $data_array;
+}
+
+function getBtcAddress($user_id) {
+    global $db;
+
+    $query_data = $db->query("SELECT * FROM btc WHERE user_id='$user_id' AND status!='completed' order by order_id desc");
+    $data = $query_data->fetch_assoc();
+
+    return $data;
 }

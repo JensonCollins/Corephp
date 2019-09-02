@@ -14,18 +14,16 @@
                             <!--        Here you can write extra buttons/actions for the toolbar              -->
                         </div>
                         <div class="material-datatables">
-                            <table id="datatables" class="table table-striped table-no-bordered table-hover"
+                            <table id="datatables" class="table table-striped table-no-bordered table-hover table-fixed"
                                    cellspacing="0" width="100%" style="width:100%">
                                 <thead>
                                 <tr>
                                     <th class="disabled-sorting">ID</th>
                                     <th>Country</th>
-                                    <th>Webmail</th>
-                                    <th>Detected Hosting</th>
-                                    <th>Seller</th>
+                                    <th>Detected ISP</th>
+                                    <th>Port</th>
                                     <th>Send Test to</th>
                                     <th>Price</th>
-                                    <th>Added on</th>
                                     <th class="disabled-sorting center">Buy</th>
                                 </tr>
                                 </thead>
@@ -33,9 +31,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Country</th>
-                                    <th>Webmail</th>
-                                    <th>Detected Hosting</th>
-                                    <th>Seller</th>
+                                    <th>Detected ISP</th>
                                     <th>Send Test to</th>
                                     <th>Price</th>
                                     <th>Added on</th>
@@ -52,16 +48,14 @@
                                     $details = json_decode($row['details'], TRUE);
                                     $smtp_webmail = $details['smtp_webmail'];
                                     $smtp_server_inf = $details['smtp_server_inf'];
+                                    $port = $details['port'];
                                     echo ' <tr>
                                                 <td><center>' . clear($row["item_id"]) . '</center></td>
                                                 <td>' . flag($row["country"]) . ' - ' . $row["country_name"] . '</td>
-                                                <td>' . $smtp_webmail . '</td>
                                                 <td>' . $smtp_server_inf . '</td>
-                                                <td>' . $row['seller'] . '</td>
-                                                <td>Check</td>
+                                                <td>' . $port . '</td>
+                                                <td><button class="btn btn-success" onclick="smtpCheck('. clear($row["item_id"]) .')"><i class="material-icons">check</i>Check</button></td>
                                                 <td><strong>$' . ($row["price"]) . '</strong></td>
-                                                <td>' . ($row["date_added"]) . '</td>
-                                                
                                                 <td>
                                                      <center><button onclick="buy(\'' . enc($row['item_id']) . '\',\'tools\')" class="btn rad btn-primary btn-xs hide' . clear(enc($row['item_id'])) . '"> <i class="menu-icon fa fa-shopping-cart"></i> Buy</button>
                                                      </center>
@@ -96,10 +90,9 @@
             language: {
                 search: "_INPUT_",
                 searchPlaceholder: "Search records",
-            }
+            },
+            scrollY: 600
         });
-
-        var table = $('#datatable').DataTable();
 
         /*$('#datatables thead tr').clone(true).appendTo('#datatables thead');
 
@@ -117,4 +110,26 @@
             });
         });*/
     });
+
+    function smtpCheck(smtp_id) {
+        $.ajax({
+            url: '<?php echo base_url();?>ajax',
+            type: 'POST',
+            data: {
+                smtp_id: smtp_id
+            },
+            success: function (response) {
+                var jsonData = JSON.parse(response);
+
+            },
+            error: function(error) {
+                swal({
+                    title: "Server Error!",
+                    buttonsStyling: false,
+                    confirmButtonClass: "btn btn-danger",
+                    type: 'error'
+                }).catch(swal.noop);
+            }
+        })
+    }
 </script>

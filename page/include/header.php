@@ -1,6 +1,7 @@
 <?php
 
 $file = $page_name;
+$active_menu = $page_name;
 
 if ($file == '') {
     $tilte = 'Dashboard';

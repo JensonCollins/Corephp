@@ -80,13 +80,20 @@ if (isset($_POST['password'])) {
                                     Update Password
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#link3" role="tablist">
+                                    Color Settings
+                                </a>
+                            </li>
                         </ul>
                         <div class="tab-content tab-space">
                             <div class="tab-pane active" id="link1">
-                                <li>Your Username is <strong><?php echo $user_data['user_name']; ?> </strong></li>
-                                <li>Registered on <strong><?php echo $user_data['dt']; ?></strong></li>
-                                <li>Current balance is <strong>$<?php echo $user_data['krediti']; ?></strong></li>
-                                <li>Your Email is <strong><?php echo $user_data['email']; ?></strong></li>
+                                <ul>
+                                    <li>Your Username is <strong><?php echo $user_data['user_name']; ?> </strong></li>
+                                    <li>Registered on <strong><?php echo $user_data['dt']; ?></strong></li>
+                                    <li>Current balance is <strong>$<?php echo $user_data['krediti']; ?></strong></li>
+                                    <li>Your Email is <strong><?php echo $user_data['email']; ?></strong></li>
+                                </ul>
                             </div>
                             <div class="tab-pane" id="link2">
                                 <div class="card">
@@ -147,6 +154,14 @@ if (isset($_POST['password'])) {
                                         </div>
                                     </form>
                                 </div>
+                            </div>
+                            <div class="tab-pane active" id="link1">
+                                <ul>
+                                    <li>Your Username is <strong><?php echo $user_data['user_name']; ?> </strong></li>
+                                    <li>Registered on <strong><?php echo $user_data['dt']; ?></strong></li>
+                                    <li>Current balance is <strong>$<?php echo $user_data['krediti']; ?></strong></li>
+                                    <li>Your Email is <strong><?php echo $user_data['email']; ?></strong></li>
+                                </ul>
                             </div>
                         </div>
                     </div>

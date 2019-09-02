@@ -104,7 +104,7 @@
                                                           <td><center>' . $tipi . '</center></td>                               
                                                           <td><center>' . $status . '</center></td>                                       
                                                           <td><center>
-                                                          <a href="support/' . enc(clear($row['id'])) . '"> <button class="btn  btn-xs btn-success">View Ticket</button></center></a></td>
+                                                          <a href="tickets/' . enc(clear($row['id'])) . '"> <button class="btn  btn-xs btn-success">View Ticket</button></center></a></td>
                                                           </tr></strong>';
                                             }
                                             ?>
@@ -115,7 +115,7 @@
                                     <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
                                         <div class="row gutter">
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
-                                                <a href="<?php echo base_url(); ?>support/new"
+                                                <a href="<?php echo base_url(); ?>tickets/new"
                                                    class="btn btn-primary btn-lg" style="color: #fff;">OPEN TICKET
                                                     <div class="ripple-container"></div>
                                                 </a>

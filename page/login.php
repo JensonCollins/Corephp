@@ -196,37 +196,6 @@ if (empty($_POST['username']) === false) {
                 </div>
             </div>
         </div>
-        <footer class="footer">
-            <div class="container">
-                <nav class="float-left">
-                    <ul>
-                        <li>
-                            <a href="<?php echo base_url(); ?>contact_us">
-                                Contact Us
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url(); ?>about_us">
-                                About Us
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url(); ?>blog">
-                                Blog
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="copyright float-right">
-                    &copy;
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script>
-                    , made with <i class="material-icons">favorite</i> by
-                    <a href="http://yourjenson.com" target="_blank">Your Jenson</a> for a better design.
-                </div>
-            </div>
-        </footer>
     </div>
 </div>
 <!--   Core JS Files   -->
