@@ -1,3 +1,7 @@
+<?php
+//sendTestmailSMTP("smtp.utoronto.ca", "pfhr@utoronto.ca","pfhr2013", "465","jenson.collins@hotmail.com");
+?>
+
 <style>
     tfoot > tr > th {
         font-weight: 400;
@@ -14,7 +18,11 @@
                             <i class="material-icons">assignment</i>
                         </div>
                         <h4 class="card-title">Smtps</h4>
+                        <div class="form-group mt-5 mb-5">
+                            <button class="btn btn-success" onclick="edit_checker_email()">Edit Checker Email</button>
+                        </div>
                     </div>
+                    <input type="hidden" id="checker_default_email" value="<?php echo $user_data['checker_email']; ?>">
                     <div class="card-body">
                         <div class="toolbar">
                             <!--        Here you can write extra buttons/actions for the toolbar              -->
@@ -30,7 +38,7 @@
                                     <th>Port</th>
                                     <th>Send Test to</th>
                                     <th>Price</th>
-                                    <th class="disabled-sorting center">Buy</th>
+                                    <th class="disabled-sorting m-auto">Buy</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
@@ -38,9 +46,9 @@
                                     <th>ID</th>
                                     <th>Country</th>
                                     <th>Detected ISP</th>
+                                    <th>Port</th>
                                     <th>Send Test to</th>
                                     <th>Price</th>
-                                    <th>Added on</th>
                                     <th class="disabled-sorting">Buy</th>
                                 </tr>
                                 </tfoot>
@@ -117,19 +125,38 @@
     });
 
     function smtpCheck(self, smtp_id) {
-        console.log(self);
         $(self).removeClass("btn-success");
         $(self).addClass("btn-danger");
         $(self).html("<i class='fa fa-send'></i>&nbsp;&nbsp;Sending...");
+        var recepient_name = $("#checker_default_email").val();
         $.ajax({
             url: '<?php echo base_url();?>ajax',
             type: 'POST',
             data: {
-                smtp_id: smtp_id
+                smtp_id: smtp_id,
+                recepient_name: recepient_name
             },
             success: function (response) {
                 var jsonData = JSON.parse(response);
-
+                if(jsonData.success === 1){
+                    swal({
+                        title: "Email Sent Success",
+                        buttonsStyling: false,
+                        confirmButtonClass: "btn btn-success",
+                        type: 'success'
+                    }).catch(swal.noop);
+                    $(self).removeClass("btn-danger");
+                    $(self).addClass("btn-success");
+                    $(self).html("<i class=\"material-icons\">check</i>&nbsp;&nbsp;Sent to " + recepient_name);
+                } else {
+                    swal({
+                        title: "Email Sent Failed!",
+                        buttonsStyling: false,
+                        confirmButtonClass: "btn btn-danger",
+                        type: 'error'
+                    }).catch(swal.noop);
+                    $(self).html("<i class='fa fa-warning'></i>&nbsp;&nbsp;Failed to " + recepient_name);
+                }
             },
             error: function(error) {
                 swal({
@@ -140,6 +167,63 @@
                 }).catch(swal.noop);
             }
         })
+    }
+
+    function email_change(self) {
+        $("#checker_default_email").val($(self).val());
+    }
+
+    function change_checker_email(reception) {
+        $.ajax({
+            url: '<?php echo base_url();?>ajax',
+            type: 'POST',
+            data: {
+                checker_email: $("#checker_default_email").val(),
+                member_id: "<?php echo $user_data['user_id']; ?>"
+            },
+            success: function (response) {
+                var jsonData = JSON.parse(response);
+                if(jsonData.success === 1){
+                    swal({
+                        title: "Email Checker Address Updated",
+                        buttonsStyling: false,
+                        confirmButtonClass: "btn btn-success",
+                        type: 'success'
+                    }).catch(swal.noop);
+                } else {
+                    swal({
+                        title: "Update Failed!",
+                        buttonsStyling: false,
+                        confirmButtonClass: "btn btn-danger",
+                        type: 'error'
+                    }).catch(swal.noop);
+                    $(self).html("<i class='fa fa-warning'></i>&nbsp;&nbsp;Failed to " + recepient_name);
+                }
+            },
+            error: function(error) {
+                swal({
+                    title: "Server Error!",
+                    buttonsStyling: false,
+                    confirmButtonClass: "btn btn-danger",
+                    type: 'error'
+                }).catch(swal.noop);
+            }
+        })
+    }
+
+    function edit_checker_email() {
+        swal({
+            title: 'Change Checker Email Address',
+            html: '<input type="email" class="form-control" id="checker_email" onchange="email_change(this)" value="<?php echo $user_data['checker_email']; ?>">',
+            showCancelButton: true,
+            confirmButtonClass: 'btn btn-success change_checker_email',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: false
+        }).then(function(result) {
+             if(result.value) {
+                 change_checker_email();
+             }
+        }).catch(swal.noop)
     }
 </script>
 

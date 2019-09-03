@@ -1,6 +1,8 @@
 <?php
 
 // gjen sa ancaunde nuk ka  shitur
+use PHPMailer\PHPMailer\PHPMailer;
+
 function unsold_tools($type)
 {
     global $db;
@@ -302,7 +304,8 @@ function getAllSettings()
     return $data_array;
 }
 
-function getBtcAddress($user_id) {
+function getBtcAddress($user_id)
+{
     global $db;
 
     $query_data = $db->query("SELECT * FROM btc WHERE user_id='$user_id' AND status!='completed' order by order_id desc");
@@ -326,7 +329,8 @@ function get_geolocation($apiKey, $ip, $lang = "en", $fields = "*", $excludes = 
     return curl_exec($cURL);
 }
 
-function validate_ip($ip_address) {
+function validate_ip($ip_address)
+{
     if (filter_var($ip_address, FILTER_VALIDATE_IP)) {
         return true;
     } else {
@@ -334,10 +338,50 @@ function validate_ip($ip_address) {
     }
 }
 
-function validate_hostname($hostname) {
+function validate_hostname($hostname)
+{
     if (filter_var(gethostbyname($hostname), FILTER_VALIDATE_IP)) {
         return true;
     } else {
         return false;
+    }
+}
+
+function sendTestmailSMTP($smtp_server, $smtp_user_name, $smtp_user_pass, $smtp_port, $recepient_name)
+{
+    require_once "page/include/phpmailer/vendor/autoload.php";
+    $mail = new PHPMailer;
+
+    $mail->isSMTP();
+    $mail->Host = ($smtp_server);
+    $mail->SMTPAuth = true;
+    $mail->SMTPAutoTLS = false;
+    $mail->Username = $smtp_user_name;
+    $mail->Password = $smtp_user_pass;
+    $mail->SMTPSecure = ($smtp_port === "465") ? "ssl" : "tls";// :
+    $mail->Port = $smtp_port;
+    $mail->SMTPOptions = array(
+        'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+        )
+    );
+
+    $mail->From = $smtp_user_name;
+    $mail->FromName = "Full Name";
+
+    $mail->addAddress($recepient_name, "Recepient Name");
+
+    $mail->isHTML(true);
+
+    $mail->Subject = "Subject Text";
+    $mail->Body = "<i>Mail body in HTML</i>";
+    $mail->AltBody = "This is the plain text version of the email content";
+
+    if (!$mail->send()) {
+        return false;
+    } else {
+        return true;
     }
 }
