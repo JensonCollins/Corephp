@@ -156,6 +156,17 @@ function alert($message,$type = 'success'){
     //primary
     //success
 
+    return '<script>
+                $(document).ready(function() {
+                    swal({
+                        text: "'.$message.'",
+                        buttonsStyling: false,
+                        confirmButtonClass: "btn btn-'.$type.'",
+                        type: "'.$type.'"
+                    }).catch(swal.noop)
+                });
+            </script>';
+
     return '<div class="sufee-alert alert with-close alert-'.$type.' alert-dismissible fade show"> 
                      <center>'.$message.'</center>
              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>

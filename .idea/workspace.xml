@@ -2,35 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79a4e1a3-f0c6-42b8-a605-58ad29bf71d6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/img/bg.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/material-dashboard.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/material-dashboard.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/custom/js/admin_add.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/custom/js/admin_add.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/init.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/general.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/general.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/admin/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/admin/add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/admin/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/admin/menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/admin/support.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/admin/tickets.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/balance.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/balance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/include/buy.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/include/buy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/include/grid/accounts.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/include/grid/accounts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/include/grid/stuff.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/include/grid/stuff.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/leads.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/leads.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/php_mailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/php_mailer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/purchased.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/purchased.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/rdps.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/rdps.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/rules.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/rules.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/shells.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/shells.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/smtpDomain.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/smtpDomain.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/smtpIP.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/smtpIP.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/ajax.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/smtps.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/smtps.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/sshs.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/sshs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/tickets.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/tickets.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +15,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <execution>
       <executable />
     </execution>
@@ -102,6 +79,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.composer" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -147,7 +125,7 @@
       <workItem from="1567412569915" duration="6516000" />
       <workItem from="1567441765799" duration="192000" />
       <workItem from="1567442008901" duration="16436000" />
-      <workItem from="1567493269949" duration="8992000" />
+      <workItem from="1567493269949" duration="24804000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1567191297948</created>
@@ -205,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567459438616</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="initial show completed">
+      <created>1567509720766</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1567509720767</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

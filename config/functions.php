@@ -310,3 +310,34 @@ function getBtcAddress($user_id) {
 
     return $data;
 }
+
+function get_geolocation($apiKey, $ip, $lang = "en", $fields = "*", $excludes = "")
+{
+    $url = "https://api.ipgeolocation.io/ipgeo?apiKey=" . $apiKey . "&ip=" . $ip . "&lang=" . $lang . "&fields=" . $fields . "&excludes=" . $excludes;
+    $cURL = curl_init();
+
+    curl_setopt($cURL, CURLOPT_URL, $url);
+    curl_setopt($cURL, CURLOPT_HTTPGET, true);
+    curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($cURL, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/json',
+        'Accept: application/json'
+    ));
+    return curl_exec($cURL);
+}
+
+function validate_ip($ip_address) {
+    if (filter_var($ip_address, FILTER_VALIDATE_IP)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function validate_hostname($hostname) {
+    if (filter_var(gethostbyname($hostname), FILTER_VALIDATE_IP)) {
+        return true;
+    } else {
+        return false;
+    }
+}

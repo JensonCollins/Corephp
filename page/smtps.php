@@ -25,6 +25,7 @@
                                 <thead>
                                 <tr>
                                     <th class="disabled-sorting">ID</th>
+                                    <th>Country</th>
                                     <th>Detected ISP</th>
                                     <th>Port</th>
                                     <th>Send Test to</th>
@@ -35,6 +36,7 @@
                                 <tfoot>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Country</th>
                                     <th>Detected ISP</th>
                                     <th>Send Test to</th>
                                     <th>Price</th>
@@ -50,20 +52,20 @@
                                 while ($row = $query->fetch_assoc()) { // preparing an array
                                     $nestedData = array();
                                     $details = json_decode($row['details'], TRUE);
-                                    $smtp_webmail = $details['smtp_webmail'];
+//                                    $smtp_webmail = $details['smtp_webmail'];
                                     $smtp_server_inf = $details['smtp_server_inf'];
                                     $port = $details['smtp_port'];
                                     echo ' <tr>
                                                 <td><center>' . clear($row["item_id"]) . '</center></td>
+                                                <td>' . flag($row["country"]) . ' - ' . $row["country_name"] . '</td>
                                                 <td>' . $smtp_server_inf . '</td>
                                                 <td>' . $port . '</td>
-                                                <td><button class="btn btn-success" onclick="smtpCheck('. clear($row["item_id"]) .')"><i class="material-icons">check</i>Check</button></td>
+                                                <td><button class="btn btn-success btn-sm" onclick="smtpCheck(this, '. clear($row["item_id"]) .')"><i class="material-icons">check</i>Check</button></td>
                                                 <td><strong>$' . ($row["price"]) . '</strong></td>
                                                 <td>
-                                                     <center><button onclick="buy(\'' . ($row['item_id']) . '\',\'tools\')" class="btn rad btn-primary btn-xs hide' . clear(($row['item_id'])) . '"> <i class="menu-icon fa fa-shopping-cart"></i> Buy</button>
+                                                     <center><button onclick="buy(\'' . ($row['item_id']) . '\',\'tools\')" class="btn rad btn-primary btn-sm hide' . clear(($row['item_id'])) . '"> <i class="menu-icon fa fa-shopping-cart"></i> Buy</button>
                                                      </center>
                                                 </td>
-    
                                             </tr>';
                                 }
                                 ?>
@@ -114,7 +116,11 @@
         });*/
     });
 
-    function smtpCheck(smtp_id) {
+    function smtpCheck(self, smtp_id) {
+        console.log(self);
+        $(self).removeClass("btn-success");
+        $(self).addClass("btn-danger");
+        $(self).html("<i class='fa fa-send'></i>&nbsp;&nbsp;Sending...");
         $.ajax({
             url: '<?php echo base_url();?>ajax',
             type: 'POST',
