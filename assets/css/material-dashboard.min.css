@@ -12722,7 +12722,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 .table > thead > tr > th {
     border-bottom-width: 1px;
     font-size: 1.0625rem;
-    font-weight: 300
+    font-weight: 700
 }
 
 .table .form-check {

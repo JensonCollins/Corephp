@@ -148,8 +148,8 @@ if (logged_in() == 0) {
                 if ($page_value == 'home' || $page_value == '') {
                     include 'page/admin/home.php';
                     $active_menu = 'admin' . $page_value;
-                } else if ($page_value == 'ticket') {
-                    include 'page/admin/ticket.php';
+                } else if ($page_value == 'tickets') {
+                    include 'page/admin/tickets.php';
                 } else if ($page_value == 'add') {
                     include 'page/admin/add.php';
                 } else if ($page_value == 'users') {
@@ -157,7 +157,7 @@ if (logged_in() == 0) {
                 } else if ($page_value == 'transactions') {
                     include 'page/admin/transactions.php';
                 } else if ($page_value == 'support') {
-                    include 'page/admin/support.php';
+                    include 'page/admin/tickets.php';
                 } else if ($page_value == 'unsold') {
                     include 'page/admin/unsold.php';
                 } else if ($page_value == 'sold') {

@@ -54,7 +54,6 @@ if (empty($_POST['username']) === false) {
 
         $salt = 'KK856'; // SALT for encrypting , `forcePassword` = '1'
         // insert in databes
-        echo json_encode($db);
         $register = $db->query("INSERT INTO `members`(user_name,pass,email,regIP,dt) VALUES ('" . $usr . "','" . md5($password . $salt) . "','" . $email . "','" . $user_ip . "', NOW())") or die(mysql_error());
         echo "INSERT INTO `members`(user_name,pass,email,regIP,dt) VALUES ('" . $usr . "','" . md5($password . $salt) . "','" . $email . "','" . $user_ip . "', NOW())";
 
@@ -130,7 +129,7 @@ if (empty($_POST['username']) === false) {
 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
     <div class="container">
         <div class="navbar-wrapper">
-            <a class="navbar-brand" href="<?php echo base_url() ?>register">Register Page</a>
+
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -158,7 +157,7 @@ if (empty($_POST['username']) === false) {
 <!-- End Navbar -->
 <div class="wrapper wrapper-full-page">
     <div class="page-header register-page header-filter" filter-color="black"
-         style="background-image: url('<?php echo base_url(); ?>assets/img/register.jpg')">
+         style="background-image: url('<?php echo base_url(); ?>assets/img/bg.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-md-7 ml-auto mr-auto">

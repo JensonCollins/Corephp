@@ -8,7 +8,7 @@
                     <p>If we find out you have reported a valid tool, we shall clear your account funds and or disable
                         your account.</p>
                     <hr>
-                    <p class="mb-0">Team 247smtp.com</p>
+                    <p class="mb-0">Team Vpox.ru</p>
                 </div>
             </div>
 
@@ -42,7 +42,7 @@
 
                         if (isset($_POST['tickets'])) {
 
-                            $item_id = clear(dec($_POST['id']));
+                            $item_id = clear(($_POST['id']));
 
                             $subject = clear($_POST['subject']);
                             $message = clear($_POST['message']);
@@ -82,7 +82,7 @@
 
                         if (isset($_POST['item_id'])) {
 
-                            $item_id = clear(dec($_POST['item_id']));
+                            $item_id = clear(($_POST['item_id']));
 
                             $tickets = $db->query("SELECT `item_id` FROM `tickets` WHERE `item_id` = '$item_id'") or die();
                             // if dont emput ticket  / ticket exist
@@ -112,7 +112,7 @@
                                                     problem.</p></strong>
 
                                             <form class="form-horizontal" action="" method="post">
-                                                <input type="hidden" name="id" value="<?php echo enc($item_id); ?>">
+                                                <input type="hidden" name="id" value="<?php echo ($item_id); ?>">
                                                 <div class="form-group">
                                                     <div class="col-md-10">
                                                         <textarea name="message" class="form-control" rows="10"
@@ -261,7 +261,7 @@
 
                                         if ($reporting_tools != null) {
 
-                                            $report = '<a href="support/' . clear(enc($reporting_tools)) . '""> <div align="center"><button class="btn btn-success  waves-effect waves-light" >REPORTED </button></div></a> ';
+                                            $report = '<a href="support/' . clear(($reporting_tools)) . '""> <div align="center"><button class="btn btn-success  waves-effect waves-light" >REPORTED </button></div></a> ';
 
                                         } else if ($diff > $koha) {  //600 = 10min
 
@@ -277,7 +277,7 @@
                                             $minuts = floor(($diff - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24 - $days * 60 * 60 * 24 - $hours * 60 * 60) / 60);
                                             //$seconds = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60 - $minuts*60));
 
-                                            $report = '<div align="center"><form action="" method="post"><button type="submit" name="item_id" id="ck' . $iplpl . '" value=' . enc(clear($row['item_id'])) . ' class="btn btn-primary waves-effect waves-light" >REPORT | ' . $minuts . ' min left</button></form></div>';
+                                            $report = '<div align="center"><form action="" method="post"><button type="submit" name="item_id" id="ck' . $iplpl . '" value=' . (clear($row['item_id'])) . ' class="btn btn-primary waves-effect waves-light" >REPORT | ' . $minuts . ' min left</button></form></div>';
 
                                         }
 

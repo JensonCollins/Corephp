@@ -136,7 +136,7 @@ $position6 = strpos(strtolower(clear($row["type"])), "rdp");
 		$nestedData[] = '<strong><a> <i class="ti-user"></i> ' . ($row["user_name"]) . '</a></strong>';	
 		$nestedData[] = '<strong>' . ($row["price"]) . '';
 		
-		$nestedData[] = '<center><button onclick="buy(\'' . enc($row['item_id']) . '\',\'tools\')" class="btn btn-success btn-xs hide' .clear(enc($row['item_id'])) . '">Buy</button></center>';
+		$nestedData[] = '<center><button onclick="buy(\'' . ($row['item_id']) . '\',\'tools\')" class="btn btn-success btn-xs hide' .clear(($row['item_id'])) . '">Buy</button></center>';
 		$nestedData[] = $checer;
 		$data[] = $nestedData;	
 }

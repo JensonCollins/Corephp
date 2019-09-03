@@ -22,7 +22,7 @@
                 </abbr>
                 then click on
                 <a class="label label-primary" style="background-color: #2c3e50; color: #fff">Report #ID</a>
-                button<br><br> Our Domains are <b>247smtp.com</b> - Please Save them!
+                button<br><br> Our Domains are <b>Vpox.ru</b> - Please Save them!
 
             </div>
 

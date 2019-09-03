@@ -38,7 +38,7 @@
                                                          <td>'.clear($row["login"]).'</td>
                                                         <td><strong>$'.($row["price"]).'</strong></td>
                                                         <td>
-                                                             <center><button onclick="buy(\'' . enc($row['item_id']) . '\',\'tools\')" class="btn rad btn-primary btn-xs hide' .clear(enc($row['item_id'])) . '"> <i class="menu-icon fa fa-shopping-cart"></i> Buy</button>
+                                                             <center><button onclick="buy(\'' . ($row['item_id']) . '\',\'tools\')" class="btn rad btn-primary btn-xs hide' .clear(enc($row['item_id'])) . '"> <i class="menu-icon fa fa-shopping-cart"></i> Buy</button>
                                                              </center>
                                                         </td>
                                                     </tr>';

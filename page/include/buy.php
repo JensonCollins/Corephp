@@ -4,7 +4,7 @@ if ($page_value == 'tools') {
 
 		if (isset($_POST['id'])) {	       
 
-			$item_id   = clear(dec($_POST['id'])); // id e 
+			$item_id   = clear(($_POST['id'])); // id e
 		        
 			$accounts_query = $db->query("SELECT `price`,`sold` FROM `accounts` WHERE `item_id` = '$item_id'");
 			$row       = $accounts_query->fetch_assoc();

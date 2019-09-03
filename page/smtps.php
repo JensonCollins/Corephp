@@ -1,3 +1,9 @@
+<style>
+    tfoot > tr > th {
+        font-weight: 400;
+    }
+</style>
+
 <div class="content">
     <div class="container-fluid">
         <div class="row">
@@ -14,12 +20,11 @@
                             <!--        Here you can write extra buttons/actions for the toolbar              -->
                         </div>
                         <div class="material-datatables">
-                            <table id="datatables" class="table table-striped table-no-bordered table-hover table-fixed"
+                            <table id="datatables" class="table table-striped table-no-bordered table-hover table-fixed dataTable"
                                    cellspacing="0" width="100%" style="width:100%">
                                 <thead>
                                 <tr>
                                     <th class="disabled-sorting">ID</th>
-                                    <th>Country</th>
                                     <th>Detected ISP</th>
                                     <th>Port</th>
                                     <th>Send Test to</th>
@@ -30,7 +35,6 @@
                                 <tfoot>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Country</th>
                                     <th>Detected ISP</th>
                                     <th>Send Test to</th>
                                     <th>Price</th>
@@ -41,23 +45,22 @@
                                 <tbody>
                                 <?php
 
-                                $query = $db->query("SELECT * FROM `accounts`  WHERE `sold` = '0' AND `category` = '9' ORDER BY RAND()") or die($db->error);
+                                $query = $db->query("SELECT * FROM `accounts`  WHERE `sold` = '0' AND `category` = '2' ORDER BY RAND()") or die($db->error);
 
                                 while ($row = $query->fetch_assoc()) { // preparing an array
                                     $nestedData = array();
                                     $details = json_decode($row['details'], TRUE);
                                     $smtp_webmail = $details['smtp_webmail'];
                                     $smtp_server_inf = $details['smtp_server_inf'];
-                                    $port = $details['port'];
+                                    $port = $details['smtp_port'];
                                     echo ' <tr>
                                                 <td><center>' . clear($row["item_id"]) . '</center></td>
-                                                <td>' . flag($row["country"]) . ' - ' . $row["country_name"] . '</td>
                                                 <td>' . $smtp_server_inf . '</td>
                                                 <td>' . $port . '</td>
                                                 <td><button class="btn btn-success" onclick="smtpCheck('. clear($row["item_id"]) .')"><i class="material-icons">check</i>Check</button></td>
                                                 <td><strong>$' . ($row["price"]) . '</strong></td>
                                                 <td>
-                                                     <center><button onclick="buy(\'' . enc($row['item_id']) . '\',\'tools\')" class="btn rad btn-primary btn-xs hide' . clear(enc($row['item_id'])) . '"> <i class="menu-icon fa fa-shopping-cart"></i> Buy</button>
+                                                     <center><button onclick="buy(\'' . ($row['item_id']) . '\',\'tools\')" class="btn rad btn-primary btn-xs hide' . clear(($row['item_id'])) . '"> <i class="menu-icon fa fa-shopping-cart"></i> Buy</button>
                                                      </center>
                                                 </td>
     
@@ -133,3 +136,9 @@
         })
     }
 </script>
+
+<style>
+    thead > tr > th {
+        font-weight: 700;
+    }
+</style>

@@ -3,9 +3,10 @@
 if (isset($_POST['add'])) {
     //Array ( [price] => 5 [category] => 2 [value] => sadasdas|sadas|sdaa|asdasda [add] => )
     $price = clear($_POST['price']);
-    $category = clear($_POST['category']);
-    $country = clear($_POST['country']);
-    $country_name = $country_array[$country];
+//    $category = clear($_POST['category']);
+//    $country = clear($_POST['country']);
+//    $country_name = $country_array[$country];
+    $category = "2";
     $info = "";
 
     if ($price < 0.9) {
@@ -19,6 +20,7 @@ if (isset($_POST['add'])) {
         die('<meta http-equiv="refresh" content="2;" />');
     }
 
+    $category = "2";
     if ($category == "4") {
 
         $version = clear($_POST['windows_versions']);
@@ -52,10 +54,11 @@ if (isset($_POST['add'])) {
         $info = json_encode(array('mailer_server_info' => $mailer_server_info), JSON_FORCE_OBJECT);
     } else if ($category == "9") {
         $smtp_webmail = clear($_POST['smtp_webmail']);
+        $smtp_port = clear($_POST['smtp_port']);
         $smtp_server_info = clear($_POST['smtp_server_info']);
         $smtp_username = clear($_POST['smtp_username']);
         $smtp_userpass = clear($_POST['smtp_userpass']);
-        $info = json_encode(array('smtp_webmail' => $smtp_webmail, 'smtp_server_inf' => $smtp_server_info, 'smtp_username' => $smtp_username, 'smtp_userpass' => $smtp_userpass), JSON_FORCE_OBJECT);
+        $info = json_encode(array('smtp_webmail' => $smtp_webmail, 'smtp_server_inf' => $smtp_server_info, 'smtp_username' => $smtp_username, 'smtp_userpass' => $smtp_userpass, 'smtp_port' => $smtp_port), JSON_FORCE_OBJECT);
     } else {
         $basefile = htmlspecialchars($_POST['value']);
         $text = trim($basefile);
@@ -81,7 +84,9 @@ if (isset($_POST['add'])) {
             $details[2] = $db->real_escape_string($details[2]);
 
             if (!empty($details[0]) && !empty($details[1]) && !empty($details[2])) {
-
+                $smtp_server_info = explode(":", $details[0])[0];
+                $smtp_server_port = explode(":", $details[0])[1];
+                $info = json_encode(array('smtp_server_inf' => $smtp_server_info, 'smtp_username' => $details[1], 'smtp_userpass' => $details[2], 'smtp_port' => $smtp_server_port), JSON_FORCE_OBJECT);
                 $sqlz = $db->query("SELECT * FROM `accounts` WHERE `addinfo` = '$details[0]' AND `login` = '$details[1]' AND `pass`= '$details[2]'") or die('error #accaunt ');
 
                 if ($db->affected_rows >= 1) {
@@ -90,13 +95,13 @@ if (isset($_POST['add'])) {
 
                     if ($category == 3) {
                         // Url ,descript ,amount
-                        $db->query("INSERT INTO `accounts` (`country_name`,`category`,`price`, `addinfo`, `info` ,`login`, `date_added`) 
-                                             VALUES ('$country','$category', '$price', '$details[0]', '$details[1]', '$details[2]',NOW())") or die ($db->error);
+                        $db->query("INSERT INTO `accounts` (`country`,`category`,`price`, `addinfo`, `info` ,`login`, `date_added`) 
+                                             VALUES ('','$category', '$price', '$details[0]', '$details[1]', '$details[2]',NOW())") or die ($db->error);
                         $inserted++;
 
                     } else {
-
-                        $db->query("INSERT INTO `accounts` (`category`,`price`, `addinfo`, `login`, `pass`, `date_added`) VALUES ('$category', '$price', '$details[0]', '$details[1]', '$details[2]',NOW())") or die ($db->error);
+                        $db->query("INSERT INTO accounts (country,category, details, price, date_added) values ('','$category','$info','$price', now())");
+//                        $db->query("INSERT INTO `accounts` (`country`,`category`,`price`, `addinfo`, `login`, `pass`, `date_added`) VALUES ('','$category', '$price', '$details[0]', '$details[1]', '$details[2]',NOW())") or die ($db->error);
                         $inserted++;
                     }
 
@@ -125,7 +130,7 @@ if (isset($_POST['add'])) {
         if($db->affected_rows >= 1) {
             $invalid++;
         } else {
-            $db->query("INSERT INTO accounts (category, country,country_name, details, price, date_added) values ('$category','$country','$country_name', '$info','$price', now())");
+            $db->query("INSERT INTO accounts (category, details, price, date_added) values ('$category','$info','$price', now())");
             $inserted ++;
         }
     }
@@ -149,61 +154,65 @@ if (isset($_POST['add'])) {
                         <form method="POST" action="">
                             <div class="modal-body">
 
-                                <div class="row">
+
+                                <div class="form-group" id="adding1">
+                                    <h5 for="recipient-name" class="control-label" style='margin-top: 30px; color: red;'>Format :
+                                        Server:Port,email,password</h5><br>
+                                    <textarea name="value" class="form-control" id="message-text"
+                                              style="height: 150px"
+                                              placeholder="" required></textarea>
+                                </div>
+                                <div class="row mt-3">
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <h5>Price in $:</h5>
+                                            <label for="recipient-name" class="bmd-label-floating">Set Price $:</label>
                                             <input type="number" name="price" class="form-control" id="recipient-name" number="true"
                                                    value="5"
                                                    required>
                                         </div>
 
-                                        <div class="form-group">
+                                        <!--<div class="form-group">
                                             <h5>Country</h5>
                                             <select class="selectpicker form-control" data-size="7" data-style="btn btn-primary btn-round" name="country">
                                                 <?php
-                                                    foreach($country_array as $key => $value) {
+/*                                                    foreach($country_array as $key => $value) {
                                                         echo "<option value='$key'>$value</option>";
-                                                ?>
-                                                <?php } ?>
+                                                */?>
+                                                <?php /*} */?>
                                             </select>
-                                        </div>
+                                        </div>-->
 
                                         <?php
-                                        $categories = $db->query("select * from category where visible=1;");
+                                        // $categories = $db->query("select * from category where visible=1;");
                                         ?>
 
-                                        <div class="form-group">
+                                        <!--<div class="form-group">
                                             <h5>Category</h5>
                                             <select class="selectpicker form-control" data-size="7" data-style="btn btn-primary btn-round" id="category" name="category" required>
                                                 <option value="">-Select-</option>
                                                 <?php
-                                                while ($row = $categories->fetch_assoc()) {
+/*                                                while ($row = $categories->fetch_assoc()) {
                                                     echo "<option value=\"" . $row['id'] . "\">" . $row['name'] . "</option>";
                                                 }
-                                                ?>
+                                                */?>
 
                                             </select>
-                                        </div>
+                                        </div>-->
 
 
                                     </div>
 
                                     <div class="col-md-8" id="content_edit">
-                                        <h4>- Please select Category -</h4>
+
                                     </div>
-
-                                </div>
-
-                                <div class="form-group" id="adding1">
 
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 
-                                <button class="btn btn-info" type="submit" name="add">Add</button>
+                                <button class="btn btn-info" type="submit" name="add">Upload</button>
                             </div>
 
 

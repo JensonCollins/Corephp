@@ -16,8 +16,8 @@
                         if (isset($_POST['accept'])) {
 
                             $up_roles = $db->query("UPDATE `members` SET  `rules`='1' WHERE `user_id`='$user_id'") or die($db->error);
-                            echo alert('Welcome to 247Smtp.com', 'primary');
-                            echo '<meta http-equiv="refresh" content="2; url=' . $path . '"/>';
+                            echo alert('Welcome to Vpox.ru', 'primary');
+                            echo '<meta http-equiv="refresh" content="2; url=' . base_url() . '"/>';
 
                         }
 

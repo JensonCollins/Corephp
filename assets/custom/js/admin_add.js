@@ -263,6 +263,15 @@ $("#category").on('change', function () {
         "                                                </select>\n" +
         "                                            </div>\n" +
         "\n" +
+        "                                            <div class=\"form-group\">\n" +
+        "                                                <label for=\"smtp_port\" class=\"bmd-label-floating\">Smtp Port</label>\n" +
+        "                                                <select class=\"selectpicker form-control\" data-style=\"btn btn-primary btn-round\" name=\"smtp_port\">\n" +
+        "                                                    <option value=\"25\">25</option>\n" +
+        "                                                    <option value=\"465\">465</option>\n" +
+        "                                                    <option value=\"587\">587</option>\n" +
+        "                                                </select>\n" +
+        "                                            </div>\n" +
+        "\n" +
         "                                            <div class=\"form-group\" style='margin-top: 30px;'>\n" +
         "                                                <label for=\"smtp_server_info\" class=\"bmd-label-floating\">Detected\n" +
         "                                                    Hosting</label>\n" +

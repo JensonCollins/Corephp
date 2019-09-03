@@ -80,7 +80,7 @@
 
 
                     <?php
-                    $get_id = clear(dec($page_id));
+                    $get_id = clear(($page_id));
 
                     if (isset($_POST['close'])) {
 

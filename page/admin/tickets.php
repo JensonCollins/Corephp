@@ -95,7 +95,7 @@
                                             <td><center>' . $tipi . '</center></td>                               
                                             <td><center>' . $status . '</center></td>                                       
                                             <td><center>
-                                            <a href="tickets/' . enc(clear($row['id'])) . '"> <button class="btn btn-success">View Ticket</button></center></a></td>
+                                            <a href="tickets/' . (clear($row['id'])) . '"> <button class="btn btn-success">View Ticket</button></center></a></td>
                                             </tr></strong>';
                             }
                             ?>
@@ -115,7 +115,7 @@
 
 
                     <?php
-                    $get_id = clear(dec($page_id));
+                    $get_id = clear(($page_id));
 
                     if (isset($_POST['close'])) {
 

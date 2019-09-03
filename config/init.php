@@ -4,9 +4,9 @@ session_start();
 
 @ob_start();
 
-require 'database.php';
-require 'general.php';
 require 'config.php';
+require 'general.php';
+require 'database.php';
 require 'functions.php';
 
 if (logged_in() === true) {

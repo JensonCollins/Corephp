@@ -104,7 +104,7 @@
                                                           <td><center>' . $tipi . '</center></td>                               
                                                           <td><center>' . $status . '</center></td>                                       
                                                           <td><center>
-                                                          <a href="tickets/' . enc(clear($row['id'])) . '"> <button class="btn  btn-xs btn-success">View Ticket</button></center></a></td>
+                                                          <a href="tickets/' . (clear($row['id'])) . '"> <button class="btn  btn-xs btn-success">View Ticket</button></center></a></td>
                                                           </tr></strong>';
                                             }
                                             ?>
@@ -151,7 +151,7 @@
 
                                         if ($add_tickets) {
 
-                                            echo '<meta http-equiv="refresh" content="2; url=../support" />';
+                                            echo '<meta http-equiv="refresh" content="2; url=../tickets" />';
                                             die('<div class="alert alert-success"><strong> Send Successfully .</strong></div> ');
 
 
@@ -233,7 +233,7 @@
 
                                     <?php
 
-                                    $get_id = clear(dec($page_value));
+                                    $get_id = clear(($page_value));
 
                                     $ticket_sql = $db->query("SELECT * FROM `tickets` WHERE `user_name` = '$user_name' AND `id` = '$get_id'") or die();
                                     $ticket = $ticket_sql->fetch_assoc();
@@ -265,7 +265,7 @@
 
                                             if ($add_tickets) {
 
-                                                echo '<meta http-equiv="refresh" content="2; url=../support" />';
+                                                echo '<meta http-equiv="refresh" content="2; url=../tickets" />';
 
                                                 die('<div class="alert alert-success"><strong> Sent Successfully</strong></div> ');
 

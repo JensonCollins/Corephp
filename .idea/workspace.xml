@@ -2,14 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79a4e1a3-f0c6-42b8-a605-58ad29bf71d6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/page/admin/menu.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/bg.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/material-dashboard.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/material-dashboard.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/custom/js/admin_add.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/custom/js/admin_add.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/init.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/include/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/include/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/include/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/include/menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/admin/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/admin/add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/admin/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/admin/menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/admin/support.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/admin/tickets.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/balance.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/balance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/include/buy.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/include/buy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/include/grid/accounts.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/include/grid/accounts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/include/grid/stuff.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/include/grid/stuff.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/leads.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/leads.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/php_mailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/php_mailer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/purchased.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/purchased.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/rdps.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/rdps.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/rules.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/rules.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/shells.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/shells.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/smtpDomain.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/smtpDomain.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/smtpIP.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/smtpIP.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/smtps.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/smtps.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/sshs.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/sshs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/tickets.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/tickets.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +95,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/page/admin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/img" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -84,11 +105,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\img" />
       <recent name="E:\pkm\xampp7\htdocs\Corephp\page\admin" />
       <recent name="E:\pkm\xampp7\htdocs\Corephp\page\include" />
       <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\assets" />
       <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\assets\cloudflare" />
-      <recent name="E:\pkm\xampp7\htdocs\Corephp\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\custom\js" />
@@ -125,7 +146,8 @@
       <workItem from="1567190141578" duration="73586000" />
       <workItem from="1567412569915" duration="6516000" />
       <workItem from="1567441765799" duration="192000" />
-      <workItem from="1567442008901" duration="11696000" />
+      <workItem from="1567442008901" duration="16436000" />
+      <workItem from="1567493269949" duration="8992000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1567191297948</created>
@@ -176,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567448155770</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="initial show completed">
+      <created>1567459438616</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1567459438616</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
