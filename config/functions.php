@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 function unsold_tools($type)
 {
     global $db;
-    $sql = $db->query("SELECT `item_id` FROM `accounts` WHERE  `sold` = '0' AND `category` = '$type'");
+    $sql = $db->query("SELECT `item_id` FROM `accounts` WHERE  `sold` = '0' AND `category` = '$type' AND is_deleted!=1");
     return $sql->num_rows;
 }
 
@@ -127,6 +127,12 @@ function reporting_tools($item_id)
     $query_array = $query->fetch_array();
 
     return $query_array[0];
+}
+
+function cnt_tickets() {
+    global $db;
+    $query = $db->query("SELECT * FROM `tickets`;");
+    return $query->num_rows;
 }
 
 function db_date()
@@ -347,7 +353,7 @@ function validate_hostname($hostname)
     }
 }
 
-function sendTestmailSMTP($smtp_server, $smtp_user_name, $smtp_user_pass, $smtp_port, $recepient_name)
+function sendTestmailSMTP($smtp_server, $smtp_user_name, $smtp_user_pass, $smtp_port, $recepient_name, $item_id)
 {
     require_once "page/include/phpmailer/vendor/autoload.php";
     $mail = new PHPMailer;
@@ -369,15 +375,15 @@ function sendTestmailSMTP($smtp_server, $smtp_user_name, $smtp_user_pass, $smtp_
     );
 
     $mail->From = $smtp_user_name;
-    $mail->FromName = "Full Name";
+    $mail->FromName = explode(".",explode("@", $smtp_user_name)[0])[0];
 
     $mail->addAddress($recepient_name, "Recepient Name");
 
     $mail->isHTML(true);
 
-    $mail->Subject = "Subject Text";
-    $mail->Body = "<i>Mail body in HTML</i>";
-    $mail->AltBody = "This is the plain text version of the email content";
+    $mail->Subject = "Test message";
+    $mail->Body = "<i>This is test message from #$item_id</i>";
+    $mail->AltBody = "";
 
     if (!$mail->send()) {
         return false;

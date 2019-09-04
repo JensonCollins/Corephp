@@ -9,8 +9,8 @@ if (isset($_POST['add'])) {
     $category = "2";
     $info = "";
 
-    if ($price < 0.9) {
-        echo alert('<center><strong>Limit for the price is 1$</strong></center>', 'warning');
+    if ($price < 10) {
+        echo alert('<center><strong>Limit for the price is 10$</strong></center>', 'warning');
         die('<meta http-equiv="refresh" content="3;" />');
     }
 
@@ -65,6 +65,9 @@ if (isset($_POST['add'])) {
         $textAr = array_filter($textAr, 'trim'); // remove any extra \r characters left behind
 
 
+        $invalid = 0;
+        $inserted = 0;
+        $totaladded = 0;
         foreach ($textAr as $line) {
             $details = explode(',', $line);
 
@@ -80,9 +83,6 @@ if (isset($_POST['add'])) {
             $details[0] = $db->real_escape_string($details[0]);
             $details[1] = $db->real_escape_string($details[1]);
             $details[2] = $db->real_escape_string($details[2]);
-            $invalid = 0;
-            $inserted = 0;
-            $totaladded = 0;
             if (!empty($details[0]) && !empty($details[1]) && !empty($details[2])) {
                 $smtp_server_info = explode(":", $details[0])[0];
                 $smtp_server_port = explode(":", $details[0])[1];
@@ -95,9 +95,10 @@ if (isset($_POST['add'])) {
                     $decodedLocation = json_decode($location, true);
                     $country = $decodedLocation['country_code2'];
                     $country_name = $country_array[$country];
+                    $detected_isp = $decodedLocation['isp'];
                 }
 
-                $info = json_encode(array('smtp_server_inf' => $smtp_server_info, 'smtp_username' => $details[1], 'smtp_userpass' => $details[2], 'smtp_port' => $smtp_server_port), JSON_FORCE_OBJECT);
+                $info = json_encode(array('smtp_server_inf' => $smtp_server_info, 'smtp_username' => $details[1], 'smtp_userpass' => $details[2], 'smtp_port' => $smtp_server_port, 'detected_isp' => $detected_isp), JSON_FORCE_OBJECT);
                 $sqlz = $db->query("SELECT * FROM `accounts` WHERE `addinfo` = '$details[0]' AND `login` = '$details[1]' AND `pass`= '$details[2]'") or die('error #accaunt ');
 
                 if ($db->affected_rows >= 1) {
@@ -192,8 +193,8 @@ if (isset($_POST['add'])) {
                                         <div class="form-group mt-4">
                                             <label for="recipient-name" class="bmd-label-floating">Set Price $:</label>
                                             <input type="number" name="price" class="form-control" id="recipient-name"
-                                                   number="true"
-                                                   value="5"
+                                                   value="10"
+                                                   min="10"
                                                    required>
                                         </div>
 

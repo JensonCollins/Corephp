@@ -125,9 +125,17 @@
                                 </li>
                             <?php } else if (!menuHasParent($menu_data[$i]->id)) { ?>
                                 <li class="nav-item <?php echo (strtolower($menu_data[$i]->menu_link) == strtolower($active_menu)) ? 'active' : ''; ?>">
-                                    <a class="nav-link" href="<?php echo base_url() . $menu_data[$i]->menu_link; ?>">
+                                    <a class="nav-link"
+                                       href="<?php echo base_url() . $menu_data[$i]->menu_link; ?>">
                                         <?php echo $menu_data[$i]->menu_icon; ?>
-                                        <p><?php echo $menu_data[$i]->menu_name; ?></p>
+                                        <p>
+                                            <?php echo $menu_data[$i]->menu_name; ?>
+                                            <?php if (strtolower($menu_data[$i]->menu_link) == "tickets") { ?>
+                                                <span class="badge badge-primary float-right mt-1"><?php echo cnt_tickets(); ?></span>
+                                            <?php } else if (strtolower($menu_data[$i]->menu_link) == "smtps") { ?>
+                                                <span class="badge badge-primary float-right mt-1"><?php echo unsold_tools("2"); ?></span>
+                                            <?php } ?>
+                                        </p>
                                     </a>
                                 </li>
                                 <?php

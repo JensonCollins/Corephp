@@ -44,7 +44,7 @@ if (empty($_POST['username']) === false) {
             $_SESSION['login_time'] = db_date();
 
             header('Location: home');
-            exit('index');
+//            exit('index');
 
         }
 

@@ -11,7 +11,7 @@ if (isset($_POST['addbalance'])) {
     if ($addbalance) {
 
         $db->query("INSERT INTO `transaction`(`amount`, `user_id`, `state`, `date`) VALUES ('$amount','$userid','Manual',now())") or die($db->error);
-        echo alert("Sendet  " . $amount . "$ Successful!</br> To: " . $username, 'success');
+        echo alert("Sent  " . $amount . "$ Successful! To: " . $username, 'success');
 
     } else {
         echo alert("Error!");
