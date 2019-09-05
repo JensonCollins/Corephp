@@ -359,6 +359,7 @@ function sendTestmailSMTP($smtp_server, $smtp_user_name, $smtp_user_pass, $smtp_
     $mail = new PHPMailer;
 
     $mail->isSMTP();
+    $mail->SMTPDebug = 2;
     $mail->Host = ($smtp_server);
     $mail->SMTPAuth = true;
     $mail->SMTPAutoTLS = false;
@@ -381,9 +382,9 @@ function sendTestmailSMTP($smtp_server, $smtp_user_name, $smtp_user_pass, $smtp_
 
     $mail->isHTML(true);
 
-    $mail->Subject = "Test message";
+    $mail->Subject = "Subject #$item_id";
     $mail->Body = "<i>This is test message from #$item_id</i>";
-    $mail->AltBody = "";
+    $mail->AltBody = "This is test message from #$item_id";
 
     if (!$mail->send()) {
         return false;
