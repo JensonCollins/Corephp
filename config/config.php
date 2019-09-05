@@ -1,6 +1,6 @@
 <?php
 
-define('ENV', 'production');
+define('ENV', 'development');
 
 function is_https()
 {
