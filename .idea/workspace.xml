@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79a4e1a3-f0c6-42b8-a605-58ad29bf71d6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +132,8 @@
       <workItem from="1567578126472" duration="27104000" />
       <workItem from="1567669910467" duration="283000" />
       <workItem from="1567684802082" duration="8389000" />
-      <workItem from="1567696872708" duration="1431000" />
+      <workItem from="1567696872708" duration="2833000" />
+      <workItem from="1567754692556" duration="1640000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1567191297948</created>

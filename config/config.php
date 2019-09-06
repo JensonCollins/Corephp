@@ -1,6 +1,6 @@
 <?php
 
-define('ENV', 'development');
+define('ENV', 'production');
 
 function is_https()
 {
@@ -28,7 +28,7 @@ function base_url()
     } else {
         $base_url = 'http://localhost/';
     }
-    return (ENV !== 'production') ? "http://127.0.0.1:99/" : 'https://vpox.ru/';
+    return (ENV !== 'production') ? "http://127.0.0.1:99/" : 'http://31.184.198.147/';
 }
 
 switch (ENV) {
@@ -39,7 +39,8 @@ switch (ENV) {
 
     case 'testing':
     case 'production':
-        ini_set('display_errors', 0);
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
         ini_set('max_execution_time', 0);
         if (version_compare(PHP_VERSION, '5.3', '>=')) {
             error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);

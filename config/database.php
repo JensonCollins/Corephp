@@ -14,10 +14,10 @@ switch (ENV) {
 
     case 'production':
         $db_config['production'] = array(
-            'hostname' => '127.0.0.1',
-            'username' => 'vpoxru_smtp_db',
-            'password' => '%M(UXTE@Gq3c',
-            'database' => 'vpoxru_smtp_db',
+            'hostname' => 'localhost',
+            'username' => 'remote',
+            'password' => 'xAraCvC6B9c',
+            'database' => 'smtp_db',
             'char_set' => 'utf8',
             'dbcollat' => 'utf8_general_ci',
         );
