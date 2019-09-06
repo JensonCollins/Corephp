@@ -14,7 +14,7 @@ switch (ENV) {
 
     case 'production':
         $db_config['production'] = array(
-            'hostname' => 'localhost',
+            'hostname' => '31.184.198.147',
             'username' => 'remote',
             'password' => 'xAraCvC6B9c',
             'database' => 'smtp_db',
