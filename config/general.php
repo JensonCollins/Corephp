@@ -147,9 +147,6 @@ function clear($string){
 
 }
 
-function path(){
-    return "http://127.0.0.1:90/";
-}
 function alert($message,$type = 'success'){
     //warning
     //danger

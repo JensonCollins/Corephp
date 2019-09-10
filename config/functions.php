@@ -129,9 +129,9 @@ function reporting_tools($item_id)
     return $query_array[0];
 }
 
-function cnt_tickets() {
+function cnt_tickets($user_name) {
     global $db;
-    $query = $db->query("SELECT * FROM `tickets`;");
+    $query = $db->query("SELECT * FROM `tickets` WHERE `user_name` = '$user_name';");
     return $query->num_rows;
 }
 
@@ -359,7 +359,7 @@ function sendTestmailSMTP($smtp_server, $smtp_user_name, $smtp_user_pass, $smtp_
     $mail = new PHPMailer;
 
     $mail->isSMTP();
-    $mail->SMTPDebug = 2;
+//    $mail->SMTPDebug = 2;
     $mail->Host = ($smtp_server);
     $mail->SMTPAuth = true;
     $mail->SMTPAutoTLS = false;

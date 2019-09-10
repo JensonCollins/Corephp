@@ -131,7 +131,7 @@
                                         <p>
                                             <?php echo $menu_data[$i]->menu_name; ?>
                                             <?php if (strtolower($menu_data[$i]->menu_link) == "tickets") { ?>
-                                                <span class="badge badge-primary float-right mt-1"><?php echo cnt_tickets(); ?></span>
+                                                <span class="badge badge-primary float-right mt-1"><?php echo cnt_tickets($user_name); ?></span>
                                             <?php } else if (strtolower($menu_data[$i]->menu_link) == "smtps") { ?>
                                                 <span class="badge badge-primary float-right mt-1"><?php echo unsold_tools("2"); ?></span>
                                             <?php } ?>
