@@ -131,7 +131,13 @@ function reporting_tools($item_id)
 
 function cnt_tickets($user_name) {
     global $db;
-    $query = $db->query("SELECT * FROM `tickets` WHERE `user_name` = '$user_name';");
+    $query = $db->query("SELECT * FROM `tickets` WHERE `user_name` = '$user_name' AND `type` = '2' AND `statusi` = '2';");
+    return $query->num_rows;
+}
+
+function ctn_all_tickets() {
+    global $db;
+    $query = $db->query("SELECT * FROM `tickets` WHERE `type` = '2' AND `statusi` = '2'");
     return $query->num_rows;
 }
 

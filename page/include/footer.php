@@ -117,9 +117,8 @@
 <!-- Library for adding dinamically elements -->
 <script src="<?php echo base_url(); ?>assets/js/plugins/arrive.min.js"></script>
 <!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Yno10-YTnLjjn_Vtk0V8cdcY5lC4plU"></script>
 <!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script async defer src="<?php echo base_url(); ?>assets/cloudflare/githubbutton.js"></script>
 <!-- Chartist JS -->
 <script src="<?php echo base_url(); ?>assets/js/plugins/chartist.min.js"></script>
 <!--  Notifications Plugin    -->
@@ -407,7 +406,7 @@
 </script>
 <!-- Sharrre libray -->
 <script src="<?php echo base_url(); ?>assets/demo/jquery.sharrre.js"></script>
-<script>
+<!--<script>
     $(document).ready(function () {
 
 
@@ -504,17 +503,10 @@
         }
 
     });
-</script>
-<noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=111649226022273&ev=PageView&noscript=1"/>
-</noscript>
+</script>-->
 <script>
     $(document).ready(function () {
         // Javascript method's body can be found in assets/js/demos.js
-        md.initDashboardPageCharts();
-
-        md.initVectorMap();
 
     });
 </script>

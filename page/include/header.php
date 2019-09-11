@@ -29,14 +29,11 @@ if ($file == '') {
     <title>
         Shop - <?php echo $title; ?>
     </title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-          name='viewport'/>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport'/>
     <meta name="keywords" content="247smtp.net smtp.net www.247smtp.net smtp">
     <meta name="description" content="Buy Smtp">
-    <!-- Extra details for Live View on GitHub Pages -->
-    <link rel="stylesheet" type="text/css"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/family_material_icons.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/cloudflare/font-awesome.min.css">
     <!-- CSS Files -->
     <link href="<?php echo base_url(); ?>assets/css/material-dashboard.min.css?v=2.1.0" rel="stylesheet"/>
     <!-- CSS Just for demo purpose, don't include it in your project -->

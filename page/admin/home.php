@@ -75,9 +75,9 @@ $item_sales = sales_accounts() * $pergindja;
 
 ?>
 <div class="content">
-    <div class="container-fluid">
+    <div class="container-fluid pt-3">
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-header card-header-warning card-header-icon">
                         <div class="card-icon">
@@ -93,7 +93,7 @@ $item_sales = sales_accounts() * $pergindja;
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-header card-header-rose card-header-icon">
                         <div class="card-icon">
@@ -109,7 +109,7 @@ $item_sales = sales_accounts() * $pergindja;
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-header card-header-success card-header-icon">
                         <div class="card-icon">
@@ -125,7 +125,23 @@ $item_sales = sales_accounts() * $pergindja;
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">markunread</i>
+                        </div>
+                        <p class="card-category">Unread Tickets</p>
+                        <h3 class="card-title"><?php echo ctn_all_tickets(); ?></h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">date_range</i> Unread Tickets
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-header card-header-info card-header-icon">
                         <div class="card-icon">

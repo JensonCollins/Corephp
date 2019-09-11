@@ -4,9 +4,6 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-primary card-header-icon">
-                        <div class="card-icon">
-                            <i class="material-icons">assignment</i>
-                        </div>
                         <h4 class="card-title">Support Tickets</h4>
                     </div>
                     <div class="card-body">
@@ -283,7 +280,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                             <div class="panel">
                                                 <div class="panel-heading">
-                                                    <h4>Replay</h4>
+                                                    <h4>Reply</h4>
                                                 </div>
                                                 <div class="panel-body">
                                                     <form id="movieForm" method="post">

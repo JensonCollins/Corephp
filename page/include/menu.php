@@ -82,7 +82,12 @@
                                         <a class="nav-link"
                                            href="<?php echo base_url() . $menu_data[$i]->menu_link; ?>">
                                             <?php echo $menu_data[$i]->menu_icon; ?>
-                                            <p><?php echo $menu_data[$i]->menu_name; ?></p>
+                                            <p>
+                                                <?php echo $menu_data[$i]->menu_name; ?>
+                                                <?php if (strtolower($menu_data[$i]->menu_link) == "admin/support") { ?>
+                                                    <span class="badge badge-primary float-right mt-1"><?php echo ctn_all_tickets(); ?></span>
+                                                <?php } ?>
+                                            </p>
                                         </a>
                                     </li>
                                     <?php

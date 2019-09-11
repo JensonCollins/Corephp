@@ -53,15 +53,13 @@
 
                                 if ($type == '1') {
 
-                                    $tipi = '<button type="button" class="btn btn-warning   btn-custom btn-rounded waves-effect waves-light">Report</button>';
-
+                                    $tipi = '<button type="button" class="btn btn-warning btn-custom btn-rounded waves-effect waves-light">Report</button>';
 
                                 } elseif ($type == '2') {
 
                                     $tipi = '<button type="button" class="btn btn-default btn-custom btn-rounded waves-effect waves-light">Ticket</button>';
 
                                 }
-
 
                                 $statusi = clear($row["statusi"]);
 
@@ -88,15 +86,22 @@
                                 }
 
 
-                                echo '<strong><tr role="row" class=" ' . $iplpl . '">
-                                            <td class="sorting_1" >' . clear($row["id"]) . '</td>
-                                             <td class="sorting_1" >' . clear($row["user_name"]) . '</td>
-                                            <td><center>' . clear($row["data"]) . '</center></td>
-                                            <td><center>' . $tipi . '</center></td>                               
-                                            <td><center>' . $status . '</center></td>                                       
-                                            <td><center>
-                                            <a href="tickets/' . (clear($row['id'])) . '"> <button class="btn btn-success">View Ticket</button></center></a></td>
-                                            </tr></strong>';
+                                echo '<strong>
+                                    <tr role="row" class=" ' . $iplpl . '">
+                                        <td class="sorting_1" >' . clear($row["id"]) . '</td>
+                                        <td class="sorting_1" >' . clear($row["user_name"]) . '</td>
+                                        <td><center>' . clear($row["data"]) . '</center></td>
+                                        <td><center>' . $tipi . '</center></td>                               
+                                        <td><center>' . $status . '</center></td>                                       
+                                        <td class="td-actions text-center"><center>
+                                            <a href="tickets/' . (clear($row['id'])) . '" class="btn btn-success btn-round">
+                                              <i class="material-icons">edit</i>
+                                            </a>
+                                            <button class="btn btn-danger btn-round edit">
+                                              <i class="material-icons">close</i>
+                                            </button>
+                                        </td>
+                                    </tr></strong>';
                             }
                             ?>
                             </tbody>
@@ -112,8 +117,6 @@
 
                     <?php }else{ ?>
 
-
-
                     <?php
                     $get_id = clear(($page_id));
 
@@ -126,7 +129,7 @@
 
                             //$db->query("INSERT INTO `support_log`(`user_name`, `veprimi`, `date`,`action_id`) VALUES ('$user_name','Refund',NOW(),'$post_id')") or die();
 
-                            echo alert('Well done!  You successfully CLOSE', 'success');
+                            echo alert('Well done!  You have closed successfully.', 'success');
                             echo ' <meta http-equiv="refresh" content="2" />';
                         }
 
@@ -390,8 +393,10 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        $('#bootstrap-data-table-export').DataTable({
+    var SITE_URL = "<?php echo base_url(); ?>";
+    $(document).ready(function () {
+
+        var table = $('#bootstrap-data-table-export').DataTable({
             "pagingType": "full_numbers",
             "lengthMenu": [
                 [10, 25, 50, -1],
@@ -404,25 +409,34 @@
             }
         });
 
-        var table = $('#datatable').DataTable();
-
         // Edit record
-        table.on('click', '.edit', function() {
+        table.on('click', '.edit', function () {
             $tr = $(this).closest('tr');
             var data = table.row($tr).data();
-            alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
+            postForm(SITE_URL + "admin/tickets/" + data[0], {close: 'true'}, "POST");
         });
 
-        // Delete a record
-        table.on('click', '.remove', function(e) {
-            $tr = $(this).closest('tr');
-            table.row($tr).remove().draw();
-            e.preventDefault();
-        });
+        function postForm(path, params, method) {
+            method = method || 'post';
 
-        //Like record
-        table.on('click', '.like', function() {
-            alert('You clicked on Like button');
-        });
+            var form = document.createElement('form');
+            form.setAttribute('method', method);
+            form.setAttribute('action', path);
+
+            for (var key in params) {
+                if (params.hasOwnProperty(key)) {
+                    var hiddenField = document.createElement('input');
+                    hiddenField.setAttribute('type', 'hidden');
+                    hiddenField.setAttribute('name', key);
+                    hiddenField.setAttribute('value', params[key]);
+
+                    form.appendChild(hiddenField);
+                }
+            }
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+
     });
 </script>

@@ -2,13 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79a4e1a3-f0c6-42b8-a605-58ad29bf71d6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/cloudflare/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/family_material_icons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/fontawesome-webfont.woff2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/general.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/general.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/admin/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/admin/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/admin/tickets.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/admin/tickets.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/include/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/include/footer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/include/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/include/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/include/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/include/menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/purchased.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/purchased.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/tickets.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/tickets.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,6 +63,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -73,7 +82,8 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/fonts" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -83,19 +93,19 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.composer" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\pkm\xampp7\htdocs\Corephp" />
-      <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\img" />
-      <recent name="E:\pkm\xampp7\htdocs\Corephp\page\admin" />
-      <recent name="E:\pkm\xampp7\htdocs\Corephp\page\include" />
-      <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\assets" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\custom\js" />
       <recent name="E:\pkm\xampp7\htdocs\Corephp\assets" />
       <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\assets\img" />
       <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\assets" />
       <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\assets\cloudflare\ajax\libs\core-js\2.4.1" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\fonts" />
+      <recent name="E:\pkm\xampp7\htdocs\Corephp" />
+      <recent name="E:\pkm\xampp7\htdocs\Corephp\assets\img" />
+      <recent name="E:\pkm\xampp7\htdocs\Corephp\page\admin" />
+      <recent name="E:\pkm\xampp7\htdocs\Corephp\page\include" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -138,7 +148,8 @@
       <workItem from="1567696872708" duration="2833000" />
       <workItem from="1567754692556" duration="4820000" />
       <workItem from="1568031742258" duration="6647000" />
-      <workItem from="1568102700076" duration="1147000" />
+      <workItem from="1568102700076" duration="2572000" />
+      <workItem from="1568117370681" duration="13100000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1567191297948</created>
@@ -252,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567769055414</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="geo api completed">
+      <created>1568104156664</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1568104156664</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,5 +1,5 @@
 <div class="content">
-    <div class="container-fluid">
+    <div class="container-fluid pt-3">
         <div class="row">
 
             <div class="col-md-12">
@@ -27,7 +27,6 @@
                         <?php
                         function replace_kredencial($data)
                         {
-
                             $vija = "\\\\";
 
                             $cha = trim($vija);
@@ -36,30 +35,26 @@
                             return str_replace($cha, $cha2, $data);
                         }
 
-
                         $i = 1;
                         $koha = 600;
 
                         if (isset($_POST['tickets'])) {
-
                             $item_id = clear(($_POST['id']));
-
-                            $subject = clear($_POST['subject']);
+                            $subject = "";
+                            if(isset($_POST['subject']))
+                            {
+                                $subject = clear($_POST['subject']);
+                            } else
+                                $subject = "";
                             $message = clear($_POST['message']);
                             $user = clear($user_data['user_name']);
 
-                            echo $item_id;
-
-                            echo "0";
                             $tickets = $db->query("SELECT `item_id` FROM `tickets` WHERE `item_id` = '$item_id'") or die($db->error);
 
                             if (!empty($tickets->num_rows)) {
-                                echo "1";
-                                echo alert('U have already Reported this item<br>Please go to support to see your ticket</strong>', 'danger');
+                                echo alert('U have already Reported this item Please go to support to see your ticket', 'warning');
 
                             } else {
-
-                                echo "2";
                                 $sql = "INSERT INTO `tickets` (`item_id`, `subject`, `message`, `user_name`, `data`, `type`) VALUES ('$item_id','$subject','$message','$user',NOW(),'1')";
                                 $add_tickets = $db->query($sql) or die($db->error);
 
@@ -76,7 +71,6 @@
 
                             }
 
-                            echo "3";
                         }
 
 
@@ -149,44 +143,52 @@
 
                                         $accounts_sql = $db->query("SELECT * FROM `accounts` WHERE `item_id` = '$item_id '") or die();
                                         $accounts = $accounts_sql->fetch_assoc();
+                                        $details = json_decode($accounts['details'], TRUE);
+                                        $smtp_server_inf = $details['smtp_server_inf'];
+                                        $smtp_username = $details['smtp_username'];
+                                        $smtp_userpass = $details['smtp_userpass'];
+                                        $smtp_port = $details['smtp_port'];
+                                        $detected_isp = $details['detected_isp'];
                                         ?>
 
-
-
-                                        <?php echo '<p  style="float:right;margin-bottom: -26px;"> ' . $show_button . '</p> '; ?>
+                                        <?php //echo '<p  style="float:right;margin-bottom: -26px;"> ' . $show_button . '</p> '; ?>
                                         <br><br>
                                         <form class="form-horizontal" role="form">
 
 
                                             <div class="form-group">
-                                                Contry: <?php echo($accounts["country"]); ?>
+                                                Contry: <?php echo($accounts["country_name"]); ?>
                                                 | <?php echo flag($accounts["country"]); ?>
                                             </div>
 
                                             <div class="form-group">
                                                 Info:<br>
                                                 <input type="text" class="form-control" readonly="readonly"
-                                                       value="<?php echo replace_kredencial($accounts['info']); ?>">
+                                                       value="<?php //echo replace_kredencial($accounts['info']);
+                                                       echo $detected_isp; ?>">
                                             </div>
 
 
                                             <div class="form-group">
                                                 login:<br>
                                                 <input type="text" class="form-control" readonly="readonly"
-                                                       value="<?php echo replace_kredencial(trim($accounts['login'])); ?>">
+                                                       value="<?php //echo replace_kredencial(trim($accounts['login']));
+                                                       echo $smtp_username?>">
 
                                             </div>
 
                                             <div class="form-group">
                                                 Password:<br>
                                                 <input type="text" class="form-control" readonly="readonly"
-                                                       value="<?php echo replace_kredencial(trim($accounts['pass'])); ?>">
+                                                       value="<?php //echo replace_kredencial(trim($accounts['pass']));
+                                                       echo $smtp_userpass; ?>">
                                             </div>
 
                                             <div class="form-group">
                                                 Host:<br>
                                                 <input type="text" class="form-control" readonly="readonly"
-                                                       value="<?php echo replace_kredencial(trim($accounts['addinfo'])); ?>">
+                                                       value="<?php //echo replace_kredencial(trim($accounts['addinfo']));
+                                                       echo $smtp_server_inf. ":" . $smtp_port; ?>">
                                             </div>
                                         </form>
 
@@ -281,16 +283,17 @@
 
                                         }
 
-                                        if ($row['category'] == '9') {
+                                        if ($row['category'] == '2') {
                                             $name = "SMTP";
                                             $details = json_decode($row['details'], TRUE);
+                                            $detected_isp = $details['detected_isp'];
                                             $user_login = $details['smtp_username'];
                                             $user_pass = $details['smtp_userpass'];
                                             $smtp_server_inf = $details['smtp_server_inf'];
                                             echo '<tr role="row" class=" ' . $iplpl . '">
                                                     <td class="sorting_1" >' . $row["item_id"] . '</td>
                                                     <td class="sorting_1" >' . $name . '</td>
-                                                    <td>' . trim($row["info"]) . '</td>
+                                                    <td>' . trim($detected_isp) . '</td>
                                                     <td contenteditable="true" onClick="select();">' . replace_kredencial($user_login) . '</td>
                                                     <td contenteditable="true" onClick="select();">' . replace_kredencial($user_pass) . '</td>
                                                     <td contenteditable="true" onClick="select();">' . replace_kredencial($smtp_server_inf) . '</td>
