@@ -141,6 +141,30 @@ function ctn_all_tickets() {
     return $query->num_rows;
 }
 
+function cnt_opened_tickets() {
+    global $db;
+    $query = $db->query("SELECT * FROM `tickets` WHERE `type` = '2' AND `statusi` = '1'");
+    return $query->num_rows;
+}
+
+function cnt_closed_tickets() {
+    global $db;
+    $query = $db->query("SELECT * FROM `tickets` WHERE `type` = '2' AND `statusi` = '2'");
+    return $query->num_rows;
+}
+
+function cnt_refunded() {
+    global $db;
+    $query = $db->query("SELECT * FROM `tickets` WHERE `type` = '1' AND `statusi` = '3'");
+    return $query->num_rows;
+}
+
+function cnt_pending() {
+    global $db;
+    $query = $db->query("SELECT * FROM `tickets` WHERE `type` = '1' AND `statusi` = '5'");
+    return $query->num_rows;
+}
+
 function db_date()
 {
     global $db;

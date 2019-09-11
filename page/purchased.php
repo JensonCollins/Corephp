@@ -3,21 +3,19 @@
         <div class="row">
 
             <div class="col-md-12">
-                <div class="alert alert-danger" role="alert">
-                    <h4 class="alert-heading">Warning</h4>
-                    <p>If we find out you have reported a valid tool, we shall clear your account funds and or disable
-                        your account.</p>
-                    <hr>
-                    <p class="mb-0">Team Vpox.ru</p>
+                <div class="alert text-center" role="alert">
+                    <h4>
+                        <i class="fas material-icons">shopping_cart</i> Your Orders
+                    </h4>
+                    <p>You can only report a bad tool within 10 minutes by clicking on <a
+                                class="label label-primary p-1 rounded" style="background-color: #2c3e50; color: #fff">Report
+                            #ID</a> , Otherwise we can't give you refund or replacement!</p>
                 </div>
             </div>
 
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-primary card-header-icon">
-                        <div class="card-icon">
-                            <i class="material-icons">assignment</i>
-                        </div>
                         <h4 class="card-title">Purchased</h4>
                     </div>
                     <div class="card-body">
@@ -35,14 +33,20 @@
                             return str_replace($cha, $cha2, $data);
                         }
 
+                        function get_reportid($item_id) {
+                            global $db;
+                            $tickets = $db->query("SELECT * FROM `tickets` WHERE `item_id` = '$item_id'") or die($db->error);
+                            $row = $tickets->fetch_assoc();
+                            return $row['id'];
+                        }
+
                         $i = 1;
                         $koha = 600;
 
                         if (isset($_POST['tickets'])) {
                             $item_id = clear(($_POST['id']));
                             $subject = "";
-                            if(isset($_POST['subject']))
-                            {
+                            if (isset($_POST['subject'])) {
                                 $subject = clear($_POST['subject']);
                             } else
                                 $subject = "";
@@ -106,7 +110,7 @@
                                                     problem.</p></strong>
 
                                             <form class="form-horizontal" action="" method="post">
-                                                <input type="hidden" name="id" value="<?php echo ($item_id); ?>">
+                                                <input type="hidden" name="id" value="<?php echo($item_id); ?>">
                                                 <div class="form-group">
                                                     <div class="col-md-10">
                                                         <textarea name="message" class="form-control" rows="10"
@@ -123,7 +127,7 @@
                                                             IT
                                                         </button>
 
-                                                        <a href="<?php echo base_url(); ?>">
+                                                        <a href="<?php echo base_url(); ?>purchased">
                                                             <div type="button" name="tickets"
                                                                  class="btn btn-danger waves-effect waves-light">Cancel
                                                             </div>
@@ -157,7 +161,7 @@
 
 
                                             <div class="form-group">
-                                                Contry: <?php echo($accounts["country_name"]); ?>
+                                                Country: <?php echo($accounts["country_name"]); ?>
                                                 | <?php echo flag($accounts["country"]); ?>
                                             </div>
 
@@ -173,7 +177,7 @@
                                                 login:<br>
                                                 <input type="text" class="form-control" readonly="readonly"
                                                        value="<?php //echo replace_kredencial(trim($accounts['login']));
-                                                       echo $smtp_username?>">
+                                                       echo $smtp_username ?>">
 
                                             </div>
 
@@ -188,7 +192,7 @@
                                                 Host:<br>
                                                 <input type="text" class="form-control" readonly="readonly"
                                                        value="<?php //echo replace_kredencial(trim($accounts['addinfo']));
-                                                       echo $smtp_server_inf. ":" . $smtp_port; ?>">
+                                                       echo $smtp_server_inf . ":" . $smtp_port; ?>">
                                             </div>
                                         </form>
 
@@ -226,22 +230,22 @@
                                             colspan="1">Type
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                            colspan="1">Info
+                                            colspan="1">Item
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                            colspan="1">Login
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                            colspan="1">Pass
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                            colspan="1">URL
+                                            colspan="1">Open(View)
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
                                             colspan="1">Price
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
                                             colspan="1">REPORT
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1">Date
+                                        </th>
+                                        <th style="visibility: hidden;">
+
                                         </th>
                                     </tr>
                                     </thead>
@@ -263,7 +267,7 @@
 
                                         if ($reporting_tools != null) {
 
-                                            $report = '<a href="support/' . clear(($reporting_tools)) . '""> <div align="center"><button class="btn btn-success  waves-effect waves-light" >REPORTED </button></div></a> ';
+                                            $report = '<a href="tickets/' . clear(($reporting_tools)) . '""> <div align="center"><button class="btn btn-success  waves-effect waves-light" >#'.get_reportid($row["item_id"]).' </button></div></a> ';
 
                                         } else if ($diff > $koha) {  //600 = 10min
 
@@ -290,17 +294,22 @@
                                             $user_login = $details['smtp_username'];
                                             $user_pass = $details['smtp_userpass'];
                                             $smtp_server_inf = $details['smtp_server_inf'];
+
+                                            $item = $row['country_name'] . " | " . $smtp_server_inf . " | " . $user_login . " | " . $user_pass;
+
                                             echo '<tr role="row" class=" ' . $iplpl . '">
                                                     <td class="sorting_1" >' . $row["item_id"] . '</td>
                                                     <td class="sorting_1" >' . $name . '</td>
-                                                    <td>' . trim($detected_isp) . '</td>
-                                                    <td contenteditable="true" onClick="select();">' . replace_kredencial($user_login) . '</td>
-                                                    <td contenteditable="true" onClick="select();">' . replace_kredencial($user_pass) . '</td>
-                                                    <td contenteditable="true" onClick="select();">' . replace_kredencial($smtp_server_inf) . '</td>
-                                                   
+                                                    <td>' . ($item) . '</td>
+                                                    <td><button class="btn btn-info wave-effect btn-sm edit">Open #' . $row['item_id'] . '</button></td>
                                                     <td>$' . clear($row["price"]) . '</td>
                                                     <td > ' . $report . ' </td>                                                          
+                                                    <td > ' . $row['date_added'] . ' </td>                                                          
+                                                    <td style="visibility: hidden;"> ' . $row['country'] . ' </td>                                                          
                                               </tr>';
+                                            /*<td>' . trim($detected_isp) . '</td>
+                                                    <td contenteditable="true" onClick="select();">' . replace_kredencial($user_login) . '</td>
+                                                    <td contenteditable="true" onClick="select();">' . replace_kredencial($user_pass) . '</td>*/
                                         } else {
 
                                             if ($row["category"] == '1') {
@@ -344,12 +353,100 @@
     </div>
 </div>
 
+<!-- notice modal -->
+<div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notice">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel">Order #12345</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="material-icons">close</i>
+                </button>
+                <hr>
+            </div>
+            <div class="modal-body">
+                <div class="instruction">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>SMTP</h4>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row m-3">
+                        <div class="col-md-4">
+                            Country
+                        </div>
+                        <div class="col-md-8" id="smtp_country">
+                            <img src="https://uploads.strikinglycdn.com/static/icons/country-flags-24/JP.png"/>Japan
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row m-3">
+                        <div class="col-md-4">
+                            HOST/IP
+                        </div>
+                        <div class="col-md-8" id="smtp_hostip">
+                            Japan
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row m-3">
+                        <div class="col-md-4">
+                            Port
+                        </div>
+                        <div class="col-md-8" id="smtp_port">
+                            Japan
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row m-3">
+                        <div class="col-md-4">
+                            User
+                        </div>
+                        <div class="col-md-8" id="smtp_user">
+                            Japan
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row m-3">
+                        <div class="col-md-4">
+                            Pass
+                        </div>
+                        <div class="col-md-8" id="smtp_pass">
+                            Japan
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row m-3">
+                        <div class="col-md-4">
+                            Sender Email
+                        </div>
+                        <div class="col-md-8" id="smtp_senderemail">
+                            Japan
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-info btn-round" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end notice modal -->
 
 <script src="<?php echo base_url(); ?>assets/cloudflare/jquery-3.3.1.js"></script>
 
 <script>
     $(document).ready(function () {
         $('#bootstrap-data-table-export').DataTable({
+            "columnDefs": [
+                {
+                    "targets": [ 7 ],
+                    "visible": false
+                }
+            ],
             "pagingType": "full_numbers",
             "lengthMenu": [
                 [10, 25, 50, -1],
@@ -362,8 +459,26 @@
             }
         });
 
-        var table = $('#datatable').DataTable();
+        var table = $('#bootstrap-data-table-export').DataTable();
 
+        table.on('click', '.edit', function () {
+            $tr = $(this).closest('tr');
+            var data = table.row($tr).data();
+            var item = data[2];
+            var country_name = item.split("|")[0].trim();
+            var server_info = item.split("|")[1].trim();
+            var smtp_user = item.split("|")[2].trim();
+            var smtp_pass = item.split("|")[3].trim();
+
+            $("#myModalLabel").html("Order #" + data[0]);
+            $("#smtp_country").html("<img src=\"https://uploads.strikinglycdn.com/static/icons/country-flags-24/" + data[7].toLowerCase() + ".png\"/>" + country_name);
+            $("#smtp_hostip").html(server_info);
+            $("#smtp_port").html(465);
+            $("#smtp_user").html(smtp_user);
+            $("#smtp_pass").html(smtp_pass);
+            $("#smtp_senderemail").html(smtp_user);
+            $("#noticeModal").modal({show: true});
+        });
     });
 </script>
 

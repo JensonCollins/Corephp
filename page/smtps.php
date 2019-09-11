@@ -13,21 +13,21 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header card-header-primary card-header-icon">
+                    <div class="card-header card-header-primary card-header-icon pb-0">
                         <div class="row mt-3">
                             <div class="col-md-2 ml-4">
                                 <h4 class="card-title">Found SMTPs: <?php echo unsold_tools('2'); ?></h4>
                             </div>
                             <div class="col-md-3 ml-auto">
                                 <div class="form-group">
-                                    <button class="btn btn-success" onclick="edit_checker_email()">Edit Checker Email
+                                    <button class="btn btn-success mb-0" onclick="edit_checker_email()">Edit Checker Email
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <input type="hidden" id="checker_default_email" value="<?php echo $user_data['checker_email']; ?>">
-                    <div class="card-body">
+                    <div class="card-body pt-0">
                         <div class="toolbar">
                         </div>
                         <div class="material-datatables">

@@ -235,17 +235,27 @@
                                     $ticket_sql = $db->query("SELECT * FROM `tickets` WHERE `user_name` = '$user_name' AND `id` = '$get_id'") or die();
                                     $ticket = $ticket_sql->fetch_assoc();
 
-                                    echo '<hr><pre class="blockquote-blue">' . $ticket['message'] . '</pre> 
-                                                                                                <small>' . $ticket["user_name"] . ' | ' . clear($ticket["data"]) . ' </small>
-
+                                    echo '<div class="card border-primary border">
+                                            <div class="card-body">
+                                            <pre class="blockquote-blue">' . $ticket['message'] . '</pre>
+                                            </div>
+                                              <div class="card-footer"> <small>' . $ticket["user_name"] . ' | ' . clear($ticket["data"]) . ' </small>
+                                              </div>
+                                        </div> 
                                                                                                ';
                                     $ticket_id = $ticket['id'];
 
                                     $tickets_reply_sql = $db->query("SELECT * FROM `tickets_reply` WHERE  `tickets_id` = '$ticket_id'") or die();
                                     while ($tickets_reply = $tickets_reply_sql->fetch_assoc()) {
 
-                                        echo '<hr><pre class="blockquote-green">' . $tickets_reply['message'] . '</pre>
-                                                                                                  <small><strong>' . $tickets_reply["user_name"] . '</strong> | ' . clear($tickets_reply["data"]) . '</small><hr>';
+                                        echo '<div class="card border-dark border">
+                                                <div class="card-body">
+                                                    <pre class="blockquote-green">' . $tickets_reply['message'] . '</pre>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <small><strong>' . $tickets_reply["user_name"] . '</strong> | ' . clear($tickets_reply["data"]) . '</small>
+                                                </div>
+                                              </div>';
                                     }
 
 
@@ -277,21 +287,22 @@
 
                                         ?>
 
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                            <div class="panel">
-                                                <div class="panel-heading">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="card">
+                                                <div class="card-header pt-3">
                                                     <h4>Reply</h4>
+                                                    <hr>
                                                 </div>
-                                                <div class="panel-body">
+                                                <div class="card-body">
                                                     <form id="movieForm" method="post">
                                                         <div class="form-group">
                                                             <div class="row gutter">
                                                                 <div class="col-md-8"><label class="control-label">Your
-                                                                        Name</label><input disabled="disabled"
-                                                                                           type="text"
-                                                                                           placeholder="<?php echo $user_data['user_name']; ?>"
-                                                                                           class="form-control"
-                                                                                           name="title"></div>
+                                                                    Name</label><input disabled="disabled"
+                                                                                       type="text"
+                                                                                       placeholder="<?php echo $user_data['user_name']; ?>"
+                                                                                       class="form-control"
+                                                                                       name="title"></div>
                                                             </div>
                                                         </div>
 

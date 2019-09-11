@@ -244,12 +244,12 @@
                     if ($ticket['statusi'] == 1) {
 
                         $show_button = '<form method="POST" action="" style="width:33%;float:left;">
-                                                                        <button type="submit" name="refunde" value="' . $get_id . '" class="btn btn-warning btn-rounded waves-effect waves-light">Refunde</button>
-                                                                        </form>';
+                                            <button type="submit" name="refunde" value="' . $get_id . '" class="btn btn-warning btn-rounded waves-effect waves-light">Refund</button>
+                                        </form>';
 
                         $show_button .= '<form method="POST" action="" style="width:33%;float:left;">
-                                                                        <button type="submit" name="close" value="' . $get_id . '" class="btn btn-danger btn-rounded waves-effect waves-light">Close</button>
-                                                                        </form>';
+                                            <button type="submit" name="close" value="' . $get_id . '" class="btn btn-danger btn-rounded waves-effect waves-light">Close</button>
+                                        </form>';
 
                     } else if ($ticket['statusi'] == 2) {
                         echo '<button style="float:right;"  class="btn btn-danger btn-custom btn-rounded waves-effect waves-light">Closed</button>';
@@ -259,37 +259,51 @@
 
 
                     echo '<div class="col-lg-12 col-md-8 col-sm-12 col-xs-12">
-
-
-                                                        <div class="panel">
-                                                           <div class="panel-heading">
-                                                              <h4 style="hight:200px">' . $echo_tip . ' </h4>
-                                                             
-
-                                                           </div>
-                                                           <div class="panel-body">
-                                                             <div class="row">';
-
-
+                            <div class="panel">
+                               <div class="panel-heading">
+                                  <h4 style="hight:200px">' . $echo_tip . ' </h4>
+                               </div>
+                               <div class="panel-body">
+                                 <div class="row">';
                     echo '<div class="col-md-9">';
 
-                    echo '<hr><pre class="blockquote-blue">' . $ticket['message'] . '</pre>
-                                                                    <small>' . $ticket["user_name"] . ' | ' . clear($ticket["data"]) . '</small>';
-
+                    echo '<div class="card border-primary border">
+                            <div class="card-body">
+                                <pre class="blockquote-blue">' . $ticket['message'] . '</pre>
+                            </div>
+                            <div class="card-footer">
+                                <small>' . $ticket["user_name"] . ' | ' . clear($ticket["data"]) . '</small>
+                            </div>
+                          </div>';
 
                     $ticket_id = $ticket['id'];
 
                     $tickets_reply_sql = $db->query("SELECT * FROM `tickets_reply` WHERE  `tickets_id` = '$ticket_id'") or die();
                     while ($tickets_reply = $tickets_reply_sql->fetch_assoc()) {
 
-                        echo '<hr><pre class="blockquote-green">' . $tickets_reply['message'] . '</pre>
-
-                                                                      <small><strong>' . $tickets_reply["user_name"] . '</strong> | ' . clear($tickets_reply["data"]) . '</small> <hr>
-
-                                                                     ';
+                        echo '<div class="card border-dark border">
+                                <div class="card-body"> <pre class="blockquote-green">' . $tickets_reply['message'] . '</pre></div>
+                              <div class="card-footer"> <small><strong>' . $tickets_reply["user_name"] . '</strong> | ' . clear($tickets_reply["data"]) . '</small></div>
+                              </div>';
 
                     }
-
+                    echo '<div class="card">
+                <div class="card-header">
+                    <h4>Ticket reply</h4>
+                    <hr>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <input disabled="disabled" type="hidden" placeholder="ADMIN" class="form-control"
+                                            name="title">
+                        <div class="form-group">
+                            <label class="control-label mb-2" for="reason">Mesage</label>
+                            <textarea placeholder="Write reason" class="form-control" name="message" id="reason"
+                                      rows="5"></textarea></div>
+                        <button type="reply" name="reply" class="btn btn-info">Submit</button>
+                    </form>
+                </div>
+            </div>';
                     echo '</div>';
 
 
@@ -299,7 +313,12 @@
                         $accounts_sql = $db->query("SELECT * FROM `accounts` WHERE `item_id` = '$item_id '") or die();
 
                         $accounts = $accounts_sql->fetch_assoc();
-
+                        $details = json_decode($accounts['details'], TRUE);
+                        $smtp_server_inf = $details['smtp_server_inf'];
+                        $smtp_username = $details['smtp_username'];
+                        $smtp_userpass = $details['smtp_userpass'];
+                        $smtp_port = $details['smtp_port'];
+                        $detected_isp = $details['detected_isp'];
                         ?>
 
                         <div class="col-md-3" style="float: left;">
@@ -307,38 +326,35 @@
                             <?php echo '<p  style="float:right;margin-bottom: -26px;"> ' . $show_button . '</p> '; ?>
                             <br><br>
                             <form class="form-horizontal" role="form">
-
                                 <div class="form-group">
-
                                     <input type="text" class="form-control" readonly="readonly"
                                            value="ID: <?php echo clear($accounts['item_id']); ?> | Buyer: <?php echo clear($accounts['buyer']); ?> | Price: <?php echo $accounts['price'] ?>$">
-
                                 </div>
 
                                 <div class="form-group">
                                     Info<br>
                                     <input type="text" class="form-control" readonly="readonly"
-                                           value="<?php echo replace_kredencial($accounts['info']); ?>">
+                                           value="<?php echo replace_kredencial($smtp_server_inf); ?>">
                                 </div>
 
 
                                 <div class="form-group">
                                     login<br>
                                     <input type="text" class="form-control" readonly="readonly"
-                                           value="<?php echo replace_kredencial(trim($accounts['login'])); ?>">
+                                           value="<?php echo replace_kredencial(trim($smtp_username)); ?>">
 
                                 </div>
 
                                 <div class="form-group">
                                     Password<br>
                                     <input type="text" class="form-control" readonly="readonly"
-                                           value="<?php echo replace_kredencial(trim($accounts['pass'])); ?>">
+                                           value="<?php echo replace_kredencial(trim($smtp_userpass)); ?>">
                                 </div>
 
                                 <div class="form-group">
                                     Info<br>
                                     <input type="text" class="form-control" readonly="readonly"
-                                           value="<?php echo replace_kredencial(trim($accounts['addinfo'])); ?>">
+                                           value="<?php echo replace_kredencial(trim($smtp_username)); ?>">
                                 </div>
                             </form>
                         </div>
@@ -356,39 +372,8 @@
             </div>
 
         </div>
-
-
-        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-
-            <div class="panel">
-                <div class="panel-heading">
-                    <h4>Ticket reply</h4>
-                </div>
-                <div class="panel-body">
-                    <form method="post">
-                        <div class="form-group">
-                            <div class="row gutter">
-                                <div class="col-md-12"><label class="control-label">Your Name</label><input
-                                            disabled="disabled" type="text" placeholder="ADMIN" class="form-control"
-                                            name="title"></div>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group"><label class="control-label">Mesage</label>
-                            <textarea placeholder="Write reason" class="form-control" name="message"
-                                      rows="5"></textarea></div>
-
-                        <button type="reply" name="reply" class="btn btn-info">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-
         <?php }
         ?>
-
     </div>
 </div>
 

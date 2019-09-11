@@ -32,7 +32,7 @@ if (isset($_POST['smtp_id'])) {
     $row = $query_data->fetch_assoc();
     $details = json_decode($row['details'], TRUE);
 
-    $smtp_ports = ["25", "465", "587"];
+    $smtp_ports = ["465", "587", "25"];
 
     $smtp_server = $details['smtp_server_inf'];
     $smtp_user_name = $details['smtp_username'];

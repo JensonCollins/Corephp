@@ -84,7 +84,7 @@
                                             <?php echo $menu_data[$i]->menu_icon; ?>
                                             <p>
                                                 <?php echo $menu_data[$i]->menu_name; ?>
-                                                <?php if (strtolower($menu_data[$i]->menu_link) == "admin/support") { ?>
+                                                <?php if (strtolower($menu_data[$i]->menu_link) == "admin/support" && ctn_all_tickets() > 0) { ?>
                                                     <span class="badge badge-primary float-right mt-1"><?php echo ctn_all_tickets(); ?></span>
                                                 <?php } ?>
                                             </p>
@@ -135,9 +135,9 @@
                                         <?php echo $menu_data[$i]->menu_icon; ?>
                                         <p>
                                             <?php echo $menu_data[$i]->menu_name; ?>
-                                            <?php if (strtolower($menu_data[$i]->menu_link) == "tickets") { ?>
+                                            <?php if (strtolower($menu_data[$i]->menu_link) == "tickets" && cnt_tickets($user_name) > 0) { ?>
                                                 <span class="badge badge-primary float-right mt-1"><?php echo cnt_tickets($user_name); ?></span>
-                                            <?php } else if (strtolower($menu_data[$i]->menu_link) == "smtps") { ?>
+                                            <?php } else if (strtolower($menu_data[$i]->menu_link) == "smtps" && unsold_tools("2") > 0) { ?>
                                                 <span class="badge badge-primary float-right mt-1"><?php echo unsold_tools("2"); ?></span>
                                             <?php } ?>
                                         </p>
