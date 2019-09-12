@@ -166,6 +166,8 @@ if (logged_in() == 0) {
                     include 'page/admin/manual.php';
                 } else if ($page_value == 'menu') {
                     include 'page/admin/menu.php';
+                } else if ($page_value == 'news') {
+                    include 'page/admin/news.php';
                 } else {
                     include 'page/404.php';
                 }

@@ -20,7 +20,7 @@
                                     width="70px">user_name
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1">
-                                    Date
+                                    Date / Time
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1">
                                     Type
@@ -29,7 +29,7 @@
                                     Status
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1">
-                                    View
+                                    View / Close Ticket
                                 </th>
                             </tr>
                             </thead>
@@ -393,6 +393,8 @@
                 searchPlaceholder: "Search records",
             }
         });
+
+        table.order([0, 'desc']).draw();
 
         // Edit record
         table.on('click', '.edit', function () {

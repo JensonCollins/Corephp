@@ -267,7 +267,7 @@
 
                                         if ($reporting_tools != null) {
 
-                                            $report = '<a href="tickets/' . clear(($reporting_tools)) . '""> <div align="center"><button class="btn btn-success  waves-effect waves-light" >#'.get_reportid($row["item_id"]).' </button></div></a> ';
+                                            $report = '<a href="tickets/' . clear(($reporting_tools)) . '""> <div align="center"><button class="btn btn-success btn-sm waves-effect waves-light" >#'.get_reportid($row["item_id"]).' </button></div></a> ';
 
                                         } else if ($diff > $koha) {  //600 = 10min
 
@@ -385,8 +385,11 @@
                         <div class="col-md-4">
                             HOST/IP
                         </div>
-                        <div class="col-md-8" id="smtp_hostip">
-                            Japan
+                        <div class="col-md-6">
+                            <input type="text" readonly id="smtp_hostip" class="form-control">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-sm btn-success btn-round" id="btn_hostip_copy">copy</button>
                         </div>
                     </div>
                     <hr>
@@ -403,8 +406,11 @@
                         <div class="col-md-4">
                             User
                         </div>
-                        <div class="col-md-8" id="smtp_user">
-                            Japan
+                        <div class="col-md-6">
+                            <input type="text" readonly id="smtp_user" class="form-control">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-sm btn-success btn-round" id="btn_smtpuser_copy">copy</button>
                         </div>
                     </div>
                     <hr>
@@ -412,8 +418,11 @@
                         <div class="col-md-4">
                             Pass
                         </div>
-                        <div class="col-md-8" id="smtp_pass">
-                            Japan
+                        <div class="col-md-6">
+                            <input type="text" readonly id="smtp_pass" class="form-control">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-sm btn-success btn-round" id="btn_smtppass_copy">copy</button>
                         </div>
                     </div>
                     <hr>
@@ -421,8 +430,11 @@
                         <div class="col-md-4">
                             Sender Email
                         </div>
-                        <div class="col-md-8" id="smtp_senderemail">
-                            Japan
+                        <div class="col-md-6">
+                            <input type="text" readonly id="smtp_senderemail" class="form-control">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-sm btn-success btn-round" id="btn_smtp_senderemail_copy">copy</button>
                         </div>
                     </div>
                     <hr>
@@ -440,7 +452,7 @@
 
 <script>
     $(document).ready(function () {
-        $('#bootstrap-data-table-export').DataTable({
+        var table = $('#bootstrap-data-table-export').DataTable({
             "columnDefs": [
                 {
                     "targets": [ 7 ],
@@ -459,7 +471,7 @@
             }
         });
 
-        var table = $('#bootstrap-data-table-export').DataTable();
+        table.order([0, 'desc']).draw();
 
         table.on('click', '.edit', function () {
             $tr = $(this).closest('tr');
@@ -472,15 +484,37 @@
 
             $("#myModalLabel").html("Order #" + data[0]);
             $("#smtp_country").html("<img src=\"https://uploads.strikinglycdn.com/static/icons/country-flags-24/" + data[7].toLowerCase() + ".png\"/>" + country_name);
-            $("#smtp_hostip").html(server_info);
+            $("#smtp_hostip").val(server_info);
             $("#smtp_port").html(465);
-            $("#smtp_user").html(smtp_user);
-            $("#smtp_pass").html(smtp_pass);
-            $("#smtp_senderemail").html(smtp_user);
+            $("#smtp_user").val(smtp_user);
+            $("#smtp_pass").val(smtp_pass);
+            $("#smtp_senderemail").val(smtp_user);
             $("#noticeModal").modal({show: true});
         });
+
+        $("#btn_hostip_copy").on('click', function() {
+            $("#smtp_hostip").focus();
+            $("#smtp_hostip").select();
+            document.execCommand('copy');
+        });
+
+        $("#btn_smtpuser_copy").on('click', function() {
+            $("#smtp_user").focus();
+            $("#smtp_user").select();
+            document.execCommand('copy');
+        });
+
+        $("#btn_smtppass_copy").on('click', function() {
+            $("#smtp_pass").focus();
+            $("#smtp_pass").select();
+            document.execCommand('copy');
+        });
+
+        $("#btn_smtp_senderemail_copy").on('click', function() {
+            $("#smtp_senderemail").focus();
+            $("#smtp_senderemail").select();
+            document.execCommand('copy');
+        });
     });
+
 </script>
-
-
-

@@ -54,8 +54,7 @@ if (empty($_POST['username']) === false) {
 
         $salt = 'KK856'; // SALT for encrypting , `forcePassword` = '1'
         // insert in databes
-        $register = $db->query("INSERT INTO `members`(user_name,pass,email,regIP,dt) VALUES ('" . $usr . "','" . md5($password . $salt) . "','" . $email . "','" . $user_ip . "', NOW())") or die(mysql_error());
-        echo "INSERT INTO `members`(user_name,pass,email,regIP,dt) VALUES ('" . $usr . "','" . md5($password . $salt) . "','" . $email . "','" . $user_ip . "', NOW())";
+        $register = $db->query("INSERT INTO `members`(user_name,pass,email,regIP,dt, checker_email) VALUES ('" . $usr . "','" . md5($password . $salt) . "','" . $email . "','" . $user_ip . "', NOW(),'$email')") or die(mysql_error());
 
         if ($register) {
 

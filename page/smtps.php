@@ -172,12 +172,17 @@
                     }
                 },
                 error: function (error) {
-                    swal({
+                    console.log(error);
+                    $(self).html("bad");
+                    setTimeout(function() {
+                        table.row($("#row"+smtp_id)).remove().draw();
+                    }, 2000);
+                    /*swal({
                         title: "Server Error!",
                         buttonsStyling: false,
                         confirmButtonClass: "btn btn-danger",
                         type: 'error'
-                    }).catch(swal.noop);
+                    }).catch(swal.noop);*/
                 }
             })
         }
