@@ -19,7 +19,7 @@ if (empty($_POST['username']) === false) {
         $errors[] = 'Captcha Error';
 
     } elseif (empty($user) === true || empty($user) === true) {
-        $errors[] = alert('Put the correct password or username', 'error');
+        $errors[] = 'Put the correct password or username';
 
     } else if (user_exists($user) === false) {
         $errors[] = alert('You are not a member? Sign up now!', 'error');
@@ -34,7 +34,7 @@ if (empty($_POST['username']) === false) {
 
         if ($login === false) {
 
-            $errors[] = alert('Password is incorrect', 'error');
+            $errors[] = 'Password is incorrect';
 
         } else {
 
@@ -61,11 +61,11 @@ if (empty($_POST['username']) === false) {
 <head>
     <meta charset="utf-8"/>
     <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url(); ?>assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.ico">
     <title>
         Login
     </title>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/family_material_icons.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/family_material_icons.css"/>
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/cloudflare/font-awesome.min.css">
     <!-- CSS Files -->
     <link href="<?php echo base_url(); ?>assets/css/material-dashboard.min.css?v=2.1.0" rel="stylesheet"/>

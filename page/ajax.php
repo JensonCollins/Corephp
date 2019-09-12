@@ -71,3 +71,51 @@ if (isset($_POST['checker_email'])) {
         echo json_encode(array('success' => 0));
     }
 }
+
+if (isset($_POST['token'])) {
+    header('Content-type: application/json');
+    $user = clear($_POST['username']);
+    $password = clear($_POST['password']);
+    $captcha = clear($_POST['token']);
+    if (!$captcha) {
+        die(json_encode(array('success' => 0, 'error_msg' => "Please fill out the captcha form")));
+    }
+    $secretKey = "6LcUHbgUAAAAAHYIb4EjQE1i4TJK53BBCndK8NM-";
+    $ip = $_SERVER['REMOTE_ADDR'];
+
+    // post request to server
+    $url = 'https://www.google.com/recaptcha/api/siteverify';
+    $data = array('secret' => $secretKey, 'response' => $captcha);
+
+    $options = array(
+        'http' => array(
+            'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method' => 'POST',
+            'content' => http_build_query($data)
+        )
+    );
+    $context = stream_context_create($options);
+    $response = file_get_contents($url, false, $context);
+    $responseKeys = json_decode($response, true);
+    if ($responseKeys["success"]) {
+//        echo json_encode(array('success' => 1));
+    } else {
+        echo json_encode(array('success' => 0, 'error_msg' => 'captcha code error'));
+    }
+    if (empty($user) === true || empty($user) === true) {
+        echo json_encode(array('success' => 0, 'error_msg' => 'Put the correct password or username'));
+    } else if (user_exists($user) === false) {
+        echo json_encode(array('success' => 0, 'error_msg' => 'You are not a member? Sign up now!'));
+    } else if (user_active($user) === false) {
+        echo json_encode(array('success' => 0, 'error_msg' => 'Your profile is deactivated'));
+    } else {
+        $login = login($user, $password);
+        if ($login === false) {
+            echo json_encode(array('success' => 0, 'error_msg' => 'Password is incorrect'));
+        } else {
+            $_SESSION['user_id'] = $login;
+            $_SESSION['login_time'] = db_date();
+            echo json_encode(array('success' => 1));
+        }
+    }
+}

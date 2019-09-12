@@ -196,7 +196,6 @@ function login($username, $password)
 
     $_SESSION['password'] = $password;
 
-
     $query = $db->query("SELECT COUNT(user_id) FROM `members` WHERE `user_name` = '$username' AND `pass` = '$password' ");
     $query_array = $query->fetch_array();
 
@@ -413,8 +412,8 @@ function sendTestmailSMTP($smtp_server, $smtp_user_name, $smtp_user_pass, $smtp_
     $mail->isHTML(true);
 
     $mail->Subject = "SMTP #$item_id";
-    $mail->Body = "<i>This is test message from #$item_id</i> <br> 247smtp shop";
-    $mail->AltBody = "This is test message from #$item_id 247smtp shop";
+    $mail->Body = "<i>This is test message from #$item_id.</i> <br> 247smtp.net";
+    $mail->AltBody = "This is test message from #$item_id. 247smtp.net";
 
     if (!$mail->send()) {
         return false;

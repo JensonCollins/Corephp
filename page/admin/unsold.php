@@ -22,11 +22,17 @@ if (!empty($_POST['update'])) {
     $pass = clear($_POST['pass']);
     $addinfo = clear($_POST['addinfo']);
     $price = clear($_POST['price']);
+    $port = clear($_POST['port']);
 
     $item_id = clear($_POST['update']);
-
-
-    $sql = $db->query("UPDATE `accounts` SET `category`= '$category' ,`info`= '$info',`addinfo`= '$addinfo',`login`= '$login',`pass`= '$pass',`price`= '$price'  WHERE `item_id`= '$item_id'") or die($db->error);
+    $details = json_encode(array(
+        'smtp_server_inf' => $addinfo,
+        'smtp_username' => $login,
+        'smtp_userpass' => $pass,
+        'smtp_port' => $port,
+        'detected_isp' => $info),
+        JSON_FORCE_OBJECT);
+    $sql = $db->query("UPDATE `accounts` SET `category`= '$category',`details` = '$details' ,`info`= '$info',`addinfo`= '$addinfo',`login`= '$login',`pass`= '$pass',`price`= '$price'  WHERE `item_id`= '$item_id'") or die($db->error);
 
     if ($sql) {
         echo alert('<center>Updated Successful</center>', 'success');
@@ -72,10 +78,16 @@ if (!empty($_POST['update'])) {
                                     ID
                                 </th>
                                 <th class="no-sort" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1">
+                                    Country
+                                </th>
+                                <th class="no-sort" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1">
                                     Type
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1">
                                     Info
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1">
+                                    Port
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1">
                                     Login
@@ -98,26 +110,32 @@ if (!empty($_POST['update'])) {
                             <tbody>
                             <?php
 
-                            $sql = $db->query("SELECT * FROM `accounts` WHERE `sold` = '0' ORDER BY `date_added` DESC") or die();
+                            $sql = $db->query("SELECT * FROM `accounts` WHERE `sold` = '0' AND category = '2' ORDER BY `date_added` DESC") or die();
                             $i = 0;
                             while ($row = $sql->fetch_assoc()) {
 
                                 $iplpl = $i++;
-
+                                $details = json_decode($row['details'], TRUE);
+                                $smtp_server_inf = $details['smtp_server_inf'];
+                                $smtp_username = $details['smtp_username'];
+                                $smtp_userpass = $details['smtp_userpass'];
+                                $smtp_port = $details['smtp_port'];
+                                $detected_isp = $details['detected_isp'];
                                 echo '<tr role="row" class=" ' . $iplpl . '">
                                                 <form action="" method="post">
                                                     <td>' . $row["item_id"] . ' </td>
-                                                    <td><input value="' . $row["category"] . '" name="category"> </td>
-                                                    <td><input value="' . trim($row["info"]) . '" name="info"></td>
-                                                    <td><input value="' . replace_kredencial($row["login"]) . '" name="login"></td>
-                                                    <td><input value="' . replace_kredencial($row["pass"]) . '" name="pass"></td>
-                                                    <td><input value="' . replace_kredencial($row["addinfo"]) . '" name="addinfo"></td>
-                                                    <td>$<input value="' . clear($row["price"]) . '" name="price"></td>
+                                                    <td>' . $row["country_name"] . '</td>
+                                                    <td><input style="width: 50%;" value="' . $row["category"] . '" name="category"> </td>
+                                                    <td><input value="' . trim($detected_isp) . '" name="info"></td>
+                                                    <td><input value="' . trim($smtp_port) . '" name="port"></td>
+                                                    <td><input value="' . replace_kredencial($smtp_username) . '" name="login"></td>
+                                                    <td><input value="' . replace_kredencial($smtp_userpass) . '" name="pass"></td>
+                                                    <td><input value="' . replace_kredencial($smtp_server_inf) . '" name="addinfo"></td>
+                                                    <td>$<input style="width: 50%;" value="' . clear($row["price"]) . '" name="price"></td>
                                                     <td>
                                                       <button type="submit" class="btn btn-success" name="update" value="' . clear($row["item_id"]) . '">Update</button> - 
                                                       <button type="submit" class="btn btn-danger" name="delete" value="' . clear($row["item_id"]) . '">DELETE</button>
                                                     </td>
-
                                                   </form>                                                   
                                               </tr>';
 
@@ -136,8 +154,8 @@ if (!empty($_POST['update'])) {
 </div><!-- .content -->
 
 <script>
-    $(document).ready(function() {
-        $('#bootstrap-data-table-export').DataTable({
+    $(document).ready(function () {
+        var table = $('#bootstrap-data-table-export').DataTable({
             "pagingType": "full_numbers",
             "lengthMenu": [
                 [10, 25, 50, -1],
@@ -150,6 +168,6 @@ if (!empty($_POST['update'])) {
             }
         });
 
-        var table = $('#datatable').DataTable();
+        table.order([1, 'asc']).draw();
     });
 </script>

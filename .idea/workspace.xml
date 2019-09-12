@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79a4e1a3-f0c6-42b8-a605-58ad29bf71d6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/page/admin/news.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/admin/tickets.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/admin/tickets.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/purchased.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/purchased.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/smtps.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/smtps.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/logout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/admin/unsold.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/admin/unsold.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/ajax.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/include/buy.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/include/buy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/login.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -146,6 +146,7 @@
       <workItem from="1568198821779" duration="916000" />
       <workItem from="1568212386506" duration="5681000" />
       <workItem from="1568219018808" duration="19964000" />
+      <workItem from="1568297946012" duration="15991000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1567191297948</created>
@@ -280,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568227880842</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="no complete clipboard in purchased">
+      <created>1568298140088</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1568298140088</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -47,7 +47,7 @@ if ($page_value == 'tools') {
 						            
 			} else {
 
-				echo  alert('Balanc Low!<br>Your balance is not enough to pay this account Please Refill your Balance!','danger');	
+				echo  alert('Balanc Low! Your balance is not enough to pay this account Please Refill your Balance!','info');
 				 echo '<meta http-equiv="refresh" content="3; url=balance" />';				            
 						            
 			}      
