@@ -412,7 +412,7 @@ function sendTestmailSMTP($smtp_server, $smtp_user_name, $smtp_user_pass, $smtp_
     $mail->isHTML(true);
 
     $mail->Subject = "SMTP #$item_id";
-    $mail->Body = "<i>This is test message from #$item_id.</i> <br> 247smtp.net";
+    $mail->Body = "This is test message from #$item_id.<br> 247smtp.net";
     $mail->AltBody = "This is test message from #$item_id. 247smtp.net";
 
     if (!$mail->send()) {

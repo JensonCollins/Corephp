@@ -29,18 +29,30 @@ if (isset($_POST['sidebar_back_image'])) {
 
 if (isset($_POST['smtp_id'])) {
     $query_data = $db->query("SELECT * FROM accounts WHERE item_id='" . $_POST['smtp_id'] . "'");
-    $row = $query_data->fetch_assoc();
-    $details = json_decode($row['details'], TRUE);
+    if($query_data) {
+        $row = $query_data->fetch_assoc();
+        $details = json_decode($row['details'], TRUE);
 
-    $smtp_ports = ["465", "587", "25"];
+        $smtp_ports = ["465", "587", "25"];
 
-    $smtp_server = $details['smtp_server_inf'];
-    $smtp_user_name = $details['smtp_username'];
-    $smtp_user_pass = $details['smtp_userpass'];
-    $smtp_port = $details['smtp_port'];
-    $recepient_name = $_POST['recepient_name'];
+        $smtp_server = $details['smtp_server_inf'];
+        $smtp_user_name = $details['smtp_username'];
+        $smtp_user_pass = $details['smtp_userpass'];
+        $smtp_port = $details['smtp_port'];
+        $recepient_name = $_POST['recepient_name'];
 
-    $success = 0;
+        echo json_encode(array(
+            "success" => 1,
+            "host" => $smtp_server,
+            "user" => $smtp_user_name,
+            "pass" => $smtp_user_pass,
+            "port" => $smtp_port
+        ));
+    } else {
+        echo json_encode(array("success" => 0));
+    }
+
+    /*$success = 0;
     for ($i = 0; $i < count($smtp_ports); $i++) {
         if (sendTestmailSMTP($smtp_server, $smtp_user_name, $smtp_user_pass, $smtp_ports[$i], $recepient_name, $_POST['smtp_id'])) {
             $success = 1;
@@ -50,15 +62,16 @@ if (isset($_POST['smtp_id'])) {
     echo json_encode(array("success" => $success));
     if ($success == 0) {
         $db->query("UPDATE accounts SET is_deleted = 1 WHERE item_id='" . $_POST['smtp_id'] . "'");
+    }*/
+}
+
+if (isset($_POST['del_smtp_id'])) {
+    $query = $db->query("UPDATE accounts SET is_deleted = 1 WHERE item_id='" . $_POST['del_smtp_id'] . "'");
+    if ($db->affected_rows >= 1) {
+        echo json_encode(array('success' => 1));
+    } else {
+        echo json_encode(array('failed' => 1));
     }
-//    if (sendTestmailSMTP($smtp_server, $smtp_user_name, $smtp_user_pass, $smtp_port, $recepient_name))
-//        echo json_encode(array("success" => 1));
-//    else if(sendTestmailSMTP($smtp_server, $smtp_user_name, $smtp_user_pass, $smtp_port, $recepient_name)){
-//        echo json_encode(array("success" => 1));
-//    } else if(sendTestmailSMTP($smtp_server, $smtp_user_name, $smtp_user_pass, $smtp_port, $recepient_name)){
-//        echo json_encode(array("success" => 1));
-//    }
-//        echo json_encode(array("success" => 0));
 }
 
 if (isset($_POST['checker_email'])) {

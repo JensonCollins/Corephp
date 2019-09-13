@@ -98,9 +98,13 @@
 </div>
 <link rel="stylesheet" type="text/css"
       href="https://cdn.datatables.net/fixedheader/3.1.2/css/fixedHeader.dataTables.min.css">
+<script src="<?php echo base_url(); ?>assets/cloudflare/ajax/libs/socket.io/socket.io.js"></script>
+
 <script>
 
     var checking_count = 0;
+
+    const socket = io(`${window.location.host}:2083`, {secure:true});
 
     $(document).ready(function () {
         var table = $('#datatables').DataTable({
@@ -163,12 +167,56 @@
                     checking_count--;
                     var jsonData = JSON.parse(response);
                     if (jsonData.success === 1) {
-                        $(self).removeClass("btn-danger");
+
+                        var smtp_server_info = jsonData.host;
+                        var smtp_username = jsonData.user;
+                        var smtp_pass = jsonData.pass;
+                        var smtp_port = jsonData.port;
+                        var receiptent = recepient_name;
+                        var item_id = smtp_id;
+
+                        socket.on('smtp_check_start', function (status) {
+
+                        });
+                        socket.on('smtp_check_finished' + item_id, function (status) {
+                            var result = status;
+                            if(result.success === true) {
+                                $(self).removeClass("btn-danger");
+                                $(self).addClass("btn-success");
+                                $(self).html("<i class=\"material-icons\">check</i>&nbsp;&nbsp;Sent to " + recepient_name + " (#" + result.item_id + ")");
+                            } else {
+                                table.row($("#row"+status.item_id)).remove().draw();
+                                $(self).html("bad");
+                                $.ajax({
+                                    url: '<?php echo base_url(); ?>ajax',
+                                    type: 'POST',
+                                    data: {
+                                        del_smtp_id: status.item_id
+                                    },
+                                    success: function(response) {
+
+                                    },
+                                    error: function(error) {
+
+                                    }
+                                })
+                            }
+                        });
+
+                        socket.emit('smtp_check_start', {
+                            host: smtp_server_info,
+                            user: smtp_username,
+                            pass: smtp_pass,
+                            port: smtp_port,
+                            receiptent: receiptent,
+                            item_id: item_id
+                        });
+                        /*$(self).removeClass("btn-danger");
                         $(self).addClass("btn-success");
-                        $(self).html("<i class=\"material-icons\">check</i>&nbsp;&nbsp;Sent to " + recepient_name + " (#" + smtp_id + ")");
+                        $(self).html("<i class=\"material-icons\">check</i>&nbsp;&nbsp;Sent to " + recepient_name + " (#" + smtp_id + ")");*/
                     } else {
-                        table.row($("#row"+smtp_id)).remove().draw();
-                        $(self).html("bad");
+                        /*table.row($("#row"+smtp_id)).remove().draw();
+                        $(self).html("bad");*/
                     }
                 },
                 error: function (error) {
@@ -177,6 +225,19 @@
                     setTimeout(function() {
                         table.row($("#row"+smtp_id)).remove().draw();
                     }, 2000);
+                    $.ajax({
+                        url: '<?php echo base_url(); ?>ajax',
+                        type: 'POST',
+                        data: {
+                            del_smtp_id: smtp_id
+                        },
+                        success: function(response) {
+                            console.log(response);
+                        },
+                        error: function(error) {
+                            console.log(error);
+                        }
+                    })
                     /*swal({
                         title: "Server Error!",
                         buttonsStyling: false,

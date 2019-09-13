@@ -99,7 +99,7 @@ if (isset($_POST['add'])) {
                 }
 
                 $info = json_encode(array('smtp_server_inf' => $smtp_server_info, 'smtp_username' => $details[1], 'smtp_userpass' => $details[2], 'smtp_port' => $smtp_server_port, 'detected_isp' => $detected_isp), JSON_FORCE_OBJECT);
-                $sqlz = $db->query("SELECT * FROM `accounts` WHERE `addinfo` = '$details[0]' AND `login` = '$details[1]' AND `pass`= '$details[2]'") or die('error #accaunt ');
+                $sqlz = $db->query("SELECT * FROM `accounts` WHERE `details` = '$info'") or die('error #accaunt');
 
                 if ($db->affected_rows >= 1) {
                     $invalid++;
